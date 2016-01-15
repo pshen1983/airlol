@@ -1,12 +1,10 @@
-DROP TABLE IF EXISTS airlol.user;
-CREATE TABLE airlol.user
+DROP TABLE IF EXISTS airlol.cms_relation;
+CREATE TABLE airlol.cms_relation
 (
 	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 
-	email VARCHAR(61) NOT NULL,
-	tel VARCHAR(15),
-	password VARCHAR(41) NOT NULL,
-	name VARCHAR(21) NOT NULL,
+	parent_code VARCHAR(15) NOT NULL,
+	child_code VARCHAR(15) NOT NULL,
 	create_time DATETIME NOT NULL,
 
 	PRIMARY KEY (id)
