@@ -8,7 +8,7 @@ include 'mapper.php';
 $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = parseGetparams($uri);
-if ($uri == '' || $uri = '/') { $uri = '/index'; }
+if ($uri == '' || $uri == '/') { $uri = '/index'; }
 
 // find the handler based on request uri from $services configured in mapping.php
 //
@@ -41,6 +41,7 @@ foreach ($services[$method] as $key=>$val) {
 // cannot find handler for the request uri, return 501
 //
 header('HTTP/1.0 404 Not Found');
+View::setTitle('AirLOL | Page Not Found');
 View::factory('generic/404', array('message'=>'test message'));
 
 
