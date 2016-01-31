@@ -24,11 +24,11 @@ Class View {
 	}
 
 	public static function addJs($path) {
-		self::$javascripts[] = 'page/js/'.$path;
+		self::$javascripts[] = '/page/js/'.$path;
 	}
 
 	public static function addCss($path) {
-		self::$stylesheets[] = 'page/css/'.$path;
+		self::$stylesheets[] = '/page/css/'.$path;
 	}
 }
 ?>

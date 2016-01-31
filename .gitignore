@@ -1,2 +1,4 @@
-apache-vhost.conf
-.config
+/apache-vhost.conf
+/page/.config
+/ajax/.config
+/rest/.config
