@@ -1,27 +1,14 @@
 <?php
-var_dump($_SERVER);
-phpinfo();
-
 include '.config';
 
-blockIp();
+// blockIp();
 $services = array('GET'=>array(), 'POST'=>array(), 'PUT'=>array(), 'DELETE'=>array());
 include 'mapper.php';
 
 $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
-// validateHeaders();
-
-// remove base uri from the request uri
-//
-if (!empty($base_uri)) { $uri = substr($uri, strlen($base_uri)); }
-
-if ($access_on!=0) { Logger::access($method.' '.$uri); }
-
 $uri = parseGetparams($uri);
-
-header('Content-Type: application/json; charset=utf-8');
-header('X-Powered-By: AIRLOL Inc.');
+if ($uri == '' || $uri = '/') { $uri = '/index'; }
 
 // find the handler based on request uri from $services configured in mapping.php
 //
@@ -44,17 +31,8 @@ foreach ($services[$method] as $key=>$val) {
         }
 
         if ($match) {
-            $handler = $services[$method][$key];
-            Logger::info(get_class($handler).' - start =============================');
-            Logger::info('Request uri - "'.$_SERVER['REQUEST_URI']);
-            Logger::info('Request body - '.Utility::getRawRequestData());
-            $response = $handler->execute($params);
-            Logger::info($response);
-            Logger::info(get_class($handler).' - end'.PHP_EOL);
-            if (!empty($response)) { 
-                header('Content-length: '.strlen($response));
-                echo $response; 
-            }
+            $controller = $services[$method][$key];
+            $controller->execute($params);
             exit;
         }
     }
@@ -62,8 +40,8 @@ foreach ($services[$method] as $key=>$val) {
 
 // cannot find handler for the request uri, return 501
 //
-header('HTTP/1.0 501 Not implemented');
-echo '{"error":"request_not_supported"}';
+header('HTTP/1.0 404 Not Found');
+View::factory('generic/404', array('message'=>'test message'));
 
 
 //=================================================================================================
@@ -142,43 +120,5 @@ function parseGetparams($uri) {
     }
 
     return $gets[0];
-}
-
-
-/**
- * Function validates all neccessary headers incluidng app-key and Content-Type
- */
-function validateHeaders() {
-    global $_CLIENT;
-
-    $headers = apache_request_headers();
-
-    if (isset($headers['app-key'])) {
-        $_CLIENT = new ClientDao();
-        $_CLIENT = $_CLIENT->getClientByAppKey($headers['app-key']);
-    } else {
-        if (strpos($_SERVER['REQUEST_URI'], 'callback')!==FALSE || 
-            strpos($_SERVER['REQUEST_URI'], 'display')!==FALSE) {
-            return;
-        }
-    }
-
-    if (!$_CLIENT) {
-        header('HTTP/1.0 401 Unauthorized');
-        echo '{"error":"401 Unauthorized"}';
-        exit;
-    }
-
-    if (!isset($headers['Content-Type']) || $headers['Content-Type']!='application/json') {
-        header('HTTP/1.0 406 Not Acceptable');
-        echo '{"error":"406 Content Type Not Acceptable"}';
-        exit;
-    }
-
-    if (!isset($headers['Language'])) {
-        header('HTTP/1.0 417 Expectation Failed');
-        echo '{"error":"417 Missing Language Header"}';
-        exit;
-    }
 }
 ?>
