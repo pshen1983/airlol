@@ -4,9 +4,11 @@ CREATE TABLE airlol.user
 	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 
 	email VARCHAR(61) NOT NULL,
-	tel VARCHAR(15),
 	password VARCHAR(41) NOT NULL,
 	name VARCHAR(21) NOT NULL,
+	tel VARCHAR(15),
+	wechat VARCHAR(32),
+	weibo VARCHAR(32),
 	create_time DATETIME NOT NULL,
 
 	PRIMARY KEY (id)

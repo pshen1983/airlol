@@ -6,16 +6,20 @@ abstract class UserGenerated extends AirlolDaoBase {
     protected function init() {
         $this->var['id'] = 0;
         $this->var['email'] = NULL;
-        $this->var['tel'] = NULL;
         $this->var['password'] = NULL;
         $this->var['name'] = NULL;
+        $this->var['tel'] = NULL;
+        $this->var['wechat'] = NULL;
+        $this->var['weibo'] = NULL;
         $this->var['create_time'] = NULL;
 
         $this->update['id'] = false;
         $this->update['email'] = false;
-        $this->update['tel'] = false;
         $this->update['password'] = false;
         $this->update['name'] = false;
+        $this->update['tel'] = false;
+        $this->update['wechat'] = false;
+        $this->update['weibo'] = false;
         $this->update['create_time'] = false;
     }
 
@@ -31,16 +35,6 @@ abstract class UserGenerated extends AirlolDaoBase {
     }
     public function getEmail() {
         return $this->var['email'];
-    }
-
-    public function setTel($tel) {
-        if ($this->var['tel'] !== $tel) {
-            $this->var['tel'] = $tel;
-            $this->update['tel'] = true;
-        }
-    }
-    public function getTel() {
-        return $this->var['tel'];
     }
 
     public function setPassword($password) {
@@ -61,6 +55,36 @@ abstract class UserGenerated extends AirlolDaoBase {
     }
     public function getName() {
         return $this->var['name'];
+    }
+
+    public function setTel($tel) {
+        if ($this->var['tel'] !== $tel) {
+            $this->var['tel'] = $tel;
+            $this->update['tel'] = true;
+        }
+    }
+    public function getTel() {
+        return $this->var['tel'];
+    }
+
+    public function setWechat($wechat) {
+        if ($this->var['wechat'] !== $wechat) {
+            $this->var['wechat'] = $wechat;
+            $this->update['wechat'] = true;
+        }
+    }
+    public function getWechat() {
+        return $this->var['wechat'];
+    }
+
+    public function setWeibo($weibo) {
+        if ($this->var['weibo'] !== $weibo) {
+            $this->var['weibo'] = $weibo;
+            $this->update['weibo'] = true;
+        }
+    }
+    public function getWeibo() {
+        return $this->var['weibo'];
     }
 
     public function setCreateTime($create_time) {
