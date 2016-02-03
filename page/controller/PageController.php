@@ -4,6 +4,10 @@ abstract class PageController {
 		$this->handle($params);
 	}
 
+	protected function isPost() {
+		return $_SERVER['REQUEST_METHOD']=='POST';
+	}
+
 	abstract protected function handle($params);
 }
 ?>

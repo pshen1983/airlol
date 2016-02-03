@@ -6,7 +6,7 @@
  * @author indochino
  *
  */
-class DAO_QueryMaster {
+class QueryBuilder {
 
     private $errors = array();
     private $query = '';
@@ -20,7 +20,7 @@ class DAO_QueryMaster {
 
     public static function start_transaction() {
         if (!isset(self::$tran_connection)) {
-            self::$tran_connection = new DAO_QueryMaster(FALSE);
+            self::$tran_connection = new QueryBuilder(FALSE);
             mysqli_autocommit(self::$tran_connection->connection, FALSE);
         }
 
@@ -53,15 +53,12 @@ class DAO_QueryMaster {
 
 // =============================================================================== transactional end
 
-    public function __construct($persist=TRUE, $config=array()) {
+    public function __construct($persist=TRUE) {
+        global $db_host, $db_user, $db_pass, $db_sche;
+
         if (isset(self::$tran_connection)) {
             return self::$tran_connection;
         }
-
-        $db_host = Arr::get($config, 'hostname', External_Config_Indochino::DB_HOST);
-        $db_user = Arr::get($config, 'username', External_Config_Indochino::DB_USER);
-        $db_pass = Arr::get($config, 'password', External_Config_Indochino::DB_PASS);
-        $db_sche = Arr::get($config, 'database', External_Config_Indochino::DB_NAME);
 
         if ($persist) { $db_host = 'p:'.$db_host; }
 
@@ -306,9 +303,7 @@ class DAO_QueryMaster {
             $this->connection = self::$tran_connection->connection;
         }
 
-        if (External_Config_Indochino::DB_LOG_LEVEL>=2) {
-            Kohana::$log->add(Log::DATABASE, $this->query)->write();
-        }
+        Logger::info($this->query, Logger::DB);
 
         if ($this->is_insert) {
             if ($this->connection->query($this->query)) {
@@ -324,11 +319,9 @@ class DAO_QueryMaster {
             }
         }
 
-        if (External_Config_Indochino::DB_LOG_LEVEL>=1 && !empty($this->errors)) {
-        if (External_Config_Indochino::DB_LOG_LEVEL<2) {
-                Kohana::$log->add(Log::DATABASE, $this->query)->write();
-            }
-            Kohana::$log->add(Log::DATABASE, '[ERROR] - '.json_encode($this->errors))->write();
+        if (!empty($this->errors)) {
+            Logger::info($this->query, Logger::DB);
+            Logger::error('[ERROR] - '.json_encode($this->errors), Logger::DB);
         }
 
         return $result;

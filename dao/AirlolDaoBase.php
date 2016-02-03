@@ -44,7 +44,7 @@ abstract class AirlolDaoBase {
                 $objs[] = $obj;
             }
         } else {
-            $builder = new DAO_QueryMaster();
+            $builder = new QueryBuilder();
             $res = $builder->select('*', $class::$table)
                            ->in('id', $ids)
                            ->order($order, $desc)
@@ -62,7 +62,7 @@ abstract class AirlolDaoBase {
     public static function get_ids() {
         $class = get_called_class();
         $ids = array();
-        $query = new DAO_QueryMaster();
+        $query = new QueryBuilder();
         $res = $query->select('id', $class::$table)
                      ->find_all();
         foreach($res as $obj) {
@@ -82,7 +82,7 @@ abstract class AirlolDaoBase {
         if (self::isIdCaching() && $cacher->exist(static::$table.'.'.$id)) {
             $res = $cacher->get(static::$table.'.'.$id);
         } else {
-            $query = new DAO_QueryMaster();
+            $query = new QueryBuilder();
             $res = $query->select('*', static::$table)
                          ->where($id_column, $id)
                          ->find_one();
@@ -132,7 +132,7 @@ abstract class AirlolDaoBase {
         //
         $id = $this->var[$this->getIdColumnName()];
 
-        $builder = new DAO_QueryMaster();
+        $builder = new QueryBuilder();
         $res = $builder->delete(static::$table)
                        ->where($this->getIdColumnName(), $id)
                        ->execute();
@@ -180,7 +180,7 @@ abstract class AirlolDaoBase {
         $fields = $this->var;
         unset($fields[$id_column]);
 
-        $query = new DAO_QueryMaster();
+        $query = new QueryBuilder();
         $res = $query->insert($fields, static::$table)
                      ->execute();
 
@@ -194,7 +194,7 @@ abstract class AirlolDaoBase {
             foreach ($query->get_errors() as $error) {
                 $message .= $error.' | ';
             }
-            Kohana::$log->add(Log::ERROR, '[DB ERROR] Insert Failed: ' . $message);
+            Logger::error('[DB ERROR] Insert Failed: ' . $message, Logger::DB);
         }
 
         return $res!=-1;
@@ -214,7 +214,7 @@ abstract class AirlolDaoBase {
         }
 
         if (!empty($set)) {
-            $builder = new DAO_QueryMaster();
+            $builder = new QueryBuilder();
             $res = $builder->update($set, static::$table)
                            ->where($id_column, $this->var[$id_column])
                            ->execute();
