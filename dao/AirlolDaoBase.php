@@ -59,7 +59,7 @@ abstract class AirlolDaoBase {
     /**
      * Returns a list of all the ids
      */
-    public static function get_ids() {
+    public static function getIds() {
         $class = get_called_class();
         $ids = array();
         $query = new QueryBuilder();
@@ -76,12 +76,16 @@ abstract class AirlolDaoBase {
      * @param $id - the database primary key id
      */
     protected function retrieve($id) {
+        $res = null;
+
         $id_column = $this->getIdColumnName();
 
-        $cacher = DAO_Cacher::instance();
-        if (self::isIdCaching() && $cacher->exist(static::$table.'.'.$id)) {
+        $cacher = QueryCacher::instance();
+        if (self::isIdCaching()) {
             $res = $cacher->get(static::$table.'.'.$id);
-        } else {
+        } 
+
+        if (!isset($res)) {
             $query = new QueryBuilder();
             $res = $query->select('*', static::$table)
                          ->where($id_column, $id)
@@ -122,12 +126,12 @@ abstract class AirlolDaoBase {
         $this->actionBeforeDelete();
         if (self::isIdCaching()) {
             $cache_key = static::$table.'.'.$this->var[$this->getIdColumnName()];
-            DAO_Cacher::instance()->delete($cache_key);
+            QueryCacher::instance()->delete($cache_key);
         }
-        $this->do_delete();
+        $this->doDelete();
     }
 
-    protected function do_delete() {
+    protected function doDelete() {
         // get the primary key value from abstract implementation of sub class
         //
         $id = $this->var[$this->getIdColumnName()];
@@ -148,17 +152,10 @@ abstract class AirlolDaoBase {
      * 
      * @param array $skips - skipped columns in the return array.
      */
-    public function to_array($skips=array()) {
+    public function toArray($skips=array()) {
         $rv = $this->var;
         foreach ($skips as $skip) {
             unset($rv[$skip]);
-        }
-
-        // remove all 'couch_xxx_id' during migration period, those columns should be removed.
-        foreach ($rv as $key=>$val) {
-            if (strpos($key, 'couch_') !== FALSE) {
-            unset($rv[$key]);
-            }
         }
 
         return $rv;
@@ -167,7 +164,7 @@ abstract class AirlolDaoBase {
     /**
      * Check if this dao is loaded from database.
      */
-    public function is_fromDB() {
+    public function isFromDB() {
         return $this->fromDB;
     }
 
@@ -221,7 +218,7 @@ abstract class AirlolDaoBase {
             if ($res) {
                 $this->update = array_fill_keys(array_values($this->update), false);
                 if (self::isIdCaching()) {
-                    DAO_Cacher::instance()->delete(static::$table.'.'.$this->var[$id_column]);
+                    QueryCacher::instance()->delete(static::$table.'.'.$this->var[$id_column]);
                 }
             }
         } else {
@@ -233,31 +230,11 @@ abstract class AirlolDaoBase {
 
     /**
      * Enter description here ...
-     * 
-     * @param unknown_type $dao
-     */
-    public static function copy($dao) {
-        $class = get_called_class();
-        $id_column = $dao->getIdColumnName();
-
-        $rv = new $class;
-        foreach ($dao->var as $key=>$val) {
-            if (strpos($key, 'couch_') === FALSE) {
-                $rv->var[$key] = $val;
-            }
-        }
-        $rv->var[$id_column] = 0;
-
-        return $rv;
-    }
-
-    /**
-     * Enter description here ...
      * @param unknown_type $res
-     * @param unknown_type $class
      */
-    protected static function newFromQueryResult($res, $class) {
+    protected static function newFromQueryResult($res) {
         $object = null;
+        $class = get_called_class();
         if ($res) {
             $object = new $class;
             $object->var = $res;
@@ -270,10 +247,10 @@ abstract class AirlolDaoBase {
     /**
      * Enter description here ...
      * @param unknown_type $res
-     * @param unknown_type $class
      */
-    protected static function newFromQueryResultList($res, $class) {
+    protected static function newFromQueryResultList($res) {
         $objects = array();
+        $class = get_called_class();
         if (isset($res)) {
             foreach ($res as $row) {
                 $object = new $class;
@@ -287,7 +264,8 @@ abstract class AirlolDaoBase {
     }
 
     private static function isIdCaching() {
-    	return External_Config_Indochino::DB_CACHE_ON && static::cacheById();
+        global $db_cache_on, $cache_servers;
+    	return $db_cache_on && static::cacheById();
     }
 
     protected static function clearCache() {
@@ -295,7 +273,7 @@ abstract class AirlolDaoBase {
             $ids = static::get_ids();
             foreach($ids as $id) {
                 $cache_key = static::$table . '.'. $id;
-                DAO_Cacher::instance()->delete($cache_key);
+                QueryCacher::instance()->delete($cache_key);
             }
         }
     }
