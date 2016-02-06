@@ -1,4 +1,4 @@
-sign up:
+<?=$params['status'] ?> sign up:
 <form id="signup" method="post" action="/register">
 <input id="email" name="email" />
 <input type="password" id="password" name="password" />

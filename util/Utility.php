@@ -10,16 +10,9 @@ class Utility {
         return json_decode($rawData, TRUE);
     }
 
-    public static function getCurrentUserProfile() {
-        $headers = apache_request_headers();
-        $request = new GetAccountProfileRequest();
-        $request->setHeader(array('Authorization' => $headers['Authorization']));
-        return $request->execute();
-    }
-
     public static function getClientIp() {
         $head = apache_request_headers();
-        $ip = (isset($head['LOTUSY_FORWARDED_IP']) ? $head['LOTUSY_FORWARDED_IP'] : '');
+        $ip = (isset($head['AIRLOL_FORWARDED_IP']) ? $head['AIRLOL_FORWARDED_IP'] : '');
 
         if (empty($ip)) { 
             $ip = (isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : '');

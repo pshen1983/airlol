@@ -14,12 +14,17 @@ class UserDao extends UserQuery {
 		return $user;
 	}
 
-    protected function actionBeforeUpdate() {
-
-    }
+	// ======================================================================
 
     protected function actionBeforeInsert() {
+    	$passwd = $this->getPassword();
+    	$this->setPassword(md5($passwd));
+
     	$now = date("Y-m-d H:i:s");
     	$this->setCreateTime($now);
+    }
+
+    protected function actionBeforeUpdate() {
+
     }
 }
