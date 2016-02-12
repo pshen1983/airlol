@@ -2,6 +2,8 @@
 class SignUpController extends PageController {
 	protected function handle($params) {
 		$status = 0;
+		$message = '';
+
 		if ($this->isPost()) {
 			$name = $_POST['name'];
 			$email = $_POST['email'];
@@ -11,13 +13,19 @@ class SignUpController extends PageController {
 			$validPasswd = Format::isValidPassword($passwd);
 
 			if ($validEmail && $validPasswd) {
-				$user = new UserDao();
-				$user->setName($name);
-				$user->setEmail($email);
-				$user->setPassword($passwd);
-				if ($user->save()) {
-					$status = 1;
-					$message = '';
+				$emailExist = UserDao::existEmail($email);
+				if (!$emailExist) {
+					$user = new UserDao();
+					$user->setName($name);
+					$user->setEmail($email);
+					$user->setPassword($passwd);
+					if ($user->save()) {
+						$_SESSION['uid'] = $user->getId();
+						$this->redirect('/profile');
+					} else {
+						$status = 1;
+						$message = '';
+					}
 				} else {
 					$status = 2;
 					$message = '';

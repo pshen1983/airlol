@@ -60,11 +60,12 @@ class QueryBuilder {
             return self::$tran_connection;
         }
 
-        if ($persist) { $db_host = 'p:'.$db_host; }
+        $prefix = '';
+        if ($persist) { $prefix = 'p:'; }
 
-        $this->connection = mysqli_connect( $db_host, $db_user, $db_pass, $db_sche );
+        $this->connection = mysqli_connect( $prefix.$db_host, $db_user, $db_pass, $db_sche );
 
-        if( !$this->connection->connect_errno ) {
+        if( $this->connection && !$this->connection->connect_errno ) {
             $this->connection->query("SET character_set_results=utf8");
             $this->connection->query("SET character_set_client=utf8");
             $this->connection->query("SET character_set_connection=utf8");
