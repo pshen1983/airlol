@@ -26,6 +26,8 @@ class Logger {
     private static function log($message, $level=0, $type) {
         global $log_file, $database_log;
 
+        if (is_array($message)) { $message = json_encode($message); }
+
         if ($type==Logger::GENERAL) {
             $output_file = $log_file;
         } else if ($type==Logger::DB) { 

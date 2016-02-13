@@ -5,8 +5,8 @@ class SignUpController extends PageController {
 		$message = '';
 
 		if ($this->isPost()) {
-			$name = $_POST['name'];
-			$email = $_POST['email'];
+			$name = trim($_POST['name']);
+			$email = trim($_POST['email']);
 			$passwd = $_POST['password'];
 
 			$validEmail = Format::isValidEmail($email);
@@ -20,6 +20,7 @@ class SignUpController extends PageController {
 					$user->setEmail($email);
 					$user->setPassword($passwd);
 					if ($user->save()) {
+						Mailer::sendSignupWelcomeEmail($email, $name);
 						$_SESSION['uid'] = $user->getId();
 						$this->redirect('/profile');
 					} else {
