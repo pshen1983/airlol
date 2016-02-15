@@ -43,7 +43,7 @@ class ForgetPasswordController extends PageController {
         $key = md5($email);
         $token = Utility::generateToken(64);
         $value = array('email'=>$email, 'token'=>$token);
-        Cacher::instance()->set($key, $token);
+        Cacher::instance()->set($key, $value);
 
         return $token;
     }
