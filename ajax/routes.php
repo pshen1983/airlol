@@ -1,3 +1,3 @@
 <?php
-	echo "ajax routes";
+    echo "ajax routes";
 ?>

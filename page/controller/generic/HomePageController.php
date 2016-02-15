@@ -1,12 +1,12 @@
 <?php
 class HomePageController extends PageController {
-	protected function handle($params) {
+    protected function handle($params) {
 
-		View::setTitle('AirLOL Home Page');
-		View::addJs('generic.js');
-		View::addCss('generic.css');
+        View::setTitle('AirLOL Home Page');
+        View::addJs('generic.js');
+        View::addCss('generic.css');
 
-		View::factory('generic/index');
-	}
+        View::factory('generic/index');
+    }
 }
 ?>

@@ -2,5 +2,5 @@
 class GoodQuery extends GoodGenerated {
 
 
-	
+    
 }

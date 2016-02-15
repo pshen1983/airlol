@@ -2,5 +2,5 @@
 class CmsItemQuery extends CmsItemGenerated {
 
 
-	
+    
 }

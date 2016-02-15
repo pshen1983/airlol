@@ -290,7 +290,7 @@ class QueryBuilder {
     }
 
     public function adhoc_query($query) {
-    	$this->query = $query;
+        $this->query = $query;
 
         return $this;
     }

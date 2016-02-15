@@ -2,5 +2,5 @@
 class RatingQuery extends RatingGenerated {
 
 
-	
+    
 }

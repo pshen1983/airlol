@@ -2,5 +2,5 @@
 class TripQuery extends TripGenerated {
 
 
-	
+    
 }

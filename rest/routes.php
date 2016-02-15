@@ -1,3 +1,3 @@
 <?php
-	echo "rest routes";
+    echo "rest routes";
 ?>

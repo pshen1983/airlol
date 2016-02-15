@@ -31,7 +31,7 @@ while ($tableRow = $tableResult->fetch_array(MYSQLI_ASSOC)) {
 }
 
 function genParentClass($table, $fields, $primaryKey) {
-	global $base_class, $db_sche;
+    global $base_class, $db_sche;
     $class = to_camel_case($table, true)."Generated";
 
     $rv = "<?php".PHP_EOL;
@@ -42,7 +42,7 @@ function genParentClass($table, $fields, $primaryKey) {
     $rv.= "    protected function init() {".PHP_EOL;
     $rv.= "        \$this->var['id'] = 0;".PHP_EOL;
     foreach ($fields as $field) {
-    	if ($field=='id') { continue; }
+        if ($field=='id') { continue; }
         $rv.= "        \$this->var['$field'] = NULL;".PHP_EOL;
     }
     $rv.= PHP_EOL;
