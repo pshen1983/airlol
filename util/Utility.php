@@ -27,12 +27,14 @@ class Utility {
         return $ip;
     }
 
-    public static function generateToken() {
-        $token1 = md5(microtime());
-        $token2 = md5(rand());
-        $token2 = substr($token2, rand(0, 20), 10);
-
-        return strtoupper($token1.'.'.$token2);
+    public static function generateToken($length = 32) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
     public static function hashLatLng($lag, $lng) {

@@ -1,36 +1,31 @@
 <?php
-class QueryCacher {
+class Cacher {
 
-    private static $prefix = '_';
     private static $m_instance = null;
     private $memcache = null;
 
     public static function instance() {
         if (self::$m_instance==null) {
-            self::$m_instance = new QueryCacher();
+            self::$m_instance = new Cacher();
         }
 
         return self::$m_instance;
     }
 
     private function __construct() {
-        global $db_cache_on, $db_cache_servers;
-        if ($db_cache_on) {
-            $this->memcache = new Memcached();
+        global $cache_servers;
 
-            foreach($db_cache_servers as $host=>$port) {
-                $this->memcache->addServer($host, $port);
-            }
+        $this->memcache = new Memcached();
+        foreach($cache_servers as $host=>$port) {
+            $this->memcache->addServer($host, $port);
         }
     }
 
     public function set($key, $obj, $time=null) {
-        $key = self::$prefix.$key;
-
         if ($this->memcache) {
             if (!isset($time)) {
-                global $db_cache_time;
-                $time = time() + $db_cache_time;
+                global $cache_time;
+                $time = time() + $cache_time;
             }
 
             $this->memcache->set($key, json_encode($obj), $time);
@@ -38,8 +33,6 @@ class QueryCacher {
     }
 
     public function get($key) {
-        $key = self::$prefix.$key;
-
         $rv = FALSE;
         if ($this->memcache) {
             $cache = $this->memcache->get($key);
@@ -52,8 +45,6 @@ class QueryCacher {
     }
 
     public function delete($key) {
-        $key = self::$prefix.$key;
-
         if ($this->memcache) {
             $cached_value = $this->memcache->get($key);
             if ($cached_value) {
