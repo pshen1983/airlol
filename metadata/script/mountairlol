@@ -1,0 +1,9 @@
+#!/bin/sh
+sshfs -o allow_other peng_shen@mac:/Users/peng_shen/airlol/ /opt/airlol
+rm /opt/airlol/page/.config
+rm /opt/airlol/rest/.config
+rm /opt/airlol/ajax/.config
+ln -s /opt/airlol/metadata/config/local/page.config /opt/airlol/page/.config
+ln -s /opt/airlol/metadata/config/local/rest.config /opt/airlol/rest/.config
+ln -s /opt/airlol/metadata/config/local/ajax.config /opt/airlol/ajax/.config
+service apache2 restart
