@@ -33,7 +33,7 @@ class ForgetPasswordController extends PageController {
         View::addCss('user.css');
 
         View::factory('user/forgetpassword',
-            array('submit'  => 'register',
+            array('submit'  => 'Send',
                   'status'  => $status,
                   'message' => $message)
         );

@@ -38,6 +38,9 @@ class UserDao extends UserQuery {
         if ($this->update['password']) {
             $passwd = $this->getPassword();
             $this->setPassword(md5($passwd));
+
+            $key = self::$table.'_'.$this->getEmail();
+            QueryCacher::instance()->delete($key);
         }
     }
 }
