@@ -3,7 +3,6 @@ CREATE INDEX airlol_user_email ON airlol.user (email(60));
 CREATE INDEX airlol_user_tel ON airlol.user (tel(14));
 
 -- cms_item
-CREATE INDEX airlol_cms_item_level ON airlol.cms_item (type);
 CREATE INDEX airlol_cms_item_language ON airlol.cms_item (language(2));
 CREATE INDEX airlol_cms_item_code ON airlol.cms_item (code(15));
 
@@ -23,7 +22,7 @@ CREATE INDEX airlol_trip_price_adjust ON airlol.trip (price_adjust(1));
 CREATE INDEX airlol_good_user ON airlol.good (user_id);
 CREATE INDEX airlol_good_departure ON airlol.good (departure_id);
 CREATE INDEX airlol_good_arrival ON airlol.good (arrival_id);
-CREATE INDEX airlol_good_date ON airlol.good (trip_date);
+CREATE INDEX airlol_good_date ON airlol.good (end_date);
 CREATE INDEX airlol_good_price ON airlol.good (price);
 CREATE INDEX airlol_good_price_adjust ON airlol.good (price_adjust(1));
 

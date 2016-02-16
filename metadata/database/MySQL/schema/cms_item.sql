@@ -3,7 +3,6 @@ CREATE TABLE airlol.cms_item
 (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 
-    type TINYINT NOT NULL,
     language VARCHAR(3),
     content TEXT,
     code VARCHAR(16) NOT NULL,

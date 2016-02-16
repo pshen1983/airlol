@@ -8,10 +8,9 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->var['user_id'] = NULL;
         $this->var['departure_id'] = NULL;
         $this->var['arrival_id'] = NULL;
-        $this->var['trip_date'] = NULL;
-        $this->var['space_type'] = NULL;
-        $this->var['space_num'] = NULL;
-        $this->var['space_unit'] = NULL;
+        $this->var['end_date'] = NULL;
+        $this->var['good_type'] = NULL;
+        $this->var['good_unit'] = NULL;
         $this->var['description'] = NULL;
         $this->var['price'] = NULL;
         $this->var['price_adjust'] = NULL;
@@ -22,10 +21,9 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->update['user_id'] = false;
         $this->update['departure_id'] = false;
         $this->update['arrival_id'] = false;
-        $this->update['trip_date'] = false;
-        $this->update['space_type'] = false;
-        $this->update['space_num'] = false;
-        $this->update['space_unit'] = false;
+        $this->update['end_date'] = false;
+        $this->update['good_type'] = false;
+        $this->update['good_unit'] = false;
         $this->update['description'] = false;
         $this->update['price'] = false;
         $this->update['price_adjust'] = false;
@@ -67,44 +65,34 @@ abstract class GoodGenerated extends AirlolDaoBase {
         return $this->var['arrival_id'];
     }
 
-    public function setTripDate($trip_date) {
-        if ($this->var['trip_date'] !== $trip_date) {
-            $this->var['trip_date'] = $trip_date;
-            $this->update['trip_date'] = true;
+    public function setEndDate($end_date) {
+        if ($this->var['end_date'] !== $end_date) {
+            $this->var['end_date'] = $end_date;
+            $this->update['end_date'] = true;
         }
     }
-    public function getTripDate() {
-        return $this->var['trip_date'];
+    public function getEndDate() {
+        return $this->var['end_date'];
     }
 
-    public function setSpaceType($space_type) {
-        if ($this->var['space_type'] !== $space_type) {
-            $this->var['space_type'] = $space_type;
-            $this->update['space_type'] = true;
+    public function setGoodType($good_type) {
+        if ($this->var['good_type'] !== $good_type) {
+            $this->var['good_type'] = $good_type;
+            $this->update['good_type'] = true;
         }
     }
-    public function getSpaceType() {
-        return $this->var['space_type'];
+    public function getGoodType() {
+        return $this->var['good_type'];
     }
 
-    public function setSpaceNum($space_num) {
-        if ($this->var['space_num'] !== $space_num) {
-            $this->var['space_num'] = $space_num;
-            $this->update['space_num'] = true;
+    public function setGoodUnit($good_unit) {
+        if ($this->var['good_unit'] !== $good_unit) {
+            $this->var['good_unit'] = $good_unit;
+            $this->update['good_unit'] = true;
         }
     }
-    public function getSpaceNum() {
-        return $this->var['space_num'];
-    }
-
-    public function setSpaceUnit($space_unit) {
-        if ($this->var['space_unit'] !== $space_unit) {
-            $this->var['space_unit'] = $space_unit;
-            $this->update['space_unit'] = true;
-        }
-    }
-    public function getSpaceUnit() {
-        return $this->var['space_unit'];
+    public function getGoodUnit() {
+        return $this->var['good_unit'];
     }
 
     public function setDescription($description) {

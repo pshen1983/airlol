@@ -186,63 +186,6 @@ class QueryBuilder {
         return $this;
     }
 
-    /**
-     * Adds 'field IS NULL' or 'IS NOT NULL' to the query
-     * @author Ramesh, 9/17/2014
-     */
-    public function where_null($field, $check_null=TRUE, $or=FALSE) {
-        if ($this->and) {
-            $where = $or ? ' OR ' : ' AND ';
-        } else {
-            $where = ' WHERE ';
-        }
-
-        $where .= $field.' IS';
-        if ($check_null == FALSE) {
-            $where .= $where.' NOT';
-        }
-        $where .= $where.' NULL';
-
-        $this->and = true;
-
-        $this->query.= $where;
-
-        return $this;
-    }
-
-    /**
-     * Appends a like sql clause to the query.
-     * If you need to search for strings that begin with a value, set $lead to TRUE.
-     * If you need to search for strings that end with a value, set $trail to TRUE.
-     * You can also combine the $lead and $trail to search for strings that contain a value anywhere.
-     * @author Ramesh, 9/16/2014
-     */
-    public function like($field, $value, $lead=TURE, $trail=TRUE, $is_like=TRUE, $or=FALSE) {
-        if ($this->and) {
-            $like = $or ? ' OR ' : ' AND ';
-        } else {
-            $like = ' WHERE ';
-        }
-
-        $operator = $is_like ? 'LIKE' : 'NOT LIKE';
-
-        $like .= "$field $operator '";
-        if ($trail) {
-            $like .= "%";// need the % in front of the string to search for values that trail with value
-        }
-        $like .= $value;
-        if ($lead) {
-            $like .= "%";// need the % in end of the string to search for values that begin with value
-        }
-        $like .= "'";
-
-        $this->and = true;
-
-        $this->query.= $like;
-
-        return $this;
-    }
-
     public function in($field, $range, $is_in=TRUE, $or=FALSE) {
         if (empty($range)) { $range = array(0); }
 

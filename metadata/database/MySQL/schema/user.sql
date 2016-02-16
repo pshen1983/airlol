@@ -9,6 +9,7 @@ CREATE TABLE airlol.user
     tel VARCHAR(15),
     wechat VARCHAR(32),
     weibo VARCHAR(32),
+    preferred TINYINT,
     create_time DATETIME NOT NULL,
 
     PRIMARY KEY (id)

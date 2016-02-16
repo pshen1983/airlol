@@ -11,6 +11,7 @@ abstract class UserGenerated extends AirlolDaoBase {
         $this->var['tel'] = NULL;
         $this->var['wechat'] = NULL;
         $this->var['weibo'] = NULL;
+        $this->var['preferred'] = NULL;
         $this->var['create_time'] = NULL;
 
         $this->update['id'] = false;
@@ -20,6 +21,7 @@ abstract class UserGenerated extends AirlolDaoBase {
         $this->update['tel'] = false;
         $this->update['wechat'] = false;
         $this->update['weibo'] = false;
+        $this->update['preferred'] = false;
         $this->update['create_time'] = false;
     }
 
@@ -85,6 +87,16 @@ abstract class UserGenerated extends AirlolDaoBase {
     }
     public function getWeibo() {
         return $this->var['weibo'];
+    }
+
+    public function setPreferred($preferred) {
+        if ($this->var['preferred'] !== $preferred) {
+            $this->var['preferred'] = $preferred;
+            $this->update['preferred'] = true;
+        }
+    }
+    public function getPreferred() {
+        return $this->var['preferred'];
     }
 
     public function setCreateTime($create_time) {
