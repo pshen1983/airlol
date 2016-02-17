@@ -232,16 +232,6 @@ class QueryBuilder {
         return $this;
     }
 
-    public function adhoc_query($query) {
-        $this->query = $query;
-
-        return $this;
-    }
-
-    public function escape($input){
-        return (isset($input) ? "'". $this->connection->real_escape_string($input) . "'" : "");
-    }
-
     public function execute() {
         if(!isset($this->connection)){
             $this->connection = self::$tran_connection->connection;
@@ -283,13 +273,6 @@ class QueryBuilder {
         }
 
         return $result;
-    }
-
-    public function ad_hoc_count_query($query_str) {
-        $this->query = $query_str;
-        $res = $this->find_one();
-
-        return $res['count'];
     }
 
     public function find_all() {
