@@ -4,8 +4,8 @@ CREATE TABLE airlol.trip
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 
     user_id INT(10) UNSIGNED NOT NULL,
-    departure_id INT(10) UNSIGNED NOT NULL,
-    arrival_id INT(10) UNSIGNED NOT NULL,
+    departure_code VARCHAR(16) NOT NULL,
+    arrival_code VARCHAR(16) NOT NULL,
     trip_date DATE NOT NULL,
     space_type TINYINT NOT NULL,
     space_num TINYINT NOT NULL,

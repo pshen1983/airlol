@@ -4,6 +4,7 @@ Class View {
     private static $title = '';
     private static $javascripts = array();
     private static $stylesheets = array();
+    private static $parameters = array();
 
     public static function factory($view, $params=array()) {
         include 'template/header.php';
@@ -13,6 +14,7 @@ Class View {
         self::$title = '';
         self::$javascripts = array();
         self::$stylesheets = array();
+        self::$parameters = array();
     }
 
     public static function addTemplate($template, $params=array()) {
@@ -29,6 +31,12 @@ Class View {
 
     public static function addCss($path) {
         self::$stylesheets[] = '/page/css/'.$path;
+    }
+
+    public static function addParam($param) {
+        foreach ($param as $key=>$val) {
+            self::$parameters[$key] = $val;
+        }
     }
 }
 ?>

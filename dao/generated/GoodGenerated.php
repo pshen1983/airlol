@@ -6,8 +6,8 @@ abstract class GoodGenerated extends AirlolDaoBase {
     protected function init() {
         $this->var['id'] = 0;
         $this->var['user_id'] = NULL;
-        $this->var['departure_id'] = NULL;
-        $this->var['arrival_id'] = NULL;
+        $this->var['departure_code'] = NULL;
+        $this->var['arrival_code'] = NULL;
         $this->var['end_date'] = NULL;
         $this->var['good_type'] = NULL;
         $this->var['good_unit'] = NULL;
@@ -19,8 +19,8 @@ abstract class GoodGenerated extends AirlolDaoBase {
 
         $this->update['id'] = false;
         $this->update['user_id'] = false;
-        $this->update['departure_id'] = false;
-        $this->update['arrival_id'] = false;
+        $this->update['departure_code'] = false;
+        $this->update['arrival_code'] = false;
         $this->update['end_date'] = false;
         $this->update['good_type'] = false;
         $this->update['good_unit'] = false;
@@ -45,24 +45,24 @@ abstract class GoodGenerated extends AirlolDaoBase {
         return $this->var['user_id'];
     }
 
-    public function setDepartureId($departure_id) {
-        if ($this->var['departure_id'] !== $departure_id) {
-            $this->var['departure_id'] = $departure_id;
-            $this->update['departure_id'] = true;
+    public function setDepartureCode($departure_code) {
+        if ($this->var['departure_code'] !== $departure_code) {
+            $this->var['departure_code'] = $departure_code;
+            $this->update['departure_code'] = true;
         }
     }
-    public function getDepartureId() {
-        return $this->var['departure_id'];
+    public function getDepartureCode() {
+        return $this->var['departure_code'];
     }
 
-    public function setArrivalId($arrival_id) {
-        if ($this->var['arrival_id'] !== $arrival_id) {
-            $this->var['arrival_id'] = $arrival_id;
-            $this->update['arrival_id'] = true;
+    public function setArrivalCode($arrival_code) {
+        if ($this->var['arrival_code'] !== $arrival_code) {
+            $this->var['arrival_code'] = $arrival_code;
+            $this->update['arrival_code'] = true;
         }
     }
-    public function getArrivalId() {
-        return $this->var['arrival_id'];
+    public function getArrivalCode() {
+        return $this->var['arrival_code'];
     }
 
     public function setEndDate($end_date) {

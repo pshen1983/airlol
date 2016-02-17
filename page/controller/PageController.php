@@ -1,7 +1,26 @@
 <?php
 abstract class PageController {
+
+    private $language = 'en';
+
     public function execute($params) {
         session_start();
+
+        $isLogin = $this->isSignedIn();
+
+        if ($isLogin) {
+            $userDao = new UserDao($_SESSION['uid']);
+            $_SESSION['user'] = $userDao;
+            View::addParam(array('header_user_name' => $userDao->getName()));
+        }
+
+        View::addParam(
+            array( 'user_session' => $isLogin,
+                   'btn_header_signin' => 'Sign in',
+                   'btn_header_signup' => 'Sign up',
+                   'btn_signin_submit' => 'Sign in')
+        );
+
         $this->handle($params);
     }
 

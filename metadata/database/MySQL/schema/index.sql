@@ -12,16 +12,16 @@ CREATE INDEX airlol_cms_relation_child ON airlol.cms_relation (child_code(15));
 
 -- trip
 CREATE INDEX airlol_trip_user ON airlol.trip (user_id);
-CREATE INDEX airlol_trip_departure ON airlol.trip (departure_id);
-CREATE INDEX airlol_trip_arrival ON airlol.trip (arrival_id);
+CREATE INDEX airlol_trip_departure ON airlol.trip (departure_code(15));
+CREATE INDEX airlol_trip_arrival ON airlol.trip (arrival_code(15));
 CREATE INDEX airlol_trip_date ON airlol.trip (trip_date);
 CREATE INDEX airlol_trip_price ON airlol.trip (price);
 CREATE INDEX airlol_trip_price_adjust ON airlol.trip (price_adjust(1));
 
 -- good 
 CREATE INDEX airlol_good_user ON airlol.good (user_id);
-CREATE INDEX airlol_good_departure ON airlol.good (departure_id);
-CREATE INDEX airlol_good_arrival ON airlol.good (arrival_id);
+CREATE INDEX airlol_good_departure ON airlol.good (departure_code(15));
+CREATE INDEX airlol_good_arrival ON airlol.good (arrival_code(15));
 CREATE INDEX airlol_good_date ON airlol.good (end_date);
 CREATE INDEX airlol_good_price ON airlol.good (price);
 CREATE INDEX airlol_good_price_adjust ON airlol.good (price_adjust(1));

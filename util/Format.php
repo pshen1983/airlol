@@ -8,5 +8,17 @@ class Format {
     public static function isValidPassword($passwd) {
         return true;
     }
+
+    public static function isValidMySQLDate($date, $isFuture=false) {
+        $d = DateTime::createFromFormat('Y-m-d', $date);
+        $flag = true;
+        if ($isFUture) {
+            $today = date('Y-m-d');
+            $dateST = strtotime($date);
+            $todayST = strtotime($today);
+            $flag = ($dateST >= $todayST);
+        }
+        return $flag && $d && ($d->format($format) == $date);
+    }
 }
 ?>

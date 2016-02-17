@@ -264,18 +264,8 @@ abstract class AirlolDaoBase {
     }
 
     private static function isIdCaching() {
-        global $db_cache_on, $cache_servers;
+        global $db_cache_on;
         return $db_cache_on && static::cacheById();
-    }
-
-    protected static function clearCache() {
-        if (static::cacheById()) {
-            $ids = static::get_ids();
-            foreach($ids as $id) {
-                $cache_key = static::$table . '.'. $id;
-                QueryCacher::instance()->delete($cache_key);
-            }
-        }
     }
 
 //====================================== abstract functions ======================================

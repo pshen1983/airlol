@@ -43,4 +43,6 @@ class UserDao extends UserQuery {
             QueryCacher::instance()->delete($key);
         }
     }
+
+    protected static function cacheById() { return FALSE; }
 }

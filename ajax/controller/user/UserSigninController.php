@@ -29,7 +29,6 @@ class UserSigninController extends AjaxController {
         }
 
         return array('status'=>$status, 'message'=>$message);
-
     }
 }
 ?>

@@ -15,7 +15,6 @@ $uri = substr($uri, 5); // remove "/ajax" from the uri.
 $uris = explode('/', $uri);
 foreach ($services[$method] as $key=>$val) {
     $keys = explode('/', $key);
-
     if (sizeof($uris)==sizeof($keys)) {
         $match = TRUE;
         $params = array();
