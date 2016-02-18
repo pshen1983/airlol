@@ -19,6 +19,11 @@ class SignInController extends PageController {
                     $validPasswd = $user->checkPassword($passwd);
                     if ($validPasswd) {
                         $_SESSION['uid'] = $user->getId();
+
+                        if (isset($_POST['remember']) && $_POST['remember']=='remember') {
+                            $this->saveRememberMeCookie();
+                        }
+
                         $this->redirect('/index');
                     } else {
                         $status = 1;

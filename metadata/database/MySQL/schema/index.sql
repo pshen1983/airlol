@@ -1,6 +1,11 @@
--- user table
+-- user
 CREATE INDEX airlol_user_email ON airlol.user (email(60));
 CREATE INDEX airlol_user_tel ON airlol.user (tel(14));
+
+-- cookie_token
+CREATE INDEX airlol_cookie_token_type ON airlol.cookie_token (type);
+CREATE INDEX airlol_cookie_token_value ON airlol.cookie_token (value(64));
+CREATE INDEX airlol_cookie_token_expires ON airlol.cookie_token (expires);
 
 -- cms_item
 CREATE INDEX airlol_cms_item_language ON airlol.cms_item (language(2));

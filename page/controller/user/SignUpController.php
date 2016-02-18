@@ -20,9 +20,14 @@ class SignUpController extends PageController {
                     $user->setEmail($email);
                     $user->setPassword($passwd);
                     if ($user->save()) {
-                        Mailer::sendSignupWelcomeEmail($email, $name);
                         $_SESSION['uid'] = $user->getId();
-                        $this->redirect('/profile');
+                        Mailer::sendSignupWelcomeEmail($email, $name);
+
+                        if (isset($_POST['remember']) && $_POST['remember']=='remember') {
+                            $this->saveRememberMeCookie();
+                        }
+
+                        $this->redirect('/index');
                     } else {
                         $status = 1;
                         $message = '';

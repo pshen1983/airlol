@@ -4,7 +4,7 @@ abstract class AjaxController {
         session_start();
         $result = $this->handle($params);
 
-        echo $result;
+        echo json_encode($result);
     }
 
     protected function isSignedIn() {

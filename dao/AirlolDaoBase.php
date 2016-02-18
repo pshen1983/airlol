@@ -77,7 +77,6 @@ abstract class AirlolDaoBase {
      */
     protected function retrieve($id) {
         $res = null;
-
         $id_column = $this->getIdColumnName();
 
         $cacher = QueryCacher::instance();
@@ -85,7 +84,7 @@ abstract class AirlolDaoBase {
             $res = $cacher->get(static::$table.'.'.$id);
         } 
 
-        if (!isset($res)) {
+        if (!$res) {
             $query = new QueryBuilder();
             $res = $query->select('*', static::$table)
                          ->where($id_column, $id)

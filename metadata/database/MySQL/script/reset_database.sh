@@ -1,5 +1,6 @@
 #!/bin/sh
 mysql -uroot -pLangara2 airlol < ../schema/user.sql;
+mysql -uroot -pLangara2 airlol < ../schema/cookie_token.sql;
 mysql -uroot -pLangara2 airlol < ../schema/trip.sql;
 mysql -uroot -pLangara2 airlol < ../schema/good.sql;
 mysql -uroot -pLangara2 airlol < ../schema/rating.sql;

@@ -44,5 +44,5 @@ class UserDao extends UserQuery {
         }
     }
 
-    protected static function cacheById() { return FALSE; }
+    protected static function cacheById() { return TRUE; }
 }
