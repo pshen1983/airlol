@@ -37,17 +37,9 @@ class Utility {
         return $randomString;
     }
 
-    public static function hashLatLng($lag, $lng) {
-//        $request = new GoogleReverseGeocodingRequest($lag, $lng);
-//        $response = $request->execute();
-
-        $response = 'British Columbia';
-
-        return abs(crc32($response));
-    }
-
-    public static function hashString($str) {
-        return abs(crc32($str));
+    public static function generateSid($id) {
+        $md5 = md5($id);
+        return substr($md5, $id%20, 8);
     }
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-class TripCreateController extends PageController {
+class GoodDetailController extends PageController {
     protected function handle($params) {
 
         View::setTitle('AirLOL Home Page');

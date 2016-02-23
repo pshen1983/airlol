@@ -13,4 +13,10 @@ register('POST', '/register',        new SignUpController());
 register('POST', '/profile',         new ProfileController());
 register('POST', '/forget_password', new ForgetPasswordController());
 register('POST', '/reset_password',  new ResetPasswordController());
+
+// trip
+register('GET', '/trip/:tripid',     new TripDetailController());
+
+// good
+register('GET', '/package/:goodid',  new GoodDetailController());
 ?>

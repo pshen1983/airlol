@@ -37,3 +37,8 @@ CREATE INDEX airlol_rating_user ON airlol.rating (user_id);
 CREATE INDEX airlol_rating_rater ON airlol.rating (rater_id);
 CREATE INDEX airlol_rating_type ON airlol.rating (type);
 CREATE INDEX airlol_rating_rating ON airlol.rating (rating);
+
+-- message
+CREATE INDEX airlol_message_trip ON airlol.message (trip_id);
+CREATE INDEX airlol_message_good ON airlol.message (good_id);
+CREATE INDEX airlol_message_sender ON airlol.message (sender);
