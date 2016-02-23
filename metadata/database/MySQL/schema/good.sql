@@ -12,6 +12,7 @@ CREATE TABLE airlol.good
     description VARCHAR(1024) NOT NULL,
     price SMALLINT UNSIGNED,
     price_adjust VARCHAR(2),
+    active VARCHAR(2),
     contact_type TINYINT NOT NULL,
     create_time DATETIME NOT NULL,
 

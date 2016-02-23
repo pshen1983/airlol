@@ -8,4 +8,13 @@ class GoodDao extends GoodQuery {
 
         return $trips;
     }
+
+    // ======================================================================
+
+    protected function actionBeforeInsert() {
+        $now = date("Y-m-d H:i:s");
+        $this->setCreateTime($now);
+    }
+
+    protected static function cacheById() { return TRUE; }
 }

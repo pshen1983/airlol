@@ -15,6 +15,7 @@ abstract class TripGenerated extends AirlolDaoBase {
         $this->var['contact_type'] = NULL;
         $this->var['price'] = NULL;
         $this->var['price_adjust'] = NULL;
+        $this->var['active'] = NULL;
         $this->var['create_time'] = NULL;
 
         $this->update['id'] = false;
@@ -28,6 +29,7 @@ abstract class TripGenerated extends AirlolDaoBase {
         $this->update['contact_type'] = false;
         $this->update['price'] = false;
         $this->update['price_adjust'] = false;
+        $this->update['active'] = false;
         $this->update['create_time'] = false;
     }
 
@@ -133,6 +135,16 @@ abstract class TripGenerated extends AirlolDaoBase {
     }
     public function getPriceAdjust() {
         return $this->var['price_adjust'];
+    }
+
+    public function setActive($active) {
+        if ($this->var['active'] !== $active) {
+            $this->var['active'] = $active;
+            $this->update['active'] = true;
+        }
+    }
+    public function getActive() {
+        return $this->var['active'];
     }
 
     public function setCreateTime($create_time) {

@@ -13,6 +13,7 @@ CREATE TABLE airlol.trip
     contact_type TINYINT NOT NULL,
     price SMALLINT UNSIGNED,
     price_adjust VARCHAR(2),
+    active VARCHAR(2),
     create_time DATETIME NOT NULL,
 
     PRIMARY KEY (id)

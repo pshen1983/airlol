@@ -14,6 +14,7 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->var['description'] = NULL;
         $this->var['price'] = NULL;
         $this->var['price_adjust'] = NULL;
+        $this->var['active'] = NULL;
         $this->var['contact_type'] = NULL;
         $this->var['create_time'] = NULL;
 
@@ -27,6 +28,7 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->update['description'] = false;
         $this->update['price'] = false;
         $this->update['price_adjust'] = false;
+        $this->update['active'] = false;
         $this->update['contact_type'] = false;
         $this->update['create_time'] = false;
     }
@@ -123,6 +125,16 @@ abstract class GoodGenerated extends AirlolDaoBase {
     }
     public function getPriceAdjust() {
         return $this->var['price_adjust'];
+    }
+
+    public function setActive($active) {
+        if ($this->var['active'] !== $active) {
+            $this->var['active'] = $active;
+            $this->update['active'] = true;
+        }
+    }
+    public function getActive() {
+        return $this->var['active'];
     }
 
     public function setContactType($contact_type) {

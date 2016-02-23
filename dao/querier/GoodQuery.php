@@ -6,6 +6,7 @@ class GoodQuery extends GoodGenerated {
         $res = $query->select('*', self::$table)
                      ->where('departure_id', $departure)
                      ->where('arrival_id', $arrival)
+                     ->where('active', 'Y')
                      ->where('end_date', $target, '>=')
                      ->limit($start, $size)
                      ->find_all();

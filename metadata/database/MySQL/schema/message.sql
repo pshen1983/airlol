@@ -6,6 +6,7 @@ CREATE TABLE airlol.message
     trip_id INT(10) UNSIGNED NOT NULL,
     good_id INT(10) UNSIGNED NOT NULL,
     sender INT(10) UNSIGNED NOT NULL,
+    receiver INT(10) UNSIGNED NOT NULL,
     comment TEXT,
     create_time DATETIME NOT NULL,
 

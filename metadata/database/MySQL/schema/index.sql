@@ -22,6 +22,7 @@ CREATE INDEX airlol_trip_arrival ON airlol.trip (arrival_code(15));
 CREATE INDEX airlol_trip_date ON airlol.trip (trip_date);
 CREATE INDEX airlol_trip_price ON airlol.trip (price);
 CREATE INDEX airlol_trip_price_adjust ON airlol.trip (price_adjust(1));
+CREATE INDEX airlol_trip_active ON airlol.trip (active(1));
 
 -- good 
 CREATE INDEX airlol_good_user ON airlol.good (user_id);
@@ -30,6 +31,7 @@ CREATE INDEX airlol_good_arrival ON airlol.good (arrival_code(15));
 CREATE INDEX airlol_good_date ON airlol.good (end_date);
 CREATE INDEX airlol_good_price ON airlol.good (price);
 CREATE INDEX airlol_good_price_adjust ON airlol.good (price_adjust(1));
+CREATE INDEX airlol_good_active ON airlol.good (active(1));
 
 -- rating
 CREATE INDEX airlol_rating_trip ON airlol.rating (trip_id);
@@ -42,3 +44,4 @@ CREATE INDEX airlol_rating_rating ON airlol.rating (rating);
 CREATE INDEX airlol_message_trip ON airlol.message (trip_id);
 CREATE INDEX airlol_message_good ON airlol.message (good_id);
 CREATE INDEX airlol_message_sender ON airlol.message (sender);
+CREATE INDEX airlol_message_receiver ON airlol.message (receiver);

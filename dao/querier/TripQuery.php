@@ -6,6 +6,7 @@ class TripQuery extends TripGenerated {
         $res = $query->select('*', self::$table)
                      ->where('departure_id', $departure)
                      ->where('arrival_id', $arrival)
+                     ->where('active', 'Y')
                      ->where('trip_date', $startDate, '>=')
                      ->where('trip_date', $endDate, '<=')
                      ->limit($start, $size)

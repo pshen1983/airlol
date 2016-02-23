@@ -8,6 +8,7 @@ abstract class MessageGenerated extends AirlolDaoBase {
         $this->var['trip_id'] = NULL;
         $this->var['good_id'] = NULL;
         $this->var['sender'] = NULL;
+        $this->var['receiver'] = NULL;
         $this->var['comment'] = NULL;
         $this->var['create_time'] = NULL;
 
@@ -15,6 +16,7 @@ abstract class MessageGenerated extends AirlolDaoBase {
         $this->update['trip_id'] = false;
         $this->update['good_id'] = false;
         $this->update['sender'] = false;
+        $this->update['receiver'] = false;
         $this->update['comment'] = false;
         $this->update['create_time'] = false;
     }
@@ -51,6 +53,16 @@ abstract class MessageGenerated extends AirlolDaoBase {
     }
     public function getSender() {
         return $this->var['sender'];
+    }
+
+    public function setReceiver($receiver) {
+        if ($this->var['receiver'] !== $receiver) {
+            $this->var['receiver'] = $receiver;
+            $this->update['receiver'] = true;
+        }
+    }
+    public function getReceiver() {
+        return $this->var['receiver'];
     }
 
     public function setComment($comment) {
