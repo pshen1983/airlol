@@ -13,5 +13,6 @@ register('POST', '/package/:goodid', new UpdateGoodController());
 register('POST', '/package',         new CreateGoodController());
 
 // message
-register('POST', '/message/email', new SendEmailController());
+register('GET',  '/search/message', new SearchMessageController());
+register('POST', '/message',        new CreateMessageController());
 ?>

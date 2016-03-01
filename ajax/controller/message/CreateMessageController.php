@@ -1,5 +1,5 @@
 <?php
-class SendMessageController extends AjaxController {
+class CreateMessageController extends AjaxController {
 
     protected function handle($params) {
 
