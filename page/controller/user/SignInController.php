@@ -4,7 +4,7 @@ class SignInController extends PageController {
         $status = 0;
         $message = '';
 
-        if ($this->isSignedIn()) {
+        if (ASession::isSignedIn()) {
             $this->redirect('/index');
         }
 
@@ -18,7 +18,7 @@ class SignInController extends PageController {
                 if ($user) {
                     $validPasswd = $user->checkPassword($passwd);
                     if ($validPasswd) {
-                        $_SESSION['uid'] = $user->getId();
+                        ASession::setSessionUserId($user->getId());
 
                         if (isset($_POST['remember']) && $_POST['remember']=='remember') {
                             $this->saveRememberMeCookie();

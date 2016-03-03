@@ -4,10 +4,10 @@ class UpdateTripeController extends AjaxController {
     protected function handle($params) {        $status = 0;
         $message = '';
 
-        if ($this->isSignedIn()) {
+        if (ASession::isSignedIn()) {
             $tripDao = new TripDao($params['tripid']);
             if ($tripDao->isFromDB()) {
-                if ($tripDao->getUserId()==$_SESSION['uid']) {
+                if ($tripDao->getUserId()==ASession::getSessionUserId()) {
                     if (isset($_POST['departure'])) { $tripDao->setDepartureCode($_POST['departure']); }
                     if (isset($_POST['arrival'])) { $tripDao->setArrivalCode($_POST['arrival']); }
                     if (isset($_POST['trip_date'])) { $tripDao->setTripDate($_POST['trip_date']); }

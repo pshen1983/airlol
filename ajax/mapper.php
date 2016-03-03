@@ -1,6 +1,6 @@
 <?php
 // user
-register('POST', '/user/signin', new UserSigninController());
+register('POST', '/user/signin', new UserSigninController(), new UserSigninValidator());
 
 // trip
 register('GET',  '/search/trips', new SearchTripController());
@@ -14,5 +14,5 @@ register('POST', '/package',         new CreateGoodController());
 
 // message
 register('GET',  '/search/message', new SearchMessageController());
-register('POST', '/message',        new CreateMessageController());
+register('POST', '/message',        new CreateMessageController(), new CreateMessageValidator());
 ?>

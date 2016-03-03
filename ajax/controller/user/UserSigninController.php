@@ -3,29 +3,19 @@ class UserSigninController extends AjaxController {
 
     protected function handle($params) {
         $status = 0;
-        $message = '';
+        $message = 'success';
 
         $email = $_POST['email'];
         $passwd = $_POST['password'];
 
-        $validEmail = Format::isValidEmail($email);
-        if ($validEmail) {
-            $user = UserDao::getUserByEmail($email);
-            if ($user) {
-                $validPasswd = $user->checkPassword($passwd);
-                if ($validPasswd) {
-                    $_SESSION['uid'] = $user->getId();
-                } else {
-                    $status = 1;
-                    $message = '';
-                }
-            } else {
-                $status = 2;
-                $message = '';
-            }
+        $user = UserDao::getUserByEmail($email);
+
+        $validPasswd = $user->checkPassword($passwd);
+        if ($validPasswd) {
+            ASession::setSessionUserId($user->getId());
         } else {
-            $status = 3;
-            $message = '';
+            $status = 1;
+            $message = 'invalid_password';
         }
 
         return array('status'=>$status, 'message'=>$message);

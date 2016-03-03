@@ -6,17 +6,15 @@ abstract class PageController {
     public function execute($params) {
         session_start();
 
-        $isLogin = $this->isSignedIn();
+        $isLogin = ASession::isSignedIn();
 
         if (!$isLogin && isset($_COOKIE['REMEMBERME'])) {
             $this->cookieLogin();
-            $isLogin = $this->isSignedIn();
+            $isLogin = ASession::isSignedIn();
         }
 
         if ($isLogin) {
-            $userDao = new UserDao($_SESSION['uid']);
-
-            $_SESSION['user'] = $userDao;
+            $userDao = new UserDao(ASession::getSessionUserId());
             View::addParam(array('header_user_name' => $userDao->getName()));
         }
 
@@ -34,10 +32,6 @@ abstract class PageController {
         return $_SERVER['REQUEST_METHOD']=='POST';
     }
 
-    protected function isSignedIn() {
-        return isset($_SESSION['uid']) && $_SESSION['uid']>0;
-    }
-
     protected function redirect($url, $exit=true) {
         header('Location: '.$url);
         if ($exit) { exit; }
@@ -47,7 +41,7 @@ abstract class PageController {
         $token = Utility::generateToken(64);
 
         $cookieTokenDao = new CookieTokenDao();
-        $cookieTokenDao->setUserId($_SESSION['uid']);
+        $cookieTokenDao->setUserId(ASession::getSessionUserId());
         $cookieTokenDao->setValue($token);
         $cookieTokenDao->setType(CookieTokenDao::REMEMBER_ME);
         $cookieTokenDao->save();
@@ -67,7 +61,7 @@ abstract class PageController {
         $token = $_COOKIE['REMEMBERME'];
         $cookieTokenDao = CookieTokenDao::getRememberMeTokenByValue($token);
         if ($cookieTokenDao) {
-            $_SESSION['uid'] = $cookieTokenDao->getUserId();
+            ASession::setSessionUserId($cookieTokenDao->getUserId());
         }
     }
 

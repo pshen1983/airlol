@@ -5,7 +5,7 @@ class CreateTripController extends AjaxController {
         $status = 0;
         $message = '';
 
-        if ($this->isSignedIn()) {
+        if (ASession::isSignedIn()) {
             $departure = $_POST['departure'];
             $arrival = $_POST['arrival'];
             $date = $_POST['date'];
@@ -16,7 +16,7 @@ class CreateTripController extends AjaxController {
                 $tripDao->setDepartureCode($departure);
                 $tripDao->setArrivalCode($arrival);
                 $tripDao->setTripDate($date);
-                $tripDao->setUserId($_SESSION['uid']);
+                $tripDao->setUserId(ASession::getSessionUserId());
                 if ($tripDao->save()) {
                     $message = $tripDao->getId();
                 } else {

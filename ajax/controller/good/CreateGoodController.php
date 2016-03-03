@@ -5,7 +5,7 @@ class CreateGoodController extends AjaxController {
         $status = 0;
         $message = '';
 
-        if ($this->isSignedIn()) {
+        if (ASession::isSignedIn()) {
             $departure = $_POST['departure'];
             $arrival = $_POST['arrival'];
             $date = $_POST['date'];
@@ -16,7 +16,7 @@ class CreateGoodController extends AjaxController {
                 $goodDao->setDepartureCode($departure);
                 $goodDao->setArrivalCode($arrival);
                 $goodDao->setEndDate($date);
-                $goodDao->setUserId($_SESSION['uid']);
+                $goodDao->setUserId(ASession::getSessionUserId());
                 if ($goodDao->save()) {
                     $message = $goodDao->getId();
                 } else {

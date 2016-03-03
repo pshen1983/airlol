@@ -5,10 +5,10 @@ class UpdateGoodController extends AjaxController {
         $status = 0;
         $message = '';
 
-        if ($this->isSignedIn()) {
+        if (ASession::isSignedIn()) {
             $goodDao = new GoodDao($params['goodid']);
             if ($goodDao->isFromDB()) {
-                if ($goodDao->getUserId()==$_SESSION['uid']) {
+                if ($goodDao->getUserId()==ASession::getSessionUserId()) {
                     if (isset($_POST['departure'])) { $goodDao->setDepartureCode($_POST['departure']); }
                     if (isset($_POST['arrival'])) { $goodDao->setArrivalCode($_POST['arrival']); }
                     if (isset($_POST['end_date'])) { $goodDao->setEndDate($_POST['end_date']); }

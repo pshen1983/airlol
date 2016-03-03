@@ -30,8 +30,19 @@ foreach ($services[$method] as $key=>$val) {
         }
 
         if ($match) {
-            $controller = $services[$method][$key];
-            $controller->execute($params);
+            $controller = $services[$method][$key][0];
+            $validator = $services[$method][$key][1];
+
+            ASession::init();
+            if (isset($validator)) {
+                if ($validator->validate($params)) {
+                    $controller->execute($params);
+                } else {
+                    $validator->errorOut();
+                }
+            } else {
+                $controller->execute($params);
+            }
             exit;
         }
     }
@@ -69,9 +80,9 @@ function blockIp() {
  * @param string $path
  * @param AuthorizedRequestHandler $handler
  */
-function register($method, $path, $handler) {
+function register($method, $path, $handler, $validator=null) {
     global $services;
-    $services[$method][$path] = $handler;
+    $services[$method][$path] = array($handler, $validator);
 }
 
 
