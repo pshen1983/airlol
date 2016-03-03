@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?=View::$title ?></title>
 <link rel="shortcut icon" href="/page/img/favicon.ico">
 <link rel="stylesheet" type="text/css" href="/page/css/common.css">
