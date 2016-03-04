@@ -12,7 +12,7 @@
 <?php } ?>
 </head>
 <body>
-<header>
+<header class="container-fluid">
 <?php if (View::$parameters['user_session']) { ?>
     <?=View::$parameters['header_user_name'] ?>
 <?php } else { ?>
