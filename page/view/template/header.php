@@ -12,14 +12,14 @@
 <?php } ?>
 </head>
 <body>
-<div id="header">
+<header>
 <?php if (View::$parameters['user_session']) { ?>
     <?=View::$parameters['header_user_name'] ?>
 <?php } else { ?>
     <a id="header_signin_link" href="#"><?=View::$parameters['btn_header_signin'] ?></a>
     <a id="header_signup_link" href="#"><?=View::$parameters['btn_header_signup'] ?></a>
 <?php } ?>
-</div>
+</header>
 <?php if (!View::$parameters['user_session']) { ?>
 <div id="header_login">
 <form id="header_login_form">
