@@ -5,7 +5,13 @@ $(function() {
             "ajax/user/signin", 
             $("#header_login_form").serialize(),
             function( data ) {
-                alert(data);
+                obj = JSON.parse(data);
+
+                alert(obj.message);
+                if (obj.status==0) {
+                    $('#header_login').modal('hide');
+
+                }
             });
     });
 
