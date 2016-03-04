@@ -1,5 +1,5 @@
 <?php
-class UpdateTripeController extends AjaxController {
+class UpdateTripController extends AjaxController {
 
     protected function handle($params) {        $status = 0;
         $message = '';

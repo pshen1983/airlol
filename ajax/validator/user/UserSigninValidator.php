@@ -7,15 +7,15 @@ class UserSigninValidator extends AjaxValidator {
         if ($valid) {
             $valid = Format::isValidEmail($_POST['email']);
             if (!$valid) {
-                $this->setErrorMessage('invalid_email_format');
+                $this->setErrorDescription('invalid_email_format');
             }
         }
 
         if ($valid) {
             $userDao = UserDao::getUserByEmail($email);
-            $valid = $userDao->isFromDB();
+            $valid = isset($userDao) && $userDao->isFromDB();
             if (!$valid) {
-                $this->setErrorMessage('user_not_found');
+                $this->setErrorDescription('user_not_found');
             }
         }
 
