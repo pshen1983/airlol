@@ -22,7 +22,8 @@ abstract class PageController {
             array( 'user_session' => $isLogin,
                    'btn_header_signin' => 'Sign in',
                    'btn_header_signup' => 'Sign up',
-                   'btn_signin_submit' => 'Sign in')
+                   'btn_signin_submit' => 'Sign in',
+                   'btn_send_message' => 'Send')
         );
 
         $this->handle($params);
