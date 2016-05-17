@@ -2,7 +2,7 @@
 class Mailer {
 
     public static function sendSignupWelcomeEmail($email, $name) {
-        global $base_url;
+        global $base_url, $sendgrid_signup;
 
 $html = 
 '<div style="background-color:#ffffff;border:#e5e5e5 solid 1px">
@@ -26,13 +26,14 @@ $html =
         $subject = 'Welcome To AirLOL!';
         $from = 'notifications@airlol.com';
         $fname = 'AirLOL Team';
+        $templateId = $sendgrid_signup;
 
-        self::send($html, $subject, $from, $fname, $email, $name);
+        self::send($subject, $from, $fname, $email, $name, $templateId, $html);
     }
 
 
     public static function sendResetPasswordEmail($email, $name, $token) {
-        global $base_url;
+        global $base_url, $sendgrid_forget;
 
 $html = 
 '<div style="background-color:#ffffff;border:#e5e5e5 solid 1px">
@@ -56,38 +57,45 @@ $html =
         $subject = 'Reset Your AirLOL Password';
         $from = 'notifications@airlol.com';
         $fname = 'AirLOL Team';
+        $templateId = $sendgrid_forget;
 
-        self::send($html, $subject, $from, $fname, $email, $name);
+        self::send($subject, $from, $fname, $email, $name, $templateId, $html);
 
     }
 
+    private static function send($subject, $from, $fname, $to, $tname, $templateId, $html, $text="") {
+        global $sendgrid_apikey;
 
-    private static function send($html, $subject, $from, $fname, $to, $tname) {
-        global $mandrill_key;
-        $mandrill = new Mandrill($mandrill_key);
+        $js = array(
+            'filters' => array('templates' => array('settings' => array('enable' => 1, 'template_id' => $templateId)))
+        );
 
-        try {
-            $message = array(
-                'html' => $html,
-                'text' => '',
-                'subject' => $subject,
-                'from_email' => 'notifications@airlol.com',
-                'from_name' => $fname,
-                'to' => array(
-                    array(
-                        'email' => $to,
-                        'name' => $tname,
-                        'type' => 'to'
-                    )
-                )
-            );
-            $result = $mandrill->messages->send($message);
-        } catch(Mandrill_Error $e) {
-            // Mandrill errors are thrown as exceptions
-            echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
-            // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
-            throw $e;
-        }
+        error_log(json_encode($js));
+
+        $params = array(
+            'to'        => $to, 
+            'toname'    => $tname,
+            'from'      => $from,
+            'fromname'  => $fname,
+            'subject'   => $subject, 
+            'text'      => $text,
+            'html'      => $html,
+            'x-smtpapi' => json_encode($js),
+        );
+
+        $url = 'https://api.sendgrid.com/api/mail.send.json'; 
+        $ch = curl_init($url);
+
+        curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $sendgrid_apikey));
+        curl_setopt ($ch, CURLOPT_POST, true);
+        curl_setopt ($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        Logger::info("Email to " . $to . " - " . $response);
     }
 
 }
