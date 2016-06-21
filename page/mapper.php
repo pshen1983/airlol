@@ -19,4 +19,7 @@ register('GET', '/trip/:tripid',     new TripDetailController());
 
 // good
 register('GET', '/package/:goodid',  new GoodDetailController());
+
+// message
+register('GET', '/message/list',     new MessageListController());
 ?>
