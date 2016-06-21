@@ -1,3 +1,4 @@
+-- America
 INSERT INTO airlol.cms_item(language, content, code, create_time) VALUES 
 ('en', 'North America', "NORTHAMERICA", NOW()),
 ('en', 'Los Angoles', "LAX", NOW()),
@@ -40,6 +41,33 @@ INSERT INTO airlol.cms_relation(parent_code, child_code, create_time) VALUES
 ("NORTHAMERICA", 'YVR', NOW()),
 ("NORTHAMERICA", 'YYZ', NOW());
 
+-- Europe
+INSERT INTO airlol.cms_item(language, content, code, create_time) VALUES 
+('en', 'Europe', "EUROPE", NOW()),
+('en', 'London', "LHR", NOW()),
+('en', 'Paris', "CDG", NOW()),
+('zh', '欧洲', "EUROPE", NOW()),
+('zh', '伦敦', "LHR", NOW()),
+('en', '巴黎', "CDG", NOW());
+
+INSERT INTO airlol.cms_relation(parent_code, child_code, create_time) VALUES 
+("EUROPE", 'LHR', NOW()),
+("EUROPE", 'CDG', NOW());
+
+-- Europe
+INSERT INTO airlol.cms_item(language, content, code, create_time) VALUES 
+('en', 'Europe', "EUROPE", NOW()),
+('en', 'London', "LHR", NOW()),
+('en', 'Paris', "CDG", NOW()),
+('zh', '欧洲', "EUROPE", NOW()),
+('zh', '伦敦', "LHR", NOW()),
+('en', '巴黎', "CDG", NOW());
+
+INSERT INTO airlol.cms_relation(parent_code, child_code, create_time) VALUES 
+("EUROPE", 'LHR', NOW()),
+("EUROPE", 'CDG', NOW());
+
+-- China
 INSERT INTO airlol.cms_item(language, content, code, create_time) VALUES 
 ('en', 'China', "CHINA", NOW()),
 ('en', 'Beijing', "PEK", NOW()),
@@ -76,13 +104,3 @@ INSERT INTO airlol.cms_relation(parent_code, child_code, create_time) VALUES
 ("CHINA", 'CTU', NOW()),
 ("CHINA", 'NKG', NOW()),
 ("CHINA", 'HGH', NOW());
-
-
-
-
-
-
-
-
-
-
