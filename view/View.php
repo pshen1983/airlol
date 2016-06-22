@@ -6,8 +6,8 @@ Class View {
     private static $stylesheets = array();
     private static $parameters = array();
 
-    public static function factory($view, $params=array()) {
-        include 'template/header.php';
+    public static function factory($view, $params=array(), $header=true) {
+        if ($header) { include 'template/header.php'; }
         include $view.'.php';
         include 'template/footer.php';
 

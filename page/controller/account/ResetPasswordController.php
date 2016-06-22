@@ -55,10 +55,10 @@ class ResetPasswordController extends PageController {
             }
         }
 
-        View::addJs('user.js');
-        View::addCss('user.css');
+        View::addJs('account.js');
+        View::addCss('account.css');
 
-        View::factory('user/resetpassword',
+        View::factory('account/resetpassword',
             array('submit'  => 'Submit',
                   'status'  => $status,
                   'message' => $message,

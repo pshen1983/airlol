@@ -14,3 +14,4 @@ abstract class RestValidator {
 
     abstract public function validate($params);
 }
+?>

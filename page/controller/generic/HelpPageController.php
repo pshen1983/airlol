@@ -7,10 +7,8 @@
 
         View::setTitle('AirLOL Help');
         View::addJs('generic.js');
-        View::addJs('help.js');
         View::addCss('generic.css');
-        View::addCss('help.css');
-        View::factory('help/index', array(
+        View::factory('generic/help', array(
             'helps' => $helps
         ));
     }

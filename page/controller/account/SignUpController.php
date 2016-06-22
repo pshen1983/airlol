@@ -49,10 +49,10 @@ class SignUpController extends PageController {
         }
 
         View::setTitle('AirLOL | User Sign Up');
-        View::addJs('user.js');
-        View::addCss('user.css');
+        View::addJs('account.js');
+        View::addCss('account.css');
 
-        View::factory('user/signup', 
+        View::factory('account/signup', 
             array('submit'  => 'register',
                   'status'  => $status,
                   'message' => $message)

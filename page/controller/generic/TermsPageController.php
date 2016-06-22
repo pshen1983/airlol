@@ -1,5 +1,5 @@
 <?php
-class TermsAndConditionsController extends PageController {
+class TermsPageController extends PageController {
     protected function handle($params) {
 
         View::setTitle('AirLOL Home Page');

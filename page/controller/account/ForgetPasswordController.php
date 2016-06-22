@@ -29,10 +29,10 @@ class ForgetPasswordController extends PageController {
         }
 
         View::setTitle('AirLOL | Forget Password');
-        View::addJs('user.js');
-        View::addCss('user.css');
+        View::addJs('account.js');
+        View::addCss('account.css');
 
-        View::factory('user/forgetpassword',
+        View::factory('account/forgetpassword',
             array('submit'  => 'Send',
                   'status'  => $status,
                   'message' => $message)

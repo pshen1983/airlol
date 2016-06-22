@@ -40,10 +40,10 @@ class SignInController extends PageController {
         }
 
         View::setTitle('AirLOL | User Sign in');
-        View::addJs('user.js');
-        View::addCss('user.css');
+        View::addJs('account.js');
+        View::addCss('account.css');
 
-        View::factory('user/signin',
+        View::factory('account/signin',
             array('submit'  => 'register',
                   'status'  => $status,
                   'message' => $message)
