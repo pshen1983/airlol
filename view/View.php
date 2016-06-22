@@ -5,6 +5,7 @@ Class View {
     private static $javascripts = array();
     private static $stylesheets = array();
     private static $parameters = array();
+    private static $content = array();
 
     public static function factory($view, $params=array(), $header=true) {
         if ($header) { include 'template/header.php'; }
@@ -37,6 +38,10 @@ Class View {
         foreach ($param as $key=>$val) {
             self::$parameters[$key] = $val;
         }
+    }
+
+    public static function setContent($content) {
+        self::$content = $content;
     }
 }
 ?>
