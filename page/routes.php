@@ -24,6 +24,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 $uri = parseGetparams($uri);
 if ($uri == '' || $uri == '/') { $uri = '/index'; }
 
+header('X-Frame-Options: DENY');
+
 // find the handler based on request uri from $services configured in mapping.php
 //
 $uris = explode('/', $uri);
