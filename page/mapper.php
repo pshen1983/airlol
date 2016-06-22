@@ -15,11 +15,14 @@ register('POST', '/forget_password', new ForgetPasswordController());
 register('POST', '/reset_password',  new ResetPasswordController());
 
 // trip
-register('GET', '/trip/:tripid',     new TripDetailController());
+register('GET', '/trip/:tripid', new TripDetailController());
 
 // good
-register('GET', '/package/:goodid',  new GoodDetailController());
+register('GET', '/package/:goodid', new GoodDetailController());
 
 // message
-register('GET', '/message/list',     new MessageListController());
+register('GET', '/message/list', new MessageListController());
+
+// help
+register('GET', '/help', new HelpPageController());
 ?>

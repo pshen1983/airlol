@@ -1,6 +1,21 @@
 <?php
 include '.config';
 
+$autoload_dirs = array( '../util',
+                        '../view',
+                        '../dao',
+                        '../dao/generated',
+                        '../dao/querier',
+                        '../dao/object',
+                        'controller',
+                        'controller/generic',
+                        'controller/good',
+                        'controller/help',
+                        'controller/message',
+                        'controller/trip',
+                        'controller/user',
+                      );
+
 // blockIp();
 $services = array('GET'=>array(), 'POST'=>array(), 'PUT'=>array(), 'DELETE'=>array());
 include 'mapper.php';
