@@ -19,7 +19,7 @@ abstract class PageController {
         View::addParam(array('user_session' => $isLogin));
 
         $pageContent = $this->getContent();
-        $headContent = $this->getHeaderContent();
+        $headContent = $this->getHeaderFooterContent();
         $content = array_merge($pageContent, $headContent);
         View::setContent($content);
 
@@ -87,7 +87,7 @@ abstract class PageController {
     }
 
 
-    private function getHeaderContent() {
+    private function getHeaderFooterContent() {
         $rv = array();
 
         switch ($this->getLocale()) {
