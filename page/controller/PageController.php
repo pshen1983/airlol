@@ -5,6 +5,7 @@ abstract class PageController {
         session_start();
 
         $isLogin = ASession::isSignedIn();
+        $locale = $this->getLocale();
 
         if (!$isLogin && isset($_COOKIE['REMEMBERME'])) {
             $this->cookieLogin();
@@ -16,6 +17,7 @@ abstract class PageController {
             View::addParam(array('header_user_name' => $userDao->getName()));
         }
 
+        View::addParam(array('current_locale' => $locale));
         View::addParam(array('user_session' => $isLogin));
 
         $pageContent = $this->getContent();
@@ -80,7 +82,7 @@ abstract class PageController {
                 $lang = $default_lang;
             }
 
-            setcookie( 'locale', $lang, time()+31536000, '/', 'airlol.com' );
+            Utility::setLocaleCookie($lang);
         }
 
         return $lang;

@@ -41,5 +41,9 @@ class Utility {
         $md5 = md5($id);
         return substr($md5, $id%20, 8);
     }
+
+    public static function setLocaleCookie($locale) {
+        setcookie( 'locale', $locale, time()+31536000, '/', 'airlol.com' );
+    }
 }
 ?>

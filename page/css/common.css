@@ -4,6 +4,12 @@ body {
 #header_login {
     margin-top: 5%;
 }
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
 footer {
     background: #242729;
     clear: both;
@@ -20,6 +26,12 @@ footer div#footer {
 footer div#footer-main {
     text-align: left;
     display: block;
+}
+footer div#footer-main a {
+    color: white;
+}
+footer div#footer-main a:hover {
+    color: #bbb;
 }
 footer h2 {
     font-size: 16px;

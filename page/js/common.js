@@ -12,7 +12,8 @@ $(function() {
                     $('#header_login').modal('hide');
 
                 }
-            });
+            }
+        );
     });
 
     $(".msg_send_btn").on("click", function() {
@@ -27,6 +28,22 @@ $(function() {
                     // load the message in section
 
                 }
-            });
+            }
+        );
+    });
+
+    $("#lang_us").on("click", function() {
+        document.cookie = "locale=en-us;domain=.airlol.com;path=/";
+        location.reload();
+    });
+
+    $("#lang_cn").on("click", function() {
+        document.cookie = "locale=zh-cn;domain=.airlol.com;path=/";
+        location.reload();
+    });
+
+    $("#lang_tw").on("click", function() {
+        document.cookie = "locale=zh-tw;domain=.airlol.com;path=/";
+        location.reload();
     });
 });
