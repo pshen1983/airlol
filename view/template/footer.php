@@ -43,7 +43,8 @@
 </div>
 <hr class="hide-sm">
 <div id="footer-bottom">
-&copy; <?=date('Y')?>, AirLOL Inc. All rights reserved.
+<div>&copy; <?=date('Y')?>, AirLOL Inc. All rights reserved.</div>
+<div style="margin:20px;"><img src="/page/img/logo.png" /></div>
 </div>
 </div>
 </footer>

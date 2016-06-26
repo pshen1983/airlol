@@ -15,7 +15,7 @@
 <header class="container-fluid theme">
 <div id="header" class="width">
 <div id="logo">
-<h1>AirLoL</h1>
+<a href="/"><img src="/page/img/logo.png" /></a>
 </div>
 <div>
 </div>
