@@ -12,13 +12,23 @@
 <?php } ?>
 </head>
 <body>
-<header class="container-fluid">
+<header class="container-fluid theme">
+<div id="header" class="width">
+<div id="logo">
+<h1>AirLoL</h1>
+</div>
+<div>
+</div>
+<div id="right">
 <?php if (View::$parameters['user_session']) { ?>
+    <button type="button" class="btn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_message'] ?></button>
     <?=View::$parameters['header_user_name'] ?>
 <?php } else { ?>
     <button type="button" class="btn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_signin'] ?></button>
     <button type="button" class="btn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_signup'] ?></button>
 <?php } ?>
+</div>
+</div>
 </header>
 <?php if (!View::$parameters['user_session']) { ?>
 <div class="modal fade" role="dialog" id="header_login">
@@ -39,3 +49,4 @@
     </div>
 </div>
 <?php } ?>
+<div id="body" class="width">

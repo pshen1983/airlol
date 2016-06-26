@@ -1,8 +1,15 @@
-body {
+html {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 #header_login {
     margin-top: 5%;
+}
+.theme {
+    background-color: #ffa64d;
+}
+.width {
+    margin: 0 auto;
+    max-width: 1020px;
 }
 a {
     text-decoration: none;
@@ -10,15 +17,35 @@ a {
 a:hover {
     text-decoration: none;
 }
+header {
+    height: 60px;
+}
+header div#logo {
+    height: 60px;
+    float: left;
+    display: flex;
+    align-items: center;  
+    color: white;  
+}
+header div#logo h1 {
+    margin:0px;
+}
+header div#right {
+    height: 60px;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+header div#right button {
+    margin:10px;
+}
 footer {
     background: #242729;
     clear: both;
     padding-top: 20px;
 }
 footer div#footer {
-    width: 1045px;
     padding: 15px;
-    margin: 0 auto;
     box-sizing: content-box;
     display: block;
     color: white;

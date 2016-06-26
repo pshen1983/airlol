@@ -96,18 +96,21 @@ abstract class PageController {
             case 'zh-cn':
                 $rv = array('btn_header_signin' => '登陆',
                             'btn_header_signup' => '注册',
+                            'btn_header_message' => '消息',
                             'btn_signin_submit' => '登陆',
                             'btn_send_message' => '发送');
                 break;
             case 'zh-tw':
                 $rv = array('btn_header_signin' => 'Sign in',
                             'btn_header_signup' => 'Sign up',
+                            'btn_header_message' => 'Message',
                             'btn_signin_submit' => 'Sign in',
                             'btn_send_message' => 'Send');
                 break;
             default:
                 $rv = array('btn_header_signin' => 'Sign in',
                             'btn_header_signup' => 'Sign up',
+                            'btn_header_message' => 'Message',
                             'btn_signin_submit' => 'Sign in',
                             'btn_send_message' => 'Send');
 

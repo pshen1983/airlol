@@ -1,7 +1,8 @@
+</div>
 <footer class="container-fluid">
-<div id="footer" >
+<div id="footer" class="width">
 <div id="footer-main" class="row row-condensed">
-<div class="col-md-3 col-height">
+<div class="col-md-4 col-md-offset-1 col-height">
 <h2 class="">Language</h2>
 <ul>
 <li><?php if (View::$parameters['current_locale']!='en-us') { ?><a href="" id="lang_us">English</a> <?php } else { ?>English<?php } ?></li>
@@ -9,7 +10,7 @@
 <li><?php if (View::$parameters['current_locale']!='zh-tw') { ?><a href="" id="lang_tw">中文（繁体）</a> <?php } else { ?>中文（繁体）<?php } ?></li>
 </ul>
 </div>
-<div class="col-md-3 hide-sm">
+<div class="col-md-2 hide-sm">
 <h2 class="">Company</h2>
 <ul>
 <li><a href="/about">About</a></li>
@@ -19,7 +20,7 @@
 <li><a href="/terms">Terms & Privacy</a></li>
 </ul>
 </div>
-<div class="col-md-3 hide-sm">
+<div class="col-md-2 hide-sm">
 <h2 class="">Traveller</h2>
 <ul>
 <li>About</li>
@@ -29,7 +30,7 @@
 <li>Terms & Privacy</li>
 </ul>
 </div>
-<div class="col-md-3 hide-sm">
+<div class="col-md-2 hide-sm">
 <h2 class="">Sender</h2>
 <ul>
 <li>About</li>
