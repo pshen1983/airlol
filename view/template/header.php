@@ -12,10 +12,9 @@
 <?php } ?>
 </head>
 <body>
-<header class="container-fluid theme">
-<div id="header" class="width">
+<header class="theme">
 <div id="logo">
-<a href="/"><img src="/page/img/logo.png" /></a>
+<a href="/"><img style="width: 35px;vertical-align: text-bottom;margin-right:2px;" src="/page/img/logo-icon.png" /> <span style="font-size:24px;font-weight:bold;color:#ffa64d;">airlol</span></a>
 </div>
 <div>
 </div>
@@ -24,10 +23,9 @@
     <button type="button" class="btn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_message'] ?></button>
     <?=View::$params['header_user_name'] ?>
 <?php } else { ?>
-    <button id="singin" type="button" class="hbtn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_signin'] ?></button>
-    <button id="singup" type="button" class="hbtn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_signup'] ?></button>
+    <a id="singin" type="button" class="hbtn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_signin'] ?></a>
+    <a id="singup" type="button" class="hbtn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_signup'] ?></a>
 <?php } ?>
-</div>
 </div>
 </header>
 <?php if (!View::$params['user_session']) { ?>

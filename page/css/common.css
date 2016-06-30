@@ -12,7 +12,8 @@ div#body {
     margin-top: 5%;
 }
 .theme {
-    background-color: #ffa64d;
+    #background-color: #ffa64d;
+    background-color: white;
 }
 .width {
     margin: 0 auto;
@@ -26,44 +27,37 @@ a:hover {
 }
 header {
     height: 60px;
+    border-bottom: 1px solid #ffa64d;
 }
 header div#logo {
     height: 60px;
     float: left;
     display: flex;
     align-items: center;  
-    color: white;  
+    color: white;
+    padding-left:20px;
+    padding-right:20px;
+    background-color:white;
+    border-bottom: 1px solid #ffa64d;
+}
+header div#logo:hover {
+    background-color:#f5f5f5;
+    cursor: pointer;
 }
 header div#right {
     height: 60px;
     float: right;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #ffa64d;
 }
-header div#right button {
-    margin:10px;
+header div#right a {
+    height:100%;
+    padding:20px;
+    border-left:1px solid #dce0e0;
 }
-header button {
-    min-width: 80px;
-    min-height: 36px;
-    border: 0;
-    border-radius: 5px;
-    font-size: 15px;
-}
-header button:focus {
-  outline:none !important;
-}
-header button#singin {
-    color: #234766;
-    background-image: -webkit-linear-gradient(270deg, rgba(255,255,255,0) 60%, #fff),-webkit-linear-gradient(20deg, #e0f1ff 32%, #fffae3);
-    background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #e0f1ff 32%, #fffae3);
-}
-header button#singup {
-    color: #fff;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
-    background-color: #60b044;
-    background-image: -webkit-linear-gradient(#8add6d, #60b044);
-    background-image: linear-gradient(#8add6d, #60b044);
+header div#right a:hover {
+    background-color:#f5f5f5;
 }
 footer {
     background: #242729;
