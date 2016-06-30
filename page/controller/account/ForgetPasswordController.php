@@ -28,7 +28,6 @@ class ForgetPasswordController extends PageController {
             }
         }
 
-        View::setTitle('AirLOL | Forget Password');
         View::addJs('account.js');
         View::addCss('account.css');
 
@@ -37,6 +36,17 @@ class ForgetPasswordController extends PageController {
                   'status'  => $status,
                   'message' => $message)
         );
+    }
+
+    protected function getTitle() {
+        switch ($this->getLocale()) {
+            case 'zh-cn':
+                return "";
+            case 'zh-tw':
+                return "";
+            default:
+                return "";
+        }
     }
 
     protected function getContent() {

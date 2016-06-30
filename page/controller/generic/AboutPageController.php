@@ -5,12 +5,22 @@
 
         $helps = array();
 
-        View::setTitle('AirLOL Help');
         View::addJs('generic.js');
         View::addCss('generic.css');
         View::factory('generic/about', array(
             'helps' => $helps
         ));
+    }
+
+    protected function getTitle() {
+        switch ($this->getLocale()) {
+            case 'zh-cn':
+                return "";
+            case 'zh-tw':
+                return "";
+            default:
+                return "";
+        }
     }
 
     protected function getContent() {

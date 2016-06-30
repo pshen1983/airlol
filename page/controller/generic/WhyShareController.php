@@ -1,14 +1,14 @@
  <?php
- class MessageListController extends PageController {
+ class WhyShareController extends PageController {
 
     protected function handle($params) {
 
-        $messageList = array();
+        $helps = array();
 
-        View::addJs('message.js');
-        View::addCss('message.css');
-        View::factory('message/list', array(
-            'msg_list' => $messageList
+        View::addJs('generic.js');
+        View::addCss('generic.css');
+        View::factory('generic/whyshare', array(
+            'helps' => $helps
         ));
     }
 

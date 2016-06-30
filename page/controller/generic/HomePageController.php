@@ -1,12 +1,23 @@
 <?php
 class HomePageController extends PageController {
+
     protected function handle($params) {
 
-        View::setTitle('AirLOL Home Page');
         View::addJs('generic.js');
         View::addCss('generic.css');
 
         View::factory('generic/index');
+    }
+
+    protected function getTitle() {
+        switch ($this->getLocale()) {
+            case 'zh-cn':
+                return "";
+            case 'zh-tw':
+                return "";
+            default:
+                return "";
+        }
     }
 
     protected function getContent() {

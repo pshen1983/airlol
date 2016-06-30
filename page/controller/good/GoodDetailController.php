@@ -12,12 +12,22 @@ class GoodDetailController extends PageController {
             'msg_history' =>$history
         );
 
-        View::setTitle('AirLOL Home Page');
-        View::addJs('generic.js');
-        View::addCss('generic.css');
-        View::factory('generic/index', array(
+        View::addJs('good.js');
+        View::addCss('good.css');
+        View::factory('good/good', array(
             'msg_tmp_params' => $messageTemplateParams
         ));
+    }
+
+    protected function getTitle() {
+        switch ($this->getLocale()) {
+            case 'zh-cn':
+                return "";
+            case 'zh-tw':
+                return "";
+            default:
+                return "";
+        }
     }
 
     protected function getContent() {

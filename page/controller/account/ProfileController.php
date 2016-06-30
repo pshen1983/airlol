@@ -9,6 +9,17 @@ class ProfileController extends PageController {
         View::factory('account/profile');
     }
 
+    protected function getTitle() {
+        switch ($this->getLocale()) {
+            case 'zh-cn':
+                return "";
+            case 'zh-tw':
+                return "";
+            default:
+                return "";
+        }
+    }
+
     protected function getContent() {
         $rv = array();
 

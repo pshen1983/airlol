@@ -1,5 +1,12 @@
-html {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+body {
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.43;
+    color: #484848;
+}
+div#body {
+    min-height:400px;
 }
 #header_login {
     margin-top: 5%;
@@ -27,9 +34,6 @@ header div#logo {
     align-items: center;  
     color: white;  
 }
-header div#logo h1 {
-    margin:0px;
-}
 header div#right {
     height: 60px;
     float: right;
@@ -38,6 +42,28 @@ header div#right {
 }
 header div#right button {
     margin:10px;
+}
+header button {
+    min-width: 80px;
+    min-height: 36px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 15px;
+}
+header button:focus {
+  outline:none !important;
+}
+header button#singin {
+    color: #234766;
+    background-image: -webkit-linear-gradient(270deg, rgba(255,255,255,0) 60%, #fff),-webkit-linear-gradient(20deg, #e0f1ff 32%, #fffae3);
+    background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #e0f1ff 32%, #fffae3);
+}
+header button#singup {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+    background-color: #60b044;
+    background-image: -webkit-linear-gradient(#8add6d, #60b044);
+    background-image: linear-gradient(#8add6d, #60b044);
 }
 footer {
     background: #242729;

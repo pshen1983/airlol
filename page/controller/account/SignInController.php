@@ -39,7 +39,6 @@ class SignInController extends PageController {
             }
         }
 
-        View::setTitle('AirLOL | User Sign in');
         View::addJs('account.js');
         View::addCss('account.css');
 
@@ -48,6 +47,17 @@ class SignInController extends PageController {
                   'status'  => $status,
                   'message' => $message)
         );
+    }
+
+    protected function getTitle() {
+        switch ($this->getLocale()) {
+            case 'zh-cn':
+                return "";
+            case 'zh-tw':
+                return "";
+            default:
+                return "";
+        }
     }
 
     protected function getContent() {

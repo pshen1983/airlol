@@ -67,6 +67,17 @@ class ResetPasswordController extends PageController {
         );
     }
 
+    protected function getTitle() {
+        switch ($this->getLocale()) {
+            case 'zh-cn':
+                return "";
+            case 'zh-tw':
+                return "";
+            default:
+                return "";
+        }
+    }
+
     protected function getContent() {
         $rv = array();
 

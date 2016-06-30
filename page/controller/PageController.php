@@ -20,6 +20,9 @@ abstract class PageController {
         View::addParam(array('current_locale' => $locale));
         View::addParam(array('user_session' => $isLogin));
 
+        $title = $this->getTitle();
+        View::setTitle($title);
+
         $pageContent = $this->getContent();
         $headContent = $this->getHeaderFooterContent();
         $content = array_merge($pageContent, $headContent);
@@ -121,6 +124,8 @@ abstract class PageController {
 
 
     abstract protected function handle($params);
+
     abstract protected function getContent();
+    abstract protected function getTitle();
 }
 ?>

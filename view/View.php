@@ -4,7 +4,7 @@ Class View {
     private static $title = '';
     private static $javascripts = array();
     private static $stylesheets = array();
-    private static $parameters = array();
+    private static $params = array();
     private static $content = array();
 
     public static function factory($view, $params=array(), $header=true) {
@@ -15,7 +15,7 @@ Class View {
         self::$title = '';
         self::$javascripts = array();
         self::$stylesheets = array();
-        self::$parameters = array();
+        self::$params = array();
     }
 
     public static function addTemplate($template, $params=array()) {
@@ -36,7 +36,7 @@ Class View {
 
     public static function addParam($param) {
         foreach ($param as $key=>$val) {
-            self::$parameters[$key] = $val;
+            self::$params[$key] = $val;
         }
     }
 
