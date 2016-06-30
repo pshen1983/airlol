@@ -45,7 +45,7 @@ class ForgetPasswordController extends PageController {
             case 'zh-tw':
                 return "";
             default:
-                return "";
+                return "AirLoL | Forget Password";
         }
     }
 

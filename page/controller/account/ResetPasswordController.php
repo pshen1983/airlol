@@ -74,7 +74,7 @@ class ResetPasswordController extends PageController {
             case 'zh-tw':
                 return "";
             default:
-                return "";
+                return "AirLoL | Reset Password";
         }
     }
 

@@ -16,7 +16,7 @@ class TermsPageController extends PageController {
             case 'zh-tw':
                 return "";
             default:
-                return "";
+                return "AirLoL | Terms & Privacy";
         }
     }
 

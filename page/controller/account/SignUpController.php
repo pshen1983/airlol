@@ -65,7 +65,7 @@ class SignUpController extends PageController {
             case 'zh-tw':
                 return "";
             default:
-                return "";
+                return "AirLoL | Sign up";
         }
     }
 

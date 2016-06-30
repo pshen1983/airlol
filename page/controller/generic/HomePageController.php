@@ -16,7 +16,7 @@ class HomePageController extends PageController {
             case 'zh-tw':
                 return "";
             default:
-                return "";
+                return "AirLoL Home Page";
         }
     }
 
