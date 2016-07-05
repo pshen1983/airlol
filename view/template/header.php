@@ -7,6 +7,7 @@
 <link rel="shortcut icon" href="/page/img/favicon.png">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/page/css/common.css">
+<link rel='stylesheet' type='text/css' href='/page/css/google-poppins.css'>
 <?php foreach (View::$stylesheets as $css) { ?>
 <link rel="stylesheet" type="text/css" href="<?=$css ?>">
 <?php } ?>
@@ -14,7 +15,8 @@
 <body>
 <header class="theme">
 <div id="logo">
-<a href="/"><img style="width: 35px;vertical-align: text-bottom;margin-right:2px;" src="/page/img/logo-icon.png" /> <span style="font-size:24px;font-weight:bold;color:#ffa64d;">airlol</span></a>
+<a href="/"><img style="width: 35px;vertical-align: text-bottom;margin-right:2px;" src="/page/img/logo-icon.png" />
+<span style="font-size:24px;font-weight:bold;color:#ffa64d;font-family:'Poppins',sans-serif;">airlol</span></a>
 </div>
 <div>
 </div>
@@ -24,10 +26,10 @@
     <a id="message_a" class="head" href="/message/list"><?=View::$content['btn_header_message'] ?></a>
     <a id="profile_a" class="head"><?=View::$params['header_user_name'] ?><img id="pic" src="<?=View::$params['header_user_pic'] ?>"/></a>
     <div id="profile_div" class="dropdown">
-    <a class="menu" href="/profile">Edit Profile</a>
-    <a class="menu" href="">Account Settings</a>
-    <a class="menu" href="">My Guidebook</a>
-    <a class="menu" href="/logout">Sign Out</a>
+        <a class="menu" href="/profile">Edit Profile</a>
+        <a class="menu" href="">Account Settings</a>
+        <a class="menu" href="">My Guidebook</a>
+        <a class="menu" href="/logout">Sign Out</a>
     </div>
 <?php } else { ?>
     <a id="singin" class="head" type="button" class="hbtn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_signin'] ?></a>
