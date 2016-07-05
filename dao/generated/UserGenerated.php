@@ -8,6 +8,7 @@ abstract class UserGenerated extends AirlolDaoBase {
         $this->var['email'] = NULL;
         $this->var['password'] = NULL;
         $this->var['name'] = NULL;
+        $this->var['profile_img'] = NULL;
         $this->var['tel'] = NULL;
         $this->var['wechat'] = NULL;
         $this->var['weibo'] = NULL;
@@ -18,6 +19,7 @@ abstract class UserGenerated extends AirlolDaoBase {
         $this->update['email'] = false;
         $this->update['password'] = false;
         $this->update['name'] = false;
+        $this->update['profile_img'] = false;
         $this->update['tel'] = false;
         $this->update['wechat'] = false;
         $this->update['weibo'] = false;
@@ -57,6 +59,16 @@ abstract class UserGenerated extends AirlolDaoBase {
     }
     public function getName() {
         return $this->var['name'];
+    }
+
+    public function setProfileImg($profile_img) {
+        if ($this->var['profile_img'] !== $profile_img) {
+            $this->var['profile_img'] = $profile_img;
+            $this->update['profile_img'] = true;
+        }
+    }
+    public function getProfileImg() {
+        return $this->var['profile_img'];
     }
 
     public function setTel($tel) {

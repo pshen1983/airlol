@@ -5,9 +5,9 @@
 
         $messageList = array();
 
-        View::addJs('message.js');
-        View::addCss('message.css');
-        View::factory('message/list', array(
+        View::addJs('user.js');
+        View::addCss('user.css');
+        View::factory('user/messagelist', array(
             'msg_list' => $messageList
         ));
     }

@@ -20,8 +20,9 @@
 </div>
 <div id="right">
 <?php if (View::$params['user_session']) { ?>
-    <button type="button" class="btn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_message'] ?></button>
-    <?=View::$params['header_user_name'] ?>
+    <a href="/history"><?=View::$content['btn_header_history'] ?></a>
+    <a href="/message/list"><?=View::$content['btn_header_message'] ?></a>
+    <a id="message"><?=View::$params['header_user_name'] ?><img id="pic" src="<?=View::$params['header_user_pic'] ?>"/></a>
 <?php } else { ?>
     <a id="singin" type="button" class="hbtn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_signin'] ?></a>
     <a id="singup" type="button" class="hbtn" data-toggle="modal" data-target="#header_login"><?=View::$content['btn_header_signup'] ?></a>

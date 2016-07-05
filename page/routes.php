@@ -11,8 +11,8 @@ $autoload_dirs = array( '../util',
                         'controller/account',
                         'controller/generic',
                         'controller/good',
-                        'controller/message',
-                        'controller/trip'
+                        'controller/trip',
+                        'controller/user'
                       );
 
 // blockIp();

@@ -13,8 +13,7 @@ abstract class PageController {
         }
 
         if ($isLogin) {
-            $userDao = new UserDao(ASession::getSessionUserId());
-            View::addParam(array('header_user_name' => $userDao->getName()));
+            $this->addUserParams();
         }
 
         View::addParam(array('current_locale' => $locale));
@@ -100,6 +99,7 @@ abstract class PageController {
                 $rv = array('btn_header_signin' => '登陆',
                             'btn_header_signup' => '注册',
                             'btn_header_message' => '消息',
+                            'btn_header_history' => '我的历史',
                             'btn_signin_submit' => '登陆',
                             'btn_send_message' => '发送');
                 break;
@@ -107,6 +107,7 @@ abstract class PageController {
                 $rv = array('btn_header_signin' => 'Sign in',
                             'btn_header_signup' => 'Sign up',
                             'btn_header_message' => 'Message',
+                            'btn_header_history' => 'History',
                             'btn_signin_submit' => 'Sign in',
                             'btn_send_message' => 'Send');
                 break;
@@ -114,12 +115,33 @@ abstract class PageController {
                 $rv = array('btn_header_signin' => 'Sign in',
                             'btn_header_signup' => 'Sign up',
                             'btn_header_message' => 'Message',
+                            'btn_header_history' => 'History',
                             'btn_signin_submit' => 'Sign in',
                             'btn_send_message' => 'Send');
 
         }
 
         return $rv;
+    }
+
+
+    private function addUserParams() {
+        $userDao = new UserDao(ASession::getSessionUserId());
+
+        $userName = $userDao->getName();
+        $locale = $this->getLocale();
+        if ($locale!='zh-cn' && $locale!='zh-tw') {
+            $names = explode(' ', $userName);
+            $userName = $names[0];
+        }
+        View::addParam(array('header_user_name' => $userName));
+
+        $profileImage = $userDao->getProfileImg();
+        if (empty($profileImage)) {
+            global $default_profile_img;
+            $profileImage = $default_profile_img;
+        }
+        View::addParam(array('header_user_pic' => $profileImage));
     }
 
 

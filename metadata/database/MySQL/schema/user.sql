@@ -6,6 +6,7 @@ CREATE TABLE airlol.user
     email VARCHAR(61) NOT NULL,
     password VARCHAR(41) NOT NULL,
     name VARCHAR(21) NOT NULL,
+    profile_img VARCHAR(64),
     tel VARCHAR(15),
     wechat VARCHAR(32),
     weibo VARCHAR(32),

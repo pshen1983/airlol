@@ -34,7 +34,8 @@ register('GET', '/trip/:tripid', new TripDetailController());
 // good
 register('GET', '/package/:goodid', new GoodDetailController());
 
-// message
+// user
+register('GET', '/history',      new HistoryController());
 register('GET', '/message/list', new MessageListController());
 
 ?>
