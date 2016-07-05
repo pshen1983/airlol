@@ -3,3 +3,4 @@
 /page/.config
 /ajax/.config
 /rest/.config
+/upload/*
