@@ -21,6 +21,12 @@ class UserDao extends UserQuery {
 
     // ======================================================================
 
+    public function getProfileImg() {
+        $image = parent::getProfileImg();
+        global $profile_image_folder;
+        return $profile_image_folder.'/'.$image;
+    }
+
     public function checkPassword($password) {
         $passwd = $this->getPassword();
         return md5($password) == $passwd;
