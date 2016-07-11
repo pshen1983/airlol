@@ -8,13 +8,11 @@ $autoload_dirs = array( '../util',
                         '../dao/querier',
                         '../dao/object',
                         'controller',
-                        'controller/account',
                         'controller/generic',
                         'controller/good',
                         'controller/trip',
                         'controller/message',
                         'validator',
-                        'validator/account',
                         'validator/message'
                       );
 

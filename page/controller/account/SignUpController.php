@@ -27,7 +27,7 @@ class SignUpController extends PageController {
                             $this->saveRememberMeCookie();
                         }
 
-                        $this->redirect('/index');
+                        $this->redirect('/');
                     } else {
                         $status = 1;
                         $message = '';
@@ -74,14 +74,28 @@ class SignUpController extends PageController {
 
         switch ($this->getLocale()) {
             case 'zh-cn':
-                $rv = array();
+                $rv = array(
+                    'email_label' => '邮箱：',
+                    'passwd_label' => '密码：',
+                    'name_label' => '姓名：',
+                    'remember_me' => '记住密码',
+                    'submit_btn' => '注册');
                 break;
             case 'zh-tw':
-                $rv = array();
+                $rv = array(
+                    'email_label' => '郵箱：',
+                    'passwd_label' => '密碼：',
+                    'name_label' => '姓名：',
+                    'remember_me' => '記住密碼',
+                    'submit_btn' => '註冊');
                 break;
             default:
-                $rv = array();
-
+                $rv = array(
+                    'email_label' => 'Email:',
+                    'passwd_label' => 'Password:',
+                    'name_label' => 'Name:',
+                    'remember_me' => 'remember me',
+                    'submit_btn' => 'Register');
         }
 
         return $rv;

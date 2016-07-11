@@ -100,7 +100,10 @@ abstract class PageController {
                             'btn_header_signup' => '注册',
                             'btn_header_message' => '消息',
                             'btn_header_history' => '我的历史',
-                            'btn_signin_submit' => '登陆',
+                            'a_header_profile' => '编辑个人资料',
+                            'a_header_setting' => '帐号设定',
+                            'a_header_guildbook' => '指南',
+                            'a_header_signout' => '登出',
                             'btn_send_message' => '发送');
                 break;
             case 'zh-tw':
@@ -108,7 +111,10 @@ abstract class PageController {
                             'btn_header_signup' => 'Sign up',
                             'btn_header_message' => 'Message',
                             'btn_header_history' => 'History',
-                            'btn_signin_submit' => 'Sign in',
+                            'a_header_profile' => '編輯資料',
+                            'a_header_setting' => '帳號設定',
+                            'a_header_guildbook' => '指南',
+                            'a_header_signout' => '退出',
                             'btn_send_message' => 'Send');
                 break;
             default:
@@ -116,7 +122,10 @@ abstract class PageController {
                             'btn_header_signup' => 'Sign up',
                             'btn_header_message' => 'Message',
                             'btn_header_history' => 'History',
-                            'btn_signin_submit' => 'Sign in',
+                            'a_header_profile' => 'Edit Profile',
+                            'a_header_setting' => 'Account Settings',
+                            'a_header_guildbook' => 'My Guidebook',
+                            'a_header_signout' => 'Sign out',
                             'btn_send_message' => 'Send');
 
         }

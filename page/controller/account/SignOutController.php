@@ -3,7 +3,7 @@ class SignOutController extends PageController {
     protected function handle($params) {
         session_destroy();
         unset($_COOKIE['REMEMBERME']);
-        $this->redirect('/index');
+        $this->redirect('/');
     }
 
     protected function getTitle() {

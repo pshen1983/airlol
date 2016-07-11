@@ -5,7 +5,7 @@ class SignInController extends PageController {
         $message = '';
 
         if (ASession::isSignedIn()) {
-            $this->redirect('/index');
+            $this->redirect('/');
         }
 
         if ($this->isPost()) {
@@ -24,7 +24,7 @@ class SignInController extends PageController {
                             $this->saveRememberMeCookie();
                         }
 
-                        $this->redirect('/index');
+                        $this->redirect('/');
                     } else {
                         $status = 1;
                         $message = '';
@@ -43,8 +43,7 @@ class SignInController extends PageController {
         View::addCss('account.css');
 
         View::factory('account/signin',
-            array('submit'  => 'register',
-                  'status'  => $status,
+            array('status'  => $status,
                   'message' => $message)
         );
     }
@@ -65,13 +64,25 @@ class SignInController extends PageController {
 
         switch ($this->getLocale()) {
             case 'zh-cn':
-                $rv = array();
+                $rv = array(
+                    'email_label' => '邮箱：',
+                    'passwd_label' => '密码：',
+                    'remember_me' => '记住密码',
+                    'submit_btn' => '登入');
                 break;
             case 'zh-tw':
-                $rv = array();
+                $rv = array(
+                    'email_label' => '郵箱：',
+                    'passwd_label' => '密碼：',
+                    'remember_me' => '記住密碼',
+                    'submit_btn' => '登入');
                 break;
             default:
-                $rv = array();
+                $rv = array(
+                    'email_label' => 'Email:',
+                    'passwd_label' => 'Password:',
+                    'remember_me' => 'remember me',
+                    'submit_btn' => 'Submit');
 
         }
 
