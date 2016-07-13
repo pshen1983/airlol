@@ -96,7 +96,7 @@ abstract class PageController {
 
         switch ($this->getLocale()) {
             case 'zh-cn':
-                $rv = array('btn_header_signin' => '登陆',
+                $rv = array('btn_header_signin' => '登入',
                             'btn_header_signup' => '注册',
                             'btn_header_message' => '消息',
                             'btn_header_history' => '我的历史',
@@ -107,10 +107,10 @@ abstract class PageController {
                             'btn_send_message' => '发送');
                 break;
             case 'zh-tw':
-                $rv = array('btn_header_signin' => 'Sign in',
-                            'btn_header_signup' => 'Sign up',
-                            'btn_header_message' => 'Message',
-                            'btn_header_history' => 'History',
+                $rv = array('btn_header_signin' => '登入',
+                            'btn_header_signup' => '註冊',
+                            'btn_header_message' => '消息',
+                            'btn_header_history' => '我的歷史',
                             'a_header_profile' => '編輯資料',
                             'a_header_setting' => '帳號設定',
                             'a_header_guildbook' => '指南',

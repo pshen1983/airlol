@@ -1,0 +1,50 @@
+div#outer {
+    margin-top:100px;
+    margin-bottom:100px;
+}
+div#sign {
+    margin: auto;
+    width: 500px;
+    background-color: white;
+    padding:30px;
+}
+div#sign h4 {
+    text-align: center;
+}
+div#sign form {
+    margin: auto;
+    width:100%;
+}
+div#sign input.inputbox {
+    display:block;
+    width:100%;
+    padding:10px;
+    margin-top:20px;
+}
+div#sign div#bottom_div {
+    margin-top:20px;
+}
+div#sign input#remember {
+    margin-left:10px;
+    margin-right:3px;
+}
+div#sign input#submit_btn {
+    outline:none;
+    float:right;
+    background-color:#ffa64d;
+    border: 0;
+    color:white;
+    margin-right:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    min-width: 160px;
+    font-weight: bold;
+}
+div#sign input#submit_btn:active {
+    background-color:#E89746    ;
+}
+div#sign div#forget_div {
+    margin-top:50px;
+    text-align: center;
+    font-size:13px;
+}

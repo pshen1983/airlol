@@ -8,7 +8,7 @@ body {
     background-color:#f5f5f5;
 }
 div#body {
-    min-height:400px;
+    min-height:600px;
 }
 #header_login {
     margin-top: 5%;
@@ -20,6 +20,11 @@ div#body {
 .width {
     margin: 0 auto;
     max-width: 1020px;
+}
+.round_6 {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
 }
 a {
     text-decoration: none;

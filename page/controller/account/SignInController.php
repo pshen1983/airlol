@@ -65,24 +65,33 @@ class SignInController extends PageController {
         switch ($this->getLocale()) {
             case 'zh-cn':
                 $rv = array(
-                    'email_label' => '邮箱：',
-                    'passwd_label' => '密码：',
+                    'login_label' => '登入 AirLoL',
+                    'email_label' => '邮箱',
+                    'passwd_label' => '密码',
                     'remember_me' => '记住密码',
-                    'submit_btn' => '登入');
+                    'submit_btn' => '登入',
+                    'forget_link' => '忘记密码？',
+                    'signup_link' => '注册 AirLoL！');
                 break;
             case 'zh-tw':
                 $rv = array(
-                    'email_label' => '郵箱：',
-                    'passwd_label' => '密碼：',
+                    'login_label' => '登入 AirLoL',
+                    'email_label' => '郵箱',
+                    'passwd_label' => '密碼',
                     'remember_me' => '記住密碼',
-                    'submit_btn' => '登入');
+                    'submit_btn' => '登入',
+                    'forget_link' => '忘記密碼？',
+                    'signup_link' => '註冊 AirLoL！');
                 break;
             default:
                 $rv = array(
-                    'email_label' => 'Email:',
-                    'passwd_label' => 'Password:',
+                    'login_label' => 'Log into AirLoL',
+                    'email_label' => 'Email',
+                    'passwd_label' => 'Password',
                     'remember_me' => 'remember me',
-                    'submit_btn' => 'Submit');
+                    'submit_btn' => 'Submit',
+                    'forget_link' => 'Forget password?',
+                    'signup_link' => 'Sign up for AirLoL!');
 
         }
 

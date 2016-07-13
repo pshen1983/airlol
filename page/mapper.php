@@ -23,10 +23,10 @@ register('POST', '/register',        new SignUpController());
 register('GET',  '/logout',          new SignOutController());
 register('GET',  '/profile',         new ProfileController());
 register('POST', '/profile',         new ProfileController());
-register('GET',  '/forget_password', new ForgetPasswordController());
-register('POST', '/forget_password', new ForgetPasswordController());
-register('GET',  '/reset_password',  new ResetPasswordController());
-register('POST', '/reset_password',  new ResetPasswordController());
+register('GET',  '/forget-password', new ForgetPasswordController());
+register('POST', '/forget-password', new ForgetPasswordController());
+register('GET',  '/reset-password',  new ResetPasswordController());
+register('POST', '/reset-password',  new ResetPasswordController());
 
 // trip
 register('GET', '/trip/:tripid', new TripDetailController());
