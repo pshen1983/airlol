@@ -3,8 +3,8 @@
 <div id="sign">
 <h4><?=View::$content['login_label'] ?></h4>
 <form id="signin" method="post" action="/login">
-<input id="email" class="inputbox" name="email" placeholder="<?=View::$content['email_label'] ?>" />
-<input id="password" class="inputbox" name="password" placeholder="<?=View::$content['passwd_label'] ?>" type="password" />
+<input class="inputbox" name="email" placeholder="<?=View::$content['email_label'] ?>" />
+<input class="inputbox" name="password" placeholder="<?=View::$content['passwd_label'] ?>" type="password" />
 <div id="bottom_div">
 <input id="remember" name="remember" value="remember" type="checkbox" /> <?=View::$content['remember_me'] ?>
 <input id="submit_btn" class="round_6" type="submit" value="<?=View::$content['submit_btn'] ?>" />

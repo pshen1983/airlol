@@ -70,7 +70,7 @@ class SignInController extends PageController {
                     'passwd_label' => '密码',
                     'remember_me' => '记住密码',
                     'submit_btn' => '登入',
-                    'forget_link' => '忘记密码？',
+                    'forget_link' => '',
                     'signup_link' => '注册 AirLoL！');
                 break;
             case 'zh-tw':
@@ -78,7 +78,7 @@ class SignInController extends PageController {
                     'login_label' => '登入 AirLoL',
                     'email_label' => '郵箱',
                     'passwd_label' => '密碼',
-                    'remember_me' => '記住密碼',
+                    'remember_me' => '自動登入',
                     'submit_btn' => '登入',
                     'forget_link' => '忘記密碼？',
                     'signup_link' => '註冊 AirLoL！');
@@ -90,7 +90,7 @@ class SignInController extends PageController {
                     'passwd_label' => 'Password',
                     'remember_me' => 'remember me',
                     'submit_btn' => 'Submit',
-                    'forget_link' => 'Forget password?',
+                    'forget_link' => 'Forget Password?',
                     'signup_link' => 'Sign up for AirLoL!');
 
         }

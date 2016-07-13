@@ -1,6 +1,6 @@
 div#outer {
-    margin-top:100px;
-    margin-bottom:100px;
+    margin-top:60px;
+    margin-bottom:120px;
 }
 div#sign {
     margin: auto;
@@ -20,12 +20,13 @@ div#sign input.inputbox {
     width:100%;
     padding:10px;
     margin-top:20px;
+    outline: none;
+    border: 1px solid #dce0e0;
 }
 div#sign div#bottom_div {
     margin-top:20px;
 }
 div#sign input#remember {
-    margin-left:10px;
     margin-right:3px;
 }
 div#sign input#submit_btn {
@@ -34,7 +35,7 @@ div#sign input#submit_btn {
     background-color:#ffa64d;
     border: 0;
     color:white;
-    margin-right:10px;
+    margin-right:0px;
     padding-top:10px;
     padding-bottom:10px;
     min-width: 160px;
