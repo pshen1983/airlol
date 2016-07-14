@@ -15,8 +15,7 @@
 <body>
 <header class="theme">
 <div id="logo">
-<a href="/"><img style="width: 35px;vertical-align: text-bottom;margin-right:2px;" src="/page/img/logo-icon.png" />
-<span style="font-size:24px;font-weight:bold;color:#ffa64d;font-family:'Poppins',sans-serif;">airlol</span></a>
+<a href="/"><img src="/page/img/logo-icon.png" /><h1>airlol</h1></a>
 </div>
 <div>
 </div>

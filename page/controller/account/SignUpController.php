@@ -82,9 +82,10 @@ class SignUpController extends PageController {
             case 'zh-cn':
                 $rv = array(
                     'regi_label' => '注册 AirLoL',
-                    'email_label' => '邮箱：',
-                    'passwd_label' => '密码：',
-                    'name_label' => '姓名：',
+                    'email_label' => '邮箱',
+                    'passwd_label' => '密码',
+                    'passwd2_label' => '确认密码',
+                    'name_label' => '姓名',
                     'agree_label' => '同意',
                     'terms_link' => '網站服務條款',
                     'has_label' => '已注册 AirLoL 账户？',
@@ -94,9 +95,10 @@ class SignUpController extends PageController {
             case 'zh-tw':
                 $rv = array(
                     'regi_label' => '註冊 AirLoL',
-                    'email_label' => '郵箱：',
-                    'passwd_label' => '密碼：',
-                    'name_label' => '姓名：',
+                    'email_label' => '郵箱',
+                    'passwd_label' => '密碼',
+                    'passwd2_label' => '確認密碼',
+                    'name_label' => '姓名',
                     'agree_label' => '同意',
                     'terms_link' => '網站服務條款',
                     'has_label' => '已註冊 AirLoL 賬戶？',
@@ -106,9 +108,10 @@ class SignUpController extends PageController {
             default:
                 $rv = array(
                     'regi_label' => 'Sign up for AirLoL',
-                    'email_label' => 'Email:',
-                    'passwd_label' => 'Password:',
-                    'name_label' => 'Name:',
+                    'email_label' => 'Email',
+                    'passwd_label' => 'Password',
+                    'passwd2_label' => 'Confirm Password',
+                    'name_label' => 'Name',
                     'agree_label' => 'I agree to AirLoL\'s ',
                     'terms_link' => 'Terms & Privacy',
                     'has_label' => 'Already have AirLoL account? ',

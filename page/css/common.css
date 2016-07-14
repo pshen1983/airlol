@@ -51,6 +51,18 @@ header div#logo:hover {
     background-color:#f5f5f5;
     cursor: pointer;
 }
+header div#logo img {
+    width: 32px;
+    vertical-align: text-bottom;
+    margin-right:5px;
+}
+header div#logo h1 {
+    display: inline;
+    font-size:24px;
+    font-weight:bold;
+    color:#ffa64d;
+    font-family:'Poppins',sans-serif;
+}
 header div#right {
     height: 60px;
     float: right;

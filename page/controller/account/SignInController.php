@@ -70,7 +70,7 @@ class SignInController extends PageController {
                     'passwd_label' => '密码',
                     'remember_me' => '记住密码',
                     'submit_btn' => '登入',
-                    'forget_link' => '',
+                    'forget_link' => '忘记密码？',
                     'signup_link' => '注册 AirLoL！');
                 break;
             case 'zh-tw':
