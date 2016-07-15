@@ -49,6 +49,9 @@ class ForgetPasswordController extends PageController {
                       'captcha' => $imgData)
             );
         } else {
+            $index = rand(1, 20);
+            ASession::set('forget_captcha', $index);
+            $imgData = Captcha::getBase64Image($index);
 
             View::factory('account/forgetpassword',
                 array('captcha' => $imgData)

@@ -91,49 +91,6 @@ abstract class PageController {
     }
 
 
-    private function getHeaderFooterContent() {
-        $rv = array();
-
-        switch ($this->getLocale()) {
-            case 'zh-cn':
-                $rv = array('btn_header_signin' => '登入',
-                            'btn_header_signup' => '注册',
-                            'btn_header_message' => '消息',
-                            'btn_header_history' => '我的历史',
-                            'a_header_profile' => '编辑个人资料',
-                            'a_header_setting' => '帐号设定',
-                            'a_header_guildbook' => '指南',
-                            'a_header_signout' => '登出',
-                            'btn_send_message' => '发送');
-                break;
-            case 'zh-tw':
-                $rv = array('btn_header_signin' => '登入',
-                            'btn_header_signup' => '註冊',
-                            'btn_header_message' => '消息',
-                            'btn_header_history' => '我的歷史',
-                            'a_header_profile' => '編輯資料',
-                            'a_header_setting' => '帳號設定',
-                            'a_header_guildbook' => '指南',
-                            'a_header_signout' => '退出',
-                            'btn_send_message' => 'Send');
-                break;
-            default:
-                $rv = array('btn_header_signin' => 'Sign in',
-                            'btn_header_signup' => 'Sign up',
-                            'btn_header_message' => 'Message',
-                            'btn_header_history' => 'History',
-                            'a_header_profile' => 'Edit Profile',
-                            'a_header_setting' => 'Account Settings',
-                            'a_header_guildbook' => 'My Guidebook',
-                            'a_header_signout' => 'Sign out',
-                            'btn_send_message' => 'Send');
-
-        }
-
-        return $rv;
-    }
-
-
     private function addUserParams() {
         $userDao = new UserDao(ASession::getSessionUserId());
 
@@ -151,6 +108,100 @@ abstract class PageController {
             $profileImage = $default_profile_img;
         }
         View::addParam(array('header_user_pic' => $profileImage));
+    }
+
+
+    private function getHeaderFooterContent() {
+        $rv = array();
+
+        switch ($this->getLocale()) {
+            case 'zh-cn':
+                $rv = array('btn_header_signin' => '登入',
+                            'btn_header_signup' => '注册',
+                            'btn_header_message' => '消息',
+                            'btn_header_history' => '我的历史',
+                            'a_header_profile' => '编辑个人资料',
+                            'a_header_setting' => '帐号设定',
+                            'a_header_guildbook' => '指南',
+                            'a_header_signout' => '登出',
+                            'btn_send_message' => '发送',
+                            'lable_footer_language' => '语言',
+                            'lable_footer_company' => '公司',
+                            'a_footer_about' => '公司概况',
+                            'a_footer_career' => '加入我们',
+                            'a_footer_feedback' => '意见反馈',
+                            'a_footer_contact' => '联系我们',
+                            'a_footer_terms' => '服務和隐私條款',
+                            'label_footer_traveller' => '行李空位',
+                            'a_footer_whyshare' => '为什么分享空位？',
+                            'a_footer_carrying' => '分享之道',
+                            'a_footer_responsible' => '分享义务',
+                            'a_footer_add' => '出行计划',
+                            'label_footer_sender' => '委托物品',
+                            'a_footer_what2send' => '什么适合委托',
+                            'a_footer_sending' => '委托之道',
+                            'a_footer_receiving' => '接收注意',
+                            'a_footer_quicksearch' => '找空位');
+                break;
+            case 'zh-tw':
+                $rv = array('btn_header_signin' => '登入',
+                            'btn_header_signup' => '註冊',
+                            'btn_header_message' => '消息',
+                            'btn_header_history' => '我的歷史',
+                            'a_header_profile' => '編輯資料',
+                            'a_header_setting' => '帳號設定',
+                            'a_header_guildbook' => '指南',
+                            'a_header_signout' => '退出',
+                            'btn_send_message' => '發送',
+                            'lable_footer_language' => '語言',
+                            'lable_footer_company' => '公司',
+                            'a_footer_about' => '公司概況',
+                            'a_footer_career' => '加入我們',
+                            'a_footer_feedback' => '意見反饋',
+                            'a_footer_contact' => '聯繫我們',
+                            'a_footer_terms' => '服務和隱私條款',
+                            'label_footer_traveller' => '行李空位',
+                            'a_footer_whyshare' => '為什麼分享空位？',
+                            'a_footer_carrying' => '分享之道',
+                            'a_footer_responsible' => '分享義務',
+                            'a_footer_add' => '出行計劃',
+                            'label_footer_sender' => '委託物品',
+                            'a_footer_what2send' => '什麼適合委託',
+                            'a_footer_sending' => '委託之道',
+                            'a_footer_receiving' => '接收注意',
+                            'a_footer_quicksearch' => '找空位');
+                break;
+            default:
+                $rv = array('btn_header_signin' => 'Sign in',
+                            'btn_header_signup' => 'Sign up',
+                            'btn_header_message' => 'Message',
+                            'btn_header_history' => 'History',
+                            'a_header_profile' => 'Edit Profile',
+                            'a_header_setting' => 'Account Settings',
+                            'a_header_guildbook' => 'My Guidebook',
+                            'a_header_signout' => 'Sign out',
+                            'btn_send_message' => 'Send',
+                            'lable_footer_language' => 'Language',
+                            'lable_footer_company' => 'Company',
+                            'a_footer_about' => 'About',
+                            'a_footer_career' => 'Career',
+                            'a_footer_feedback' => 'Feedback',
+                            'a_footer_contact' => 'Contact',
+                            'a_footer_terms' => 'Terms & Privacy',
+                            'label_footer_traveller' => 'Traveller',
+                            'a_footer_whyshare' => 'Why Share',
+                            'a_footer_carrying' => 'Carrying Tips',
+                            'a_footer_responsible' => 'Responsible Share',
+                            'a_footer_add' => 'Add a Trip',
+                            'label_footer_sender' => 'Sender',
+                            'a_footer_what2send' => 'What to Send',
+                            'a_footer_sending' => 'Sending Tips',
+                            'a_footer_receiving' => 'Receiving',
+                            'a_footer_quicksearch' => 'Quick Search');
+
+        }
+
+        return $rv;
     }
 
 

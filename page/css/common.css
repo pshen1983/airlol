@@ -146,6 +146,7 @@ footer h2 {
     font-size: 16px;
     line-height: 1.1;
     text-rendering: optimizelegibility;
+    padding-bottom:10px;
 }
 footer ul {
     list-style:none;
