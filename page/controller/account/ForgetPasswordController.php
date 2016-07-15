@@ -4,6 +4,9 @@ class ForgetPasswordController extends PageController {
         $status = 0;
         $message = '';
 
+        View::addJs('account.js');
+        View::addCss('account.css');
+
         if ($this->isPost()) {
             $email = $_POST['email'];
 
@@ -26,16 +29,20 @@ class ForgetPasswordController extends PageController {
                 $status = 3;
                 $message = '';
             }
+
+            View::factory('account/forgetpassword',
+                array('status'  => $status,
+                      'message' => $message)
+            );
+        } else {
+            $index = rand(1, 20);
+            ASession::set('forget_captcha', $index);
+            $imgData = Captcha::getBase64Image($index);
+
+            View::factory('account/forgetpassword',
+                array('captcha' => $imgData)
+            );
         }
-
-        View::addJs('account.js');
-        View::addCss('account.css');
-
-        View::factory('account/forgetpassword',
-            array('submit'  => 'Send',
-                  'status'  => $status,
-                  'message' => $message)
-        );
     }
 
     protected function getTitle() {
@@ -54,13 +61,16 @@ class ForgetPasswordController extends PageController {
 
         switch ($this->getLocale()) {
             case 'zh-cn':
-                $rv = array();
+                $rv = array('title_label' => 'Forget Password',
+                            'submit'  => 'Send');
                 break;
             case 'zh-tw':
-                $rv = array();
+                $rv = array('title_label' => 'Forget Password',
+                            'submit'  => 'Send');
                 break;
             default:
-                $rv = array();
+                $rv = array('title_label' => 'Forget Password',
+                            'submit'  => 'Send');
 
         }
 

@@ -2,6 +2,20 @@ div#outer {
     margin-top:60px;
     margin-bottom:120px;
 }
+div#outer img.captcha {
+    display: inline-block;
+    vertical-align: middle;
+}
+div#outer input.captcha_input {
+    display: inline-block;
+    vertical-align: middle;
+    border:1px solid gray;
+    height:30px;
+    width:36px;
+    font-size: 18px;
+    outline: none;
+    text-align:center;
+}
 div#sign {
     margin: auto;
     width: 500px;

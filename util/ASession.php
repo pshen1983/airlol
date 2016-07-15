@@ -18,5 +18,13 @@ class ASession {
     public static function setSessionUserId($userId) {
         $_SESSION['uid'] = $userId;
     }
+
+    public static function set($name, $val) {
+        $_SESSION[$name] = $val;
+    }
+
+    public static function get($name) {
+        return $_SESSION[$name];
+    }
 }
 ?>
