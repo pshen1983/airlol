@@ -7,6 +7,10 @@ class ForgetPasswordController extends PageController {
         View::addJs('account.js');
         View::addCss('account.css');
 
+        $index = rand(1, 20);
+        ASession::set('forget_captcha', $index);
+        $imgData = Captcha::getBase64Image($index);
+
         if ($this->isPost()) {
             $email = $_POST['email'];
 
@@ -32,12 +36,10 @@ class ForgetPasswordController extends PageController {
 
             View::factory('account/forgetpassword',
                 array('status'  => $status,
-                      'message' => $message)
+                      'message' => $message,
+                      'captcha' => $imgData)
             );
         } else {
-            $index = rand(1, 20);
-            ASession::set('forget_captcha', $index);
-            $imgData = Captcha::getBase64Image($index);
 
             View::factory('account/forgetpassword',
                 array('captcha' => $imgData)

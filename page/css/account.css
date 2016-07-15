@@ -1,3 +1,6 @@
+input {
+    outline: none;
+}
 div#outer {
     margin-top:60px;
     margin-bottom:120px;
@@ -13,7 +16,6 @@ div#outer input.captcha_input {
     height:30px;
     width:36px;
     font-size: 18px;
-    outline: none;
     text-align:center;
 }
 div#sign {
@@ -34,7 +36,6 @@ div#sign input.inputbox {
     width:100%;
     padding:10px;
     margin-top:20px;
-    outline: none;
     border: 1px solid #dce0e0;
 }
 div#sign div#bottom_div {
@@ -44,7 +45,6 @@ div#sign input#remember {
     margin-right:3px;
 }
 div#sign input#submit_btn {
-    outline:none;
     float:right;
     background-color:#ffa64d;
     border: 0;
