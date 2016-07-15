@@ -7,24 +7,29 @@ class ForgetPasswordController extends PageController {
         View::addJs('account.js');
         View::addCss('account.css');
 
-        $index = rand(1, 20);
-        ASession::set('forget_captcha', $index);
-        $imgData = Captcha::getBase64Image($index);
-
         if ($this->isPost()) {
             $email = $_POST['email'];
 
             $validEmail = Format::isValidEmail($email);
+
             if ($validEmail) {
-                $userDao = UserDao::getUserByEmail($email);
-                if ($userDao) {
-                    $name = $userDao->getName();
-                    $token = $this->resetPassword($email);
+                $answer = $_POST['captcha'];
+                $index = ASession::get('forget_captcha');
 
-                    Mailer::sendResetPasswordEmail($email, $name, $token);
+                if ($answer == Captcha::getAnswer($index)) {
+                    $userDao = UserDao::getUserByEmail($email);
 
-                    $status = 1;
-                    $message = '';
+                    if ($userDao) {
+                        $name = $userDao->getName();
+                        $token = $this->resetPassword($email);
+
+                        Mailer::sendResetPasswordEmail($email, $name, $token);
+
+                        $message = '';
+                    } else {
+                        $status = 1;
+                        $message = '';
+                    }
                 } else {
                     $status = 2;
                     $message = '';
@@ -33,6 +38,10 @@ class ForgetPasswordController extends PageController {
                 $status = 3;
                 $message = '';
             }
+
+            $index = rand(1, 20);
+            ASession::set('forget_captcha', $index);
+            $imgData = Captcha::getBase64Image($index);
 
             View::factory('account/forgetpassword',
                 array('status'  => $status,
