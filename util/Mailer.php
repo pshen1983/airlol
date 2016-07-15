@@ -43,7 +43,7 @@ $html =
         <div style="font-size:12px;padding:10px 0 0 0">You have resently request for a password reset on . if you did not submit this request, please ignore this email.</div>
         <div style="font-size:12px;padding:10px 0 0 0">To reset your password, click on the link below. The link is valid for <b>15 mins</b>. In the event you are unable to confirm your registration within the specified period, please submit another password reset request.</div>
         <div style="padding:10px 0px 0px 0px;word-wrap:break-word">
-            <a href="http://'.$base_url.'/reset_password?p='.md5($email).'&token='.$token.'" style="color:#00f" target="_blank">
+            <a href="http://'.$base_url.'/reset-password?p='.md5($email).'&token='.$token.'" style="color:#00f" target="_blank">
                 <span style="font-size:12px;text-decoration:underline;margin:0px;word-wrap:break-word;color:#00f">Reset Your Password</span>
             </a>
         </div>
