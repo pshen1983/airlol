@@ -23,6 +23,7 @@ div#sign {
     width: 500px;
     background-color: white;
     padding:30px;
+    padding-bottom:40px;
 }
 div#sign h4 {
     text-align: center;
