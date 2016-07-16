@@ -3,7 +3,7 @@ class TripDetailController extends PageController {
 
     protected function handle($params) {
 
-        View::setTitle('AirLOL Home Page');
+        View::setTitle('AirLoL Home Page');
         View::addJs('trip.js');
         View::addCss('trip.css');
 

@@ -59,8 +59,7 @@ class ResetPasswordController extends PageController {
         View::addCss('account.css');
 
         View::factory('account/resetpassword',
-            array('submit'  => 'Submit',
-                  'status'  => $status,
+            array('status'  => $status,
                   'message' => $message,
                   'p' => $p,
                   'token' => $token)
@@ -83,13 +82,22 @@ class ResetPasswordController extends PageController {
 
         switch ($this->getLocale()) {
             case 'zh-cn':
-                $rv = array();
+                $rv = array('reset_label' => '密码重置',
+                            'passwd0_label' => '新密码',
+                            'passwd1_label' => '再次输入密码',
+                            'submit_label' => '确定');
                 break;
             case 'zh-tw':
-                $rv = array();
+                $rv = array('reset_label' => '密碼重置',
+                            'passwd0_label' => '新密碼',
+                            'passwd1_label' => '再次輸入密碼',
+                            'submit_label' => '確定');
                 break;
             default:
-                $rv = array();
+                $rv = array('reset_label' => 'Reset Password',
+                            'passwd0_label' => 'New Password',
+                            'passwd1_label' => 'Re-enter Password',
+                            'submit_label' => 'Submit');
 
         }
 
