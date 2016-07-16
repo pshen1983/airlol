@@ -7,7 +7,7 @@
 <input class="inputbox" name="password" placeholder="<?=View::$content['passwd_label'] ?>" type="password" />
 <div id="bottom_div">
 <input id="remember" name="remember" value="remember" type="checkbox" /> <?=View::$content['remember_me'] ?>
-<input id="submit_btn" class="round_6" type="submit" value="<?=View::$content['submit_btn'] ?>" />
+<input class="round_6 short_btn" type="submit" value="<?=View::$content['submit_btn'] ?>" />
 </div>
 <div id="forget_div"><a href="/forget-password"><?=View::$content['forget_link'] ?></a> | <a href="/register"><?=View::$content['signup_link'] ?></a></div>
 </form>

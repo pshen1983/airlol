@@ -44,7 +44,7 @@ div#sign div#bottom_div {
 div#sign input#remember {
     margin-right:3px;
 }
-div#sign input#submit_btn {
+div#sign input.short_btn {
     float:right;
     background-color:#ffa64d;
     border: 0;
@@ -55,11 +55,30 @@ div#sign input#submit_btn {
     min-width: 160px;
     font-weight: bold;
 }
-div#sign input#submit_btn:active {
+div#sign input.short_btn:active {
+    background-color:#E89746    ;
+}
+div#sign input.long_btn {
+    background-color:#ffa64d;
+    border: 0;
+    color:white;
+    margin-right:0px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-weight: bold;
+    width: 100%;
+    margin-top:30px;
+}
+div#sign input.long_btn:active {
     background-color:#E89746    ;
 }
 div#sign div#forget_div {
     margin-top:50px;
     text-align: center;
     font-size:13px;
+}
+div#sign span#no_robot {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10px;
 }

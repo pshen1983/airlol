@@ -75,15 +75,27 @@ class ForgetPasswordController extends PageController {
 
         switch ($this->getLocale()) {
             case 'zh-cn':
-                $rv = array('title_label' => 'Forget Password',
-                            'submit'  => 'Send');
+                $rv = array('title_label' => '发送找回密码连接',
+                            'email_label' => '邮箱',
+                            'value_label' => '（输入结果确认要找回密码）',
+                            'has_label' => '已注册 AirLoL 账户？',
+                            'signin_link' => '立即登入',
+                            'submit'  => '发送');
                 break;
             case 'zh-tw':
-                $rv = array('title_label' => 'Forget Password',
-                            'submit'  => 'Send');
+                $rv = array('title_label' => '發送找回密碼連接',
+                            'email_label' => '郵箱',
+                            'value_label' => '（輸入結果確認要找回密碼）',
+                            'has_label' => '已註冊 AirLoL 賬戶？',
+                            'signin_link' => '立即登入',
+                            'submit'  => '發送');
                 break;
             default:
-                $rv = array('title_label' => 'Forget Password',
+                $rv = array('title_label' => 'Send Reset Password Link',
+                            'email_label' => 'Email',
+                            'value_label' => '( Enter result to verify action )',
+                            'has_label' => 'Already have AirLoL account? ',
+                            'signin_link' => 'Sign in now',
                             'submit'  => 'Send');
 
         }

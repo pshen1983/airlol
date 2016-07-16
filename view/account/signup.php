@@ -9,7 +9,7 @@
 <input class="inputbox" name="password2" placeholder="<?=View::$content['passwd2_label'] ?>" type="password" />
 <div id="bottom_div">
 <input id="remember" name="remember" value="remember" type="checkbox" /> <?=View::$content['agree_label'] ?><a target="_blank" href="/terms"><?=View::$content['terms_link'] ?></a>
-<input id="submit_btn" class="round_6" type="submit" value="<?=View::$content['submit_btn'] ?>" />
+<input class="round_6 short_btn" type="submit" value="<?=View::$content['submit_btn'] ?>" />
 </div>
 <div id="forget_div"><?=View::$content['has_label'] ?><a href="/login"><?=View::$content['signin_link'] ?></a></div>
 </form>
