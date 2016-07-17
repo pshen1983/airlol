@@ -39,11 +39,16 @@ class SignInController extends PageController {
             }
         }
 
+        if ($_GET['e']) {
+            $gEmail = urldecode($_GET['e']);
+        }
+
         View::addJs('account.js');
         View::addCss('account.css');
 
         View::factory('account/signin',
-            array('status'  => $status,
+            array('email' => isset($gEmail) ? $gEmail : null,
+                  'status'  => $status,
                   'message' => $message)
         );
     }

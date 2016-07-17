@@ -36,7 +36,7 @@ class ResetPasswordController extends PageController {
                         $userDao->setPassword($passwd0);
                         if ($userDao->save()) {
                             Cacher::instance()->delete($_POST['p']);
-                            $message = '';
+                            $this->redirect('/login?e='.urlencode($token['email']));
                         } else {
                             $status = 3;
                             $message = '';
