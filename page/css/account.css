@@ -25,6 +25,10 @@ div#sign {
     padding:30px;
     padding-bottom:40px;
 }
+div#sign .error {
+    color:red;
+    padding-bottom:10px;
+}
 div#sign h4 {
     text-align: center;
 }

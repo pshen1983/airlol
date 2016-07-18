@@ -27,15 +27,12 @@ class SignInController extends PageController {
                         $this->redirect('/');
                     } else {
                         $status = 1;
-                        $message = '';
                     }
                 } else {
                     $status = 2;
-                    $message = '';
                 }
             } else {
                 $status = 3;
-                $message = '';
             }
         }
 
@@ -46,11 +43,7 @@ class SignInController extends PageController {
         View::addJs('account.js');
         View::addCss('account.css');
 
-        View::factory('account/signin',
-            array('email' => isset($gEmail) ? $gEmail : null,
-                  'status'  => $status,
-                  'message' => $message)
-        );
+        View::factory('account/signin', array('email' => isset($gEmail) ? $gEmail : null, 'status'  => $status));
     }
 
     protected function getTitle() {
@@ -76,7 +69,11 @@ class SignInController extends PageController {
                     'remember_me' => '记住密码',
                     'submit_btn' => '登入',
                     'forget_link' => '忘记密码？',
-                    'signup_link' => '注册 AirLoL！');
+                    'signup_link' => '注册 AirLoL！',
+                    'status_msg' => array(
+                        1 => 'x 用户邮箱与所提供密码不符。',
+                        2 => 'x 用户邮箱不存在，<a href="/register">马上注册</a>',
+                        3 => 'x 用户邮箱格式有误，请确认后重试。'));
                 break;
             case 'zh-tw':
                 $rv = array(
@@ -86,7 +83,11 @@ class SignInController extends PageController {
                     'remember_me' => '自動登入',
                     'submit_btn' => '登入',
                     'forget_link' => '忘記密碼？',
-                    'signup_link' => '註冊 AirLoL！');
+                    'signup_link' => '註冊 AirLoL！',
+                    'status_msg' => array(
+                        1 => 'x 用戶郵箱與所提供密碼不符。 ',
+                        2 => 'x 用戶郵箱不存在，<a href="/register">馬上註冊</a>',
+                        3 => 'x 用戶郵箱格式有誤，請確認後重試。'));
                 break;
             default:
                 $rv = array(
@@ -96,8 +97,11 @@ class SignInController extends PageController {
                     'remember_me' => 'remember me',
                     'submit_btn' => 'Submit',
                     'forget_link' => 'Forget Password?',
-                    'signup_link' => 'Sign up for AirLoL!');
-
+                    'signup_link' => 'Sign up for AirLoL!',
+                    'status_msg' => array(
+                        1 => 'x Invalid Email and Password Combination.',
+                        2 => 'x Email not Found. <a href="/register">Sign up for AirLoL now</a>',
+                        3 => 'x Invalid Email format, please confirm and try again.'));
         }
 
         return $rv;

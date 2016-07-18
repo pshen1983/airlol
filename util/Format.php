@@ -6,7 +6,11 @@ class Format {
     }
 
     public static function isValidPassword($passwd) {
-        return true;
+        $valid = true;
+
+        $valid = strlen($passwd) >= 6;
+
+        return $valid;
     }
 
     public static function isValidMySQLDate($date, $isFuture=false) {
