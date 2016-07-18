@@ -83,12 +83,12 @@ class SignUpController extends PageController {
                     'signin_link' => '立即登入',
                     'submit_btn' => '注册',
                     'status_msg' => array(
-                        1 => 'x 系统错误，暂时无法注册，请稍后再试。',
-                        2 => 'x 用户邮箱已注册，<a href="/login">马上登入</a>',
-                        3 => 'x 密码格式有误。',
-                        4 => 'x 用户邮箱格式有误。',
-                        5 => 'x 两次输入的密码不同。',
-                        6 => 'x 请阅读并同意 AirLoL 的网站服务条款。'));
+                        1 => '* 系统错误，暂时无法注册，请稍后再试。',
+                        2 => '* 用户邮箱已注册，<a href="/login">马上登入</a>',
+                        3 => '* 密码格式有误。',
+                        4 => '* 用户邮箱格式有误。',
+                        5 => '* 两次输入的密码不同。',
+                        6 => '* 请阅读并同意 AirLoL 的网站服务条款。'));
                 break;
             case 'zh-tw':
                 $rv = array(
@@ -103,12 +103,12 @@ class SignUpController extends PageController {
                     'signin_link' => '立即登入',
                     'submit_btn' => '註冊',
                     'status_msg' => array(
-                        1 => 'x 系統錯誤，暫時無法註冊，請稍後再試。',
-                        2 => 'x 用戶郵箱已註冊，<a href="/login">馬上登入</a>',
-                        3 => 'x 密碼格式有誤。',
-                        4 => 'x 用戶郵箱格式有誤。',
-                        5 => 'x 兩次輸入的密碼不同。',
-                        6 => 'x 請閱讀並同意 AirLoL 的網站服務條款。'));
+                        1 => '* 系統錯誤，暫時無法註冊，請稍後再試。',
+                        2 => '* 用戶郵箱已註冊，<a href="/login">馬上登入</a>',
+                        3 => '* 密碼格式有誤。',
+                        4 => '* 用戶郵箱格式有誤。',
+                        5 => '* 兩次輸入的密碼不同。',
+                        6 => '* 請閱讀並同意 AirLoL 的網站服務條款。'));
                 break;
             default:
                 $rv = array(
@@ -123,12 +123,12 @@ class SignUpController extends PageController {
                     'signin_link' => 'Sign in now',
                     'submit_btn' => 'Submit',
                     'status_msg' => array(
-                        1 => 'x System Error, please try again later.',
-                        2 => 'x Email already exist, <a href="/login">Sign in now</a>',
-                        3 => 'x Invalid Password format.',
-                        4 => 'x Invalid Email format.',
-                        5 => 'x Two Passwords entered are not the same.',
-                        6 => 'x Please read and agree to AirLoL\'s Terms & Privacy.'));
+                        1 => '* System Error, please try again later.',
+                        2 => '* Email already exist, <a href="/login">Sign in now</a>',
+                        3 => '* Invalid Password format.',
+                        4 => '* Invalid Email format.',
+                        5 => '* Two Passwords entered are not the same.',
+                        6 => '* Please read and agree to AirLoL\'s Terms & Privacy.'));
         }
 
         return $rv;

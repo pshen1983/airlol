@@ -1,8 +1,7 @@
 <?php
 class ForgetPasswordController extends PageController {
     protected function handle($params) {
-        $status = 0;
-        $message = '';
+        $status = null;
 
         View::addJs('account.js');
         View::addCss('account.css');
@@ -24,39 +23,24 @@ class ForgetPasswordController extends PageController {
                         $token = $this->resetPassword($email);
 
                         Mailer::sendResetPasswordEmail($email, $name, $token);
-
-                        $message = '';
+                        $status = 0;
                     } else {
                         $status = 1;
-                        $message = '';
                     }
                 } else {
                     $status = 2;
-                    $message = '';
                 }
             } else {
                 $status = 3;
-                $message = '';
             }
 
-            $index = rand(1, 20);
-            ASession::set('forget_captcha', $index);
-            $imgData = Captcha::getBase64Image($index);
-
-            View::factory('account/forgetpassword',
-                array('status'  => $status,
-                      'message' => $message,
-                      'captcha' => $imgData)
-            );
-        } else {
-            $index = rand(1, 20);
-            ASession::set('forget_captcha', $index);
-            $imgData = Captcha::getBase64Image($index);
-
-            View::factory('account/forgetpassword',
-                array('captcha' => $imgData)
-            );
         }
+
+        $index = rand(1, 20);
+        ASession::set('forget_captcha', $index);
+        $imgData = Captcha::getBase64Image($index);
+
+        View::factory('account/forgetpassword', array('status'  => $status, 'captcha' => $imgData) );
     }
 
     protected function getTitle() {
@@ -80,7 +64,12 @@ class ForgetPasswordController extends PageController {
                             'value_label' => '（输入结果确认要找回密码）',
                             'has_label' => '已注册 AirLoL 账户？',
                             'signin_link' => '立即登入',
-                            'submit'  => '发送');
+                            'submit'  => '发送',
+                            'status_msg' => array(
+                                0 => '✓ 重置密码邮件已发送，请查看邮箱。',
+                                1 => '* 用户邮箱不存在，<a href="/register">马上注册</a>',
+                                2 => '* 输入计算结果有误，请重试。',
+                                3 => '* 用户邮箱格式有误，请重试。'));
                 break;
             case 'zh-tw':
                 $rv = array('title_label' => '發送找回密碼連接',

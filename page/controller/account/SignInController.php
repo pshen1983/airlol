@@ -71,9 +71,9 @@ class SignInController extends PageController {
                     'forget_link' => '忘记密码？',
                     'signup_link' => '注册 AirLoL！',
                     'status_msg' => array(
-                        1 => 'x 用户邮箱与所提供密码不符。',
-                        2 => 'x 用户邮箱不存在，<a href="/register">马上注册</a>',
-                        3 => 'x 用户邮箱格式有误，请确认后重试。'));
+                        1 => '* 用户邮箱与所提供密码不符。',
+                        2 => '* 用户邮箱不存在，<a href="/register">马上注册</a>',
+                        3 => '* 用户邮箱格式有误，请确认后重试。'));
                 break;
             case 'zh-tw':
                 $rv = array(
@@ -85,9 +85,9 @@ class SignInController extends PageController {
                     'forget_link' => '忘記密碼？',
                     'signup_link' => '註冊 AirLoL！',
                     'status_msg' => array(
-                        1 => 'x 用戶郵箱與所提供密碼不符。 ',
-                        2 => 'x 用戶郵箱不存在，<a href="/register">馬上註冊</a>',
-                        3 => 'x 用戶郵箱格式有誤，請確認後重試。'));
+                        1 => '* 用戶郵箱與所提供密碼不符。 ',
+                        2 => '* 用戶郵箱不存在，<a href="/register">馬上註冊</a>',
+                        3 => '* 用戶郵箱格式有誤，請確認後重試。'));
                 break;
             default:
                 $rv = array(
@@ -99,9 +99,9 @@ class SignInController extends PageController {
                     'forget_link' => 'Forget Password?',
                     'signup_link' => 'Sign up for AirLoL!',
                     'status_msg' => array(
-                        1 => 'x Invalid Email and Password Combination.',
-                        2 => 'x Email not Found. <a href="/register">Sign up for AirLoL now</a>',
-                        3 => 'x Invalid Email format, please confirm and try again.'));
+                        1 => '* Invalid Email and Password Combination.',
+                        2 => '* Email not Found. <a href="/register">Sign up for AirLoL now</a>',
+                        3 => '* Invalid Email format, please confirm and try again.'));
         }
 
         return $rv;
