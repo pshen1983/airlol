@@ -9,10 +9,15 @@ abstract class UserGenerated extends AirlolDaoBase {
         $this->var['password'] = NULL;
         $this->var['name'] = NULL;
         $this->var['profile_img'] = NULL;
+        $this->var['birth_day'] = NULL;
         $this->var['tel'] = NULL;
         $this->var['wechat'] = NULL;
-        $this->var['weibo'] = NULL;
-        $this->var['preferred'] = NULL;
+        $this->var['preferred_language'] = NULL;
+        $this->var['preferred_currency'] = NULL;
+        $this->var['preferred_timezone'] = NULL;
+        $this->var['preferred_method'] = NULL;
+        $this->var['living_city'] = NULL;
+        $this->var['self_description'] = NULL;
         $this->var['create_time'] = NULL;
 
         $this->update['id'] = false;
@@ -20,10 +25,15 @@ abstract class UserGenerated extends AirlolDaoBase {
         $this->update['password'] = false;
         $this->update['name'] = false;
         $this->update['profile_img'] = false;
+        $this->update['birth_day'] = false;
         $this->update['tel'] = false;
         $this->update['wechat'] = false;
-        $this->update['weibo'] = false;
-        $this->update['preferred'] = false;
+        $this->update['preferred_language'] = false;
+        $this->update['preferred_currency'] = false;
+        $this->update['preferred_timezone'] = false;
+        $this->update['preferred_method'] = false;
+        $this->update['living_city'] = false;
+        $this->update['self_description'] = false;
         $this->update['create_time'] = false;
     }
 
@@ -71,6 +81,16 @@ abstract class UserGenerated extends AirlolDaoBase {
         return $this->var['profile_img'];
     }
 
+    public function setBirthDay($birth_day) {
+        if ($this->var['birth_day'] !== $birth_day) {
+            $this->var['birth_day'] = $birth_day;
+            $this->update['birth_day'] = true;
+        }
+    }
+    public function getBirthDay() {
+        return $this->var['birth_day'];
+    }
+
     public function setTel($tel) {
         if ($this->var['tel'] !== $tel) {
             $this->var['tel'] = $tel;
@@ -91,24 +111,64 @@ abstract class UserGenerated extends AirlolDaoBase {
         return $this->var['wechat'];
     }
 
-    public function setWeibo($weibo) {
-        if ($this->var['weibo'] !== $weibo) {
-            $this->var['weibo'] = $weibo;
-            $this->update['weibo'] = true;
+    public function setPreferredLanguage($preferred_language) {
+        if ($this->var['preferred_language'] !== $preferred_language) {
+            $this->var['preferred_language'] = $preferred_language;
+            $this->update['preferred_language'] = true;
         }
     }
-    public function getWeibo() {
-        return $this->var['weibo'];
+    public function getPreferredLanguage() {
+        return $this->var['preferred_language'];
     }
 
-    public function setPreferred($preferred) {
-        if ($this->var['preferred'] !== $preferred) {
-            $this->var['preferred'] = $preferred;
-            $this->update['preferred'] = true;
+    public function setPreferredCurrency($preferred_currency) {
+        if ($this->var['preferred_currency'] !== $preferred_currency) {
+            $this->var['preferred_currency'] = $preferred_currency;
+            $this->update['preferred_currency'] = true;
         }
     }
-    public function getPreferred() {
-        return $this->var['preferred'];
+    public function getPreferredCurrency() {
+        return $this->var['preferred_currency'];
+    }
+
+    public function setPreferredTimezone($preferred_timezone) {
+        if ($this->var['preferred_timezone'] !== $preferred_timezone) {
+            $this->var['preferred_timezone'] = $preferred_timezone;
+            $this->update['preferred_timezone'] = true;
+        }
+    }
+    public function getPreferredTimezone() {
+        return $this->var['preferred_timezone'];
+    }
+
+    public function setPreferredMethod($preferred_method) {
+        if ($this->var['preferred_method'] !== $preferred_method) {
+            $this->var['preferred_method'] = $preferred_method;
+            $this->update['preferred_method'] = true;
+        }
+    }
+    public function getPreferredMethod() {
+        return $this->var['preferred_method'];
+    }
+
+    public function setLivingCity($living_city) {
+        if ($this->var['living_city'] !== $living_city) {
+            $this->var['living_city'] = $living_city;
+            $this->update['living_city'] = true;
+        }
+    }
+    public function getLivingCity() {
+        return $this->var['living_city'];
+    }
+
+    public function setSelfDescription($self_description) {
+        if ($this->var['self_description'] !== $self_description) {
+            $this->var['self_description'] = $self_description;
+            $this->update['self_description'] = true;
+        }
+    }
+    public function getSelfDescription() {
+        return $this->var['self_description'];
     }
 
     public function setCreateTime($create_time) {

@@ -91,3 +91,26 @@ div#sign span#no_robot {
     vertical-align: middle;
     padding-left: 10px;
 }
+div#profile_left {
+    float:right;
+    width: 200px;
+    height: 200px;
+    background: green;
+}
+.table{
+  display:table;         
+  width:auto;        
+  border-spacing:5px;
+}
+.row{
+  display:table-row;
+}
+.cell{
+  float:left;
+  display:table-column;         
+  min-width:200px;
+}
+.text-right {
+    text-align: right;
+    padding-right:15px;
+}
