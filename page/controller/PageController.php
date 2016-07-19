@@ -63,15 +63,6 @@ abstract class PageController {
     }
 
 
-    private function cookieLogin() {
-        $token = $_COOKIE['REMEMBERME'];
-        $cookieTokenDao = CookieTokenDao::getRememberMeTokenByValue($token);
-        if ($cookieTokenDao) {
-            ASession::setSessionUserId($cookieTokenDao->getUserId());
-        }
-    }
-
-
     protected function getLocale() {
         if (isset($_COOKIE['locale'])) {
             $lang = $_COOKIE['locale'];
@@ -88,6 +79,24 @@ abstract class PageController {
         }
 
         return $lang;
+    }
+
+
+    protected function logoutCookie() {
+        $token = $_COOKIE['REMEMBERME'];
+        $cookieTokenDao = CookieTokenDao::getRememberMeTokenByValue($token);
+        if ($cookieTokenDao) {
+            $cookieTokenDao->delete();
+        }
+    }
+
+
+    private function cookieLogin() {
+        $token = $_COOKIE['REMEMBERME'];
+        $cookieTokenDao = CookieTokenDao::getRememberMeTokenByValue($token);
+        if ($cookieTokenDao) {
+            ASession::setSessionUserId($cookieTokenDao->getUserId());
+        }
     }
 
 
@@ -205,8 +214,8 @@ abstract class PageController {
     }
 
 
-    protected function getContent() {}
-    protected function getTitle() {}
+    protected function getContent() { return array(); }
+    protected function getTitle() { return ''; }
 
     abstract protected function handle($params);
 }

@@ -36,7 +36,7 @@ class SignInController extends PageController {
             }
         }
 
-        if ($_GET['e']) {
+        if (isset($_GET['e'])) {
             $gEmail = urldecode($_GET['e']);
         }
 

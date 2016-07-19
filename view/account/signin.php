@@ -8,7 +8,7 @@
 <input class="inputbox" tabindex="1" name="email" placeholder="<?=View::$content['email_label'] ?>" value="<?=(isset($params['email']) ? $params['email'] : '') ?>"/>
 <input class="inputbox" tabindex="2" name="password" placeholder="<?=View::$content['passwd_label'] ?>" type="password" <?=(isset($params['email']) ? 'autofocus' : '') ?>/>
 <div id="bottom_div">
-<input id="remember" tabindex="3" name="remember" value="remember" type="checkbox" /> <?=View::$content['remember_me'] ?>
+<input id="remember" tabindex="3" name="remember" value="remember" type="checkbox" checked /> <?=View::$content['remember_me'] ?>
 <input class="round_6 short_btn" tabindex="4" type="submit" value="<?=View::$content['submit_btn'] ?>" />
 </div>
 <div id="forget_div"><a tabindex="5" href="/forget-password"><?=View::$content['forget_link'] ?></a> | <a tabindex="6" href="/register"><?=View::$content['signup_link'] ?></a></div>
