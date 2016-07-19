@@ -46,16 +46,19 @@ class SignInController extends PageController {
         View::factory('account/signin', array('email' => isset($gEmail) ? $gEmail : null, 'status'  => $status));
     }
 
+// ===================================================================================================================
+
     protected function getTitle() {
         switch ($this->getLocale()) {
             case 'zh-cn':
-                return "";
+                return "AirLoL | 登入";
             case 'zh-tw':
-                return "";
+                return "AirLoL | 登入";
             default:
                 return "AirLoL | Sign in";
         }
     }
+
 
     protected function getContent() {
         $rv = array();

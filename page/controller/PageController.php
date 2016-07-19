@@ -205,9 +205,9 @@ abstract class PageController {
     }
 
 
-    abstract protected function handle($params);
+    protected function getContent() {}
+    protected function getTitle() {}
 
-    abstract protected function getContent();
-    abstract protected function getTitle();
+    abstract protected function handle($params);
 }
 ?>

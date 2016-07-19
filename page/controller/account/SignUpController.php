@@ -36,9 +36,9 @@ class SignUpController extends PageController {
                         } else {
                             $status = 2;
                         }
-                    } else if ($validEmail) {
+                    } else if (!$validEmail) {
                         $status = 3;
-                    } else if ($validPasswd) {
+                    } else if (!$validPasswd) {
                         $status = 4;
                     }
                 } else {
@@ -55,16 +55,19 @@ class SignUpController extends PageController {
         View::factory('account/signup', array('status'  => $status));
     }
 
+// ===================================================================================================================
+
     protected function getTitle() {
         switch ($this->getLocale()) {
             case 'zh-cn':
-                return "";
+                return "AirLoL | 注册账户";
             case 'zh-tw':
-                return "";
+                return "AirLoL | 註冊賬戶";
             default:
                 return "AirLoL | Sign up";
         }
     }
+
 
     protected function getContent() {
         $rv = array();
@@ -85,8 +88,8 @@ class SignUpController extends PageController {
                     'status_msg' => array(
                         1 => '* 系统错误，暂时无法注册，请稍后再试。',
                         2 => '* 用户邮箱已注册，<a href="/login">马上登入</a>',
-                        3 => '* 密码格式有误。',
-                        4 => '* 用户邮箱格式有误。',
+                        3 => '* 用户邮箱格式有误。',
+                        4 => '* 密码格式有误。',
                         5 => '* 两次输入的密码不同。',
                         6 => '* 请阅读并同意 AirLoL 的网站服务条款。'));
                 break;
@@ -105,8 +108,8 @@ class SignUpController extends PageController {
                     'status_msg' => array(
                         1 => '* 系統錯誤，暫時無法註冊，請稍後再試。',
                         2 => '* 用戶郵箱已註冊，<a href="/login">馬上登入</a>',
-                        3 => '* 密碼格式有誤。',
-                        4 => '* 用戶郵箱格式有誤。',
+                        3 => '* 用戶郵箱格式有誤。',
+                        4 => '* 密碼格式有誤。',
                         5 => '* 兩次輸入的密碼不同。',
                         6 => '* 請閱讀並同意 AirLoL 的網站服務條款。'));
                 break;
@@ -125,8 +128,8 @@ class SignUpController extends PageController {
                     'status_msg' => array(
                         1 => '* System Error, please try again later.',
                         2 => '* Email already exist, <a href="/login">Sign in now</a>',
-                        3 => '* Invalid Password format.',
-                        4 => '* Invalid Email format.',
+                        3 => '* Invalid Email format.',
+                        4 => '* Invalid Password format.',
                         5 => '* Two Passwords entered are not the same.',
                         6 => '* Please read and agree to AirLoL\'s Terms & Privacy.'));
         }

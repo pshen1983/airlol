@@ -33,9 +33,9 @@ class ForgetPasswordController extends PageController {
             } else {
                 $status = 3;
             }
-
         }
 
+        error_log($status);
         $index = rand(1, 20);
         ASession::set('forget_captcha', $index);
         $imgData = Captcha::getBase64Image($index);
@@ -43,16 +43,29 @@ class ForgetPasswordController extends PageController {
         View::factory('account/forgetpassword', array('status'  => $status, 'captcha' => $imgData) );
     }
 
+
+    private function resetPassword($email) {
+        $key = md5($email);
+        $token = Utility::generateToken(64);
+        $value = array('email'=>$email, 'token'=>$token);
+        Cacher::instance()->set($key, $value);
+
+        return $token;
+    }
+
+// ===================================================================================================================
+
     protected function getTitle() {
         switch ($this->getLocale()) {
             case 'zh-cn':
-                return "";
+                return "AirLoL | 找回密码";
             case 'zh-tw':
-                return "";
+                return "AirLoL | 找回密碼";
             default:
                 return "AirLoL | Forget Password";
         }
     }
+
 
     protected function getContent() {
         $rv = array();
@@ -77,7 +90,12 @@ class ForgetPasswordController extends PageController {
                             'value_label' => '（輸入結果確認要找回密碼）',
                             'has_label' => '已註冊 AirLoL 賬戶？',
                             'signin_link' => '立即登入',
-                            'submit'  => '發送');
+                            'submit'  => '發送',
+                            'status_msg' => array(
+                                0 => '✓ 重置密碼郵件已發送，請查看郵箱。',
+                                1 => '* 用戶郵箱不存在，<a href="/register">馬上註冊</a>',
+                                2 => '* 輸入計算結果有誤，請重試。',
+                                3 => '* 用戶郵箱格式有誤，請重試。'));
                 break;
             default:
                 $rv = array('title_label' => 'Send Reset Password Link',
@@ -85,20 +103,15 @@ class ForgetPasswordController extends PageController {
                             'value_label' => '( Enter result to verify action )',
                             'has_label' => 'Already have AirLoL account? ',
                             'signin_link' => 'Sign in now',
-                            'submit'  => 'Send');
-
+                            'submit'  => 'Send',
+                            'status_msg' => array(
+                                0 => '✓ Reset password email has been sent to your email.',
+                                1 => '* Email does NOT exist. <a href="/register">Sign up now</a>',
+                                2 => '* The calculated result is wrong, please try again.',
+                                3 => '* Invalid Email format, please try again.'));
         }
 
         return $rv;
-    }
-
-    private function resetPassword($email) {
-        $key = md5($email);
-        $token = Utility::generateToken(64);
-        $value = array('email'=>$email, 'token'=>$token);
-        Cacher::instance()->set($key, $value);
-
-        return $token;
     }
 }
 ?>
