@@ -1,5 +1,31 @@
 input {
     outline: none;
+    padding:15px;
+    line-height: 1;
+    border: 1px solid #dce0e0;
+}
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid #dce0e0;
+    line-height: 1;
+    outline: 0;
+    border-radius: 0;
+    padding:10px;
+    min-width: 100px;
+    background: linear-gradient(#dce0e0, #dce0e0) no-repeat,
+              linear-gradient(-130deg, rgba(255,255,255,0) 50%, white 50%) no-repeat,
+              linear-gradient(-230deg, rgba(255,255,255,0) 50%, white 50%) no-repeat,
+              linear-gradient(#484848, #484848) no-repeat;
+    background-size: 1px 100%, 30px 23px, 30px 23px, 30px 57%;
+    background-color: white;
+    background-position: right 30px center, right bottom, right bottom, right bottom;   
+}
+input.inputbox {
+    width:100%;
+    display:block;
+    margin-top:20px;
 }
 div#outer {
     margin-top:60px;
@@ -40,13 +66,6 @@ div#sign form {
     margin: auto;
     width:100%;
 }
-div#sign input.inputbox {
-    display:block;
-    width:100%;
-    padding:10px;
-    margin-top:20px;
-    border: 1px solid #dce0e0;
-}
 div#sign div#bottom_div {
     margin-top:20px;
 }
@@ -59,8 +78,6 @@ div#sign input.short_btn {
     border: 0;
     color:white;
     margin-right:0px;
-    padding-top:10px;
-    padding-bottom:10px;
     min-width: 160px;
     font-weight: bold;
 }
@@ -72,8 +89,6 @@ div#sign input.long_btn {
     border: 0;
     color:white;
     margin-right:0px;
-    padding-top:10px;
-    padding-bottom:10px;
     font-weight: bold;
     width: 100%;
     margin-top:30px;
@@ -95,22 +110,33 @@ div#profile_left {
     float:right;
     width: 200px;
     height: 200px;
+    margin-right:40px;
     background: green;
 }
 .table{
-  display:table;         
-  width:auto;        
-  border-spacing:5px;
+    display:table;
+    width:auto;
+    background-color:white;
+    border: 1px solid #dce0e0;
+    min-width:740px;
+}
+.table-title {
+    height:50px;background-color:#edefed;width:100%;border-bottom:1px solid #dce0e0;margin-bottom:40px;display: flex;align-items: center;padding-left:20px;
 }
 .row{
-  display:table-row;
+    display:table-row;
 }
 .cell{
-  float:left;
-  display:table-column;         
-  min-width:200px;
+    float:left;
+    display:table-column;
+    min-width:200px;
+    padding-bottom:30px;
+}
+.cell input {
+    width:400px;
 }
 .text-right {
     text-align: right;
-    padding-right:15px;
+    padding-top:10px;
+    padding-right:25px;
 }
