@@ -24,7 +24,11 @@ class SignInController extends PageController {
                             $this->saveRememberMeCookie();
                         }
 
-                        $this->redirect('/');
+                        if (!empty($_POST['redirect_uri'])) {
+                            $this->redirect(urldecode($_POST['redirect_uri']));
+                        } else {
+                            $this->redirect('/');
+                        }
                     } else {
                         $status = 1;
                     }
@@ -40,10 +44,14 @@ class SignInController extends PageController {
             $gEmail = urldecode($_GET['e']);
         }
 
+        if (isset($_GET['redirect_uri']) || isset($_POST['redirect_uri'])) {
+            $redirectUri = isset($_GET['redirect_uri']) ? $_GET['redirect_uri'] : $_POST['redirect_uri'];
+        }
+
         View::addJs('account.js');
         View::addCss('account.css');
 
-        View::factory('account/signin', array('email' => isset($gEmail) ? $gEmail : null, 'status'  => $status));
+        View::factory('account/signin', array('redirect_uri' => isset($redirectUri) ? $redirectUri : null, 'email' => isset($gEmail) ? $gEmail : null, 'status'  => $status));
     }
 
 // ===================================================================================================================

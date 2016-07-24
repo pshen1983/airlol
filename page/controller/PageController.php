@@ -12,6 +12,10 @@ abstract class PageController {
             $isLogin = ASession::isSignedIn();
         }
 
+        if ($this->isAuthenticatedPage() && !$isLogin) {
+            $this->redirect('/login?redirect_uri='.urlencode($_SERVER['REQUEST_URI']));
+        }
+
         if ($isLogin) {
             $this->addUserParams();
         }
@@ -216,6 +220,7 @@ abstract class PageController {
 
     protected function getContent() { return array(); }
     protected function getTitle() { return ''; }
+    protected function isAuthenticatedPage() { return false; }
 
     abstract protected function handle($params);
 }

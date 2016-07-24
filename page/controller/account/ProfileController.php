@@ -4,7 +4,9 @@ class ProfileController extends PageController {
 
 
         View::addJs('account.js');
+        View::addJs('jquery.imgareaselect.js');
         View::addCss('account.css');
+        View::addCss('imgareaselect-default.css');
 
         View::factory('account/profile');
     }
@@ -37,5 +39,7 @@ class ProfileController extends PageController {
 
         return $rv;
     }
+
+    protected function isAuthenticatedPage() { return true; }
 }
 ?>
