@@ -1,4 +1,3 @@
-<div id="outer">
 <div id="sign">
 <?php if ($params['status']>0) { ?>
 <div class="error"><?=View::$content['status_msg'][$params['status']] ?></div>
@@ -11,5 +10,4 @@
 <input type="hidden" name="p" value="<?=$params['p'] ?>" />
 <input type="hidden" name="token" value="<?=$params['token'] ?>" />
 </form>
-</div>
 </div>

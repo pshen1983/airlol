@@ -57,8 +57,7 @@ foreach ($services[$method] as $key=>$val) {
 // cannot find handler for the request uri, return 501
 //
 header('HTTP/1.0 404 Not Found');
-View::setTitle('AirLoL | Page Not Found');
-View::factory('generic/404', array('message'=>'test message'));
+header('Location: /error/404');
 
 
 //=================================================================================================

@@ -14,6 +14,7 @@ register('GET',  '/responsible-share', new ResponsibleShareController());
 register('GET',  '/sending-tips',      new SendingTipsController());
 register('GET',  '/what2send',         new WhatToSendController());
 register('GET',  '/why-share',         new WhyShareController());
+register('GET',  '/error/:errorid',    new ErrorPageController());
 
 // account
 register('GET',  '/login',           new SignInController());

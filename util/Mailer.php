@@ -70,7 +70,7 @@ $html =
             'filters' => array('templates' => array('settings' => array('enable' => 1, 'template_id' => $templateId)))
         );
 
-        error_log(json_encode($js));
+        Logger::info(json_encode($js));
 
         $params = array(
             'to'        => $to, 

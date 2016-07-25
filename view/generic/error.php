@@ -1,0 +1,1 @@
+<?=View::$content['status_msg'][$params['error_code']] ?>

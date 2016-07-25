@@ -9,16 +9,15 @@ select {
     -webkit-appearance: none;
     appearance: none;
     border: 1px solid #dce0e0;
-    line-height: 1;
     outline: 0;
     border-radius: 0;
-    padding:10px;
-    min-width: 100px;
+    padding:9px;
+    min-width:160px;
     background: linear-gradient(#dce0e0, #dce0e0) no-repeat,
               linear-gradient(-130deg, rgba(255,255,255,0) 50%, white 50%) no-repeat,
               linear-gradient(-230deg, rgba(255,255,255,0) 50%, white 50%) no-repeat,
               linear-gradient(#484848, #484848) no-repeat;
-    background-size: 1px 100%, 30px 23px, 30px 23px, 30px 57%;
+    background-size: 1px 100%, 30px 30px, 30px 30px, 30px 57%;
     background-color: white;
     background-position: right 30px center, right bottom, right bottom, right bottom;   
 }
@@ -27,17 +26,14 @@ input.inputbox {
     display:block;
     margin-top:20px;
 }
-div#outer {
-    margin-top:60px;
-    margin-bottom:120px;
-}
-div#outer img.captcha {
+img.captcha {
     display: inline-block;
     vertical-align: middle;
 }
-div#outer input.captcha_input {
+input.captcha_input {
     display: inline-block;
     vertical-align: middle;
+    padding:0px;
     border:1px solid gray;
     height:30px;
     width:36px;

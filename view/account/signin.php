@@ -1,4 +1,3 @@
-<div id="outer">
 <div id="sign">
 <?php if ($params['status']>0) { ?>
 <div class="error"><?=View::$content['status_msg'][$params['status']] ?></div>
@@ -16,5 +15,4 @@
 </div>
 <div id="forget_div"><a tabindex="5" href="/forget-password"><?=View::$content['forget_link'] ?></a> | <a tabindex="6" href="/register"><?=View::$content['signup_link'] ?></a></div>
 </form>
-</div>
 </div>
