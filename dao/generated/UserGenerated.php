@@ -11,6 +11,7 @@ abstract class UserGenerated extends AirlolDaoBase {
         $this->var['profile_img'] = NULL;
         $this->var['birth_day'] = NULL;
         $this->var['tel'] = NULL;
+        $this->var['whatsapp'] = NULL;
         $this->var['wechat'] = NULL;
         $this->var['preferred_language'] = NULL;
         $this->var['preferred_currency'] = NULL;
@@ -27,6 +28,7 @@ abstract class UserGenerated extends AirlolDaoBase {
         $this->update['profile_img'] = false;
         $this->update['birth_day'] = false;
         $this->update['tel'] = false;
+        $this->update['whatsapp'] = false;
         $this->update['wechat'] = false;
         $this->update['preferred_language'] = false;
         $this->update['preferred_currency'] = false;
@@ -99,6 +101,16 @@ abstract class UserGenerated extends AirlolDaoBase {
     }
     public function getTel() {
         return $this->var['tel'];
+    }
+
+    public function setWhatsapp($whatsapp) {
+        if ($this->var['whatsapp'] !== $whatsapp) {
+            $this->var['whatsapp'] = $whatsapp;
+            $this->update['whatsapp'] = true;
+        }
+    }
+    public function getWhatsapp() {
+        return $this->var['whatsapp'];
     }
 
     public function setWechat($wechat) {

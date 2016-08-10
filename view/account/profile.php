@@ -34,6 +34,9 @@
 <div class="cell text-right"><?=View::$content['phone'] ?></div><div class="cell"><input name="user[tel]" value="<?=$params['tel'] ?>" /></div>
 </div>
 <div class="row">
+<div class="cell text-right"><?=View::$content['whatsapp'] ?></div><div class="cell"><input name="user[whatsapp]" value="<?=$params['whatsapp'] ?>" /></div>
+</div>
+<div class="row">
 <div class="cell text-right"><?=View::$content['wechat'] ?></div><div class="cell"><input name="user[wechat]" value="<?=$params['wechat'] ?>" /></div>
 </div>
 <div class="row">

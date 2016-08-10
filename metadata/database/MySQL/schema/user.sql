@@ -9,6 +9,7 @@ CREATE TABLE airlol.user
     profile_img VARCHAR(64),
     birth_day DATE,
     tel VARCHAR(15),
+    whatsapp VARCHAR(32),
     wechat VARCHAR(32),
     preferred_language VARCHAR(5),
     preferred_currency VARCHAR(3),
