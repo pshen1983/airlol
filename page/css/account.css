@@ -115,6 +115,7 @@ div#profile_left {
     background-color:white;
     border: 1px solid #dce0e0;
     min-width:740px;
+    padding-bottom:30px;
 }
 .table-title {
     height:50px;background-color:#edefed;width:100%;border-bottom:1px solid #dce0e0;margin-bottom:40px;display: flex;align-items: center;padding-left:20px;
@@ -130,6 +131,28 @@ div#profile_left {
 }
 .cell input {
     width:400px;
+}
+.cell textarea {
+    width:400px;
+    height:200px;
+    border: 1px solid #dce0e0;
+}
+.cell input#sub_btn {
+    background-color:#ffa64d;
+    border: 0;
+    color:white;
+    margin-right:0px;
+    min-width: 160px;
+    font-weight: bold;
+    width:160px;
+    float:right;
+}
+.cell input#sub_btn:hover {
+    background-color:#E89746;
+}
+.text-left {
+    text-align: left;
+    padding-top:10px;
 }
 .text-right {
     text-align: right;

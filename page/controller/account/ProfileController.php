@@ -45,13 +45,85 @@ class ProfileController extends PageController {
 
         switch ($this->getLocale()) {
             case 'zh-cn':
-                $rv = array();
+                $rv = array(
+                    'edit' => '编辑个人信息',
+                    'email' => '电子邮件',
+                    'name' => '姓名',
+                    'passwd' => '密码',
+                    'bdate' => '生日',
+                    'phone' => '电话号码',
+                    'wechat' => '微信用户名',
+                    'prelang' => '常用语言',
+                    'precurr' => '常用货币',
+                    'live' => '常住地',
+                    'live_desc' => '常住城市（如：上海、洛杉矶）',
+                    'describe' => '自我介绍',
+                    'month' => array( 1 => '1月',
+                                      2 => '2月',
+                                      3 => '3月',
+                                      4 => '4月',
+                                      5 => '5月',
+                                      6 => '6月',
+                                      7 => '7月',
+                                      8 => '8月',
+                                      9 => '9月',
+                                      10 => '10月',
+                                      11 => '11月',
+                                      12 => '12月'));
                 break;
             case 'zh-tw':
-                $rv = array();
+                $rv = array(
+                    'edit' => '',
+                    'email' => '',
+                    'name' => '',
+                    'passwd' => '',
+                    'bdate' => '',
+                    'phone' => '',
+                    'wechat' => '',
+                    'prelang' => '',
+                    'precurr' => '',
+                    'live' => '',
+                    'live_desc' => '',
+                    'describe' => '',
+                    'month' => array( 1 => '1月',
+                                      2 => '2月',
+                                      3 => '3月',
+                                      4 => '4月',
+                                      5 => '5月',
+                                      6 => '6月',
+                                      7 => '7月',
+                                      8 => '8月',
+                                      9 => '9月',
+                                      10 => '10月',
+                                      11 => '11月',
+                                      12 => '12月'));
                 break;
             default:
-                $rv = array();
+                $rv = array(
+                    'edit' => 'Edit Profile',
+                    'email' => 'Email',
+                    'name' => 'Name',
+                    'passwd' => 'Password',
+                    'bdate' => 'Birth Date',
+                    'phone' => 'Phone',
+                    'wechat' => 'Wechat',
+                    'prelang' => 'Preferred Language',
+                    'precurr' => 'Preferred Currency',
+                    'live' => 'Where do you live',
+                    'live_desc' => 'Living City (e.g. Shanghai, Los Angeles)',
+                    'describe' => 'Describe Yourself',
+                    'month' => array( 1 => 'January',
+                                      2 => 'February',
+                                      3 => 'March',
+                                      4 => 'April',
+                                      5 => 'May',
+                                      6 => 'June',
+                                      7 => 'July',
+                                      8 => 'August',
+                                      9 => 'September',
+                                      10 => 'October',
+                                      11 => 'November',
+                                      12 => 'December'));
 
         }
 
