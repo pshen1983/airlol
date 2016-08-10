@@ -59,18 +59,18 @@ class ProfileController extends PageController {
                     'live' => '常住地',
                     'live_desc' => '常住城市（如：上海、洛杉矶）',
                     'describe' => '自我介绍',
-                    'month' => array( 1 => '1月',
-                                      2 => '2月',
-                                      3 => '3月',
-                                      4 => '4月',
-                                      5 => '5月',
-                                      6 => '6月',
-                                      7 => '7月',
-                                      8 => '8月',
-                                      9 => '9月',
-                                      10 => '10月',
-                                      11 => '11月',
-                                      12 => '12月'));
+                    'month' => array(   1 => '1月',
+                                        2 => '2月',
+                                        3 => '3月',
+                                        4 => '4月',
+                                        5 => '5月',
+                                        6 => '6月',
+                                        7 => '7月',
+                                        8 => '8月',
+                                        9 => '9月',
+                                        10 => '10月',
+                                        11 => '11月',
+                                        12 => '12月'));
                 break;
             case 'zh-tw':
                 $rv = array(
@@ -87,18 +87,18 @@ class ProfileController extends PageController {
                     'live' => '常住地',
                     'live_desc' => '常住城市（如：上海、洛杉磯）',
                     'describe' => '自我介紹',
-                    'month' => array( 1 => '1月',
-                                      2 => '2月',
-                                      3 => '3月',
-                                      4 => '4月',
-                                      5 => '5月',
-                                      6 => '6月',
-                                      7 => '7月',
-                                      8 => '8月',
-                                      9 => '9月',
-                                      10 => '10月',
-                                      11 => '11月',
-                                      12 => '12月'));
+                    'month' => array(   1 => '1月',
+                                        2 => '2月',
+                                        3 => '3月',
+                                        4 => '4月',
+                                        5 => '5月',
+                                        6 => '6月',
+                                        7 => '7月',
+                                        8 => '8月',
+                                        9 => '9月',
+                                        10 => '10月',
+                                        11 => '11月',
+                                        12 => '12月'));
                 break;
             default:
                 $rv = array(
@@ -115,18 +115,18 @@ class ProfileController extends PageController {
                     'live' => 'Where do you live',
                     'live_desc' => 'Living City (e.g. Shanghai, Los Angeles)',
                     'describe' => 'Describe Yourself',
-                    'month' => array( 1 => 'January',
-                                      2 => 'February',
-                                      3 => 'March',
-                                      4 => 'April',
-                                      5 => 'May',
-                                      6 => 'June',
-                                      7 => 'July',
-                                      8 => 'August',
-                                      9 => 'September',
-                                      10 => 'October',
-                                      11 => 'November',
-                                      12 => 'December'));
+                    'month' => array(   1 => 'January',
+                                        2 => 'February',
+                                        3 => 'March',
+                                        4 => 'April',
+                                        5 => 'May',
+                                        6 => 'June',
+                                        7 => 'July',
+                                        8 => 'August',
+                                        9 => 'September',
+                                        10 => 'October',
+                                        11 => 'November',
+                                        12 => 'December'));
 
         }
 
