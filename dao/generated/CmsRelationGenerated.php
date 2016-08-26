@@ -5,11 +5,13 @@ abstract class CmsRelationGenerated extends AirlolDaoBase {
 
     protected function init() {
         $this->var['id'] = 0;
+        $this->var['type'] = NULL;
         $this->var['parent_code'] = NULL;
         $this->var['child_code'] = NULL;
         $this->var['create_time'] = NULL;
 
         $this->update['id'] = false;
+        $this->update['type'] = false;
         $this->update['parent_code'] = false;
         $this->update['child_code'] = false;
         $this->update['create_time'] = false;
@@ -17,6 +19,16 @@ abstract class CmsRelationGenerated extends AirlolDaoBase {
 
     public function getId() {
         return $this->var['id'];
+    }
+
+    public function setType($type) {
+        if ($this->var['type'] !== $type) {
+            $this->var['type'] = $type;
+            $this->update['type'] = true;
+        }
+    }
+    public function getType() {
+        return $this->var['type'];
     }
 
     public function setParentCode($parent_code) {

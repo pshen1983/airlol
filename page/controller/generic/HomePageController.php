@@ -3,10 +3,13 @@ class HomePageController extends PageController {
 
     protected function handle($params) {
 
+        $locale = $this->getCmsLocale();
+        $airports = CmsRelationDao::getTypeContents(CmsRelationDao::$AIRPORT, $locale);
+
         View::addJs('generic.js');
         View::addCss('generic.css');
 
-        View::factory('generic/index');
+        View::factory('generic/index', array('airports' => $airports));
     }
 
     protected function getTitle() {

@@ -85,6 +85,11 @@ abstract class PageController {
         return $lang;
     }
 
+    protected function getCmsLocale() {
+        $lang = $this->getLocale();
+        return substr($lang, 0, 2);
+    }
+
 
     protected function logoutCookie() {
         $token = $_COOKIE['REMEMBERME'];

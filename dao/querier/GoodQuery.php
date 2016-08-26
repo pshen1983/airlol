@@ -13,5 +13,15 @@ class GoodQuery extends GoodGenerated {
 
         return $res;
     }
+
+    public static function getGoodsByUserId($userId, $start, $size) {
+        $query = new QueryBuilder();
+        $res = $query->select('*', self::$table)
+                     ->where('user_id', $userId)
+                     ->limit($start, $size)
+                     ->find_all();
+
+        return $res;
+    }
     
 }

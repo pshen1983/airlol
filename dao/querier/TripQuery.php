@@ -14,5 +14,15 @@ class TripQuery extends TripGenerated {
 
         return $res;
     }
+
+    public static function getTripsByUserId($userId, $start, $size) {
+        $query = new QueryBuilder();
+        $res = $query->select('*', self::$table)
+                     ->where('user_id', $userId)
+                     ->limit($start, $size)
+                     ->find_all();
+
+        return $res;
+    }
     
 }

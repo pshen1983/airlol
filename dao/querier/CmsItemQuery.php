@@ -1,7 +1,7 @@
 <?php
 class CmsItemQuery extends CmsItemGenerated {
 
-    public static function getContent($code, $language) {
+    public static function getCodeContent($code, $language) {
         $query = new QueryBuilder();
         $res = $query->select('content', self::$table)
                      ->where('code', $code)
