@@ -1,42 +1,50 @@
 <?php
-class Logger {
+class Log {
     const GENERAL = 0;
     const DB = 1;
 
-    public static function info($message, $type=Logger::GENERAL) {
+    public static function debug($message, $type=Log::GENERAL) {
         global $log_level;
-        if ($log_level>3) { Logger::log($message, 4, $type); }
+        if ($log_level>4) { Log::write($message, 4, $type); }
     }
 
-    public static function warn($message, $type=Logger::GENERAL) {
+    public static function info($message, $type=Log::GENERAL) {
         global $log_level;
-        if ($log_level>2) { Logger::log($message, 3, $type); }
+        if ($log_level>3) { Log::write($message, 4, $type); }
     }
 
-    public static function error($message, $type=Logger::GENERAL) {
+    public static function warn($message, $type=Log::GENERAL) {
         global $log_level;
-        if ($log_level>1) { Logger::log($message, 2, $type); }
+        if ($log_level>2) { Log::write($message, 3, $type); }
     }
 
-    public static function fatal($message, $type=Logger::GENERAL) {
+    public static function error($message, $type=Log::GENERAL) {
         global $log_level;
-        if ($log_level>0) { Logger::log($message, 1, $type); }
+        if ($log_level>1) { Log::write($message, 2, $type); }
     }
 
-    private static function log($message, $level=0, $type) {
+    public static function fatal($message, $type=Log::GENERAL) {
+        global $log_level;
+        if ($log_level>0) { Log::write($message, 1, $type); }
+    }
+
+    private static function write($message, $level=0, $type) {
         global $log_file, $database_log;
 
         if (is_array($message)) { $message = json_encode($message); }
 
-        if ($type==Logger::GENERAL) {
+        if ($type==Log::GENERAL) {
             $output_file = $log_file;
-        } else if ($type==Logger::DB) { 
+        } else if ($type==Log::DB) { 
             $output_file = $database_log;
         }
 
         $slevel = '';
 
         switch ($level) {
+            case 5:
+                $slevel = "DEBUG - ";
+                break;
             case 4:
                 $slevel = "INFO - ";
                 break;
@@ -65,16 +73,16 @@ class Logger {
         global $access_log;
 
         if (isset($access_log) && !empty($access_log))    {
-            $body = '{  "REMOTE_ADDR":"'.        Logger::getServerParam('REMOTE_ADDR').
-                    '", "HTTP_X_FORWARDED_FOR":"'.Logger::getServerParam('HTTP_X_FORWARDED_FOR').
-                    '", "HTTP_CLIENT_IP":"'.     Logger::getServerParam('HTTP_CLIENT_IP').
+            $body = '{  "REMOTE_ADDR":"'.        Log::getServerParam('REMOTE_ADDR').
+                    '", "HTTP_X_FORWARDED_FOR":"'.Log::getServerParam('HTTP_X_FORWARDED_FOR').
+                    '", "HTTP_CLIENT_IP":"'.     Log::getServerParam('HTTP_CLIENT_IP').
                     '", "REQUEST":"'.            $message.'"  }';
             $access = fopen($access_log, 'a');
             fwrite($access, '['.date('Y-m-d H:i:s').'] '.$body.PHP_EOL);
             fclose($access);
         }
         else {
-            Logger::warn('No access log file provided ...');
+            Log::warn('No access log file provided ...');
         }
     }
 

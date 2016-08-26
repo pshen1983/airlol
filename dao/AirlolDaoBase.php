@@ -190,7 +190,7 @@ abstract class AirlolDaoBase {
             foreach ($query->get_errors() as $error) {
                 $message .= $error.' | ';
             }
-            Logger::error('[DB ERROR] Insert Failed: ' . $message, Logger::DB);
+            Log::error('[DB ERROR] Insert Failed: ' . $message, Log::DB);
         }
 
         return $res!=-1;

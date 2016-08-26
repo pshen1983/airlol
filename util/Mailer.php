@@ -70,7 +70,7 @@ $html =
             'filters' => array('templates' => array('settings' => array('enable' => 1, 'template_id' => $templateId)))
         );
 
-        Logger::info(json_encode($js));
+        Log::info(json_encode($js));
 
         $params = array(
             'to'        => $to, 
@@ -95,7 +95,7 @@ $html =
         $response = curl_exec($ch);
         curl_close($ch);
 
-        Logger::info("Email to " . $to . " - " . $response);
+        Log::info("Email to " . $to . " - " . $response);
     }
 
 }

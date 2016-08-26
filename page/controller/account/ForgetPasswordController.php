@@ -35,7 +35,6 @@ class ForgetPasswordController extends PageController {
             }
         }
 
-        error_log($status);
         $index = rand(1, 20);
         ASession::set('forget_captcha', $index);
         $imgData = Captcha::getBase64Image($index);

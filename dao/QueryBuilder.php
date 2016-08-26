@@ -237,7 +237,7 @@ class QueryBuilder {
             $this->connection = self::$tran_connection->connection;
         }
 
-        Logger::info($this->query, Logger::DB);
+        Log::info($this->query, Log::DB);
 
         if ($this->is_insert) {
             if ($this->connection->query($this->query)) {
@@ -254,8 +254,8 @@ class QueryBuilder {
         }
 
         if (!empty($this->errors)) {
-            Logger::info($this->query, Logger::DB);
-            Logger::error('[ERROR] - '.json_encode($this->errors), Logger::DB);
+            Log::info($this->query, Log::DB);
+            Log::error('[ERROR] - '.json_encode($this->errors), Log::DB);
         }
 
         return $result;
