@@ -14,7 +14,8 @@ $autoload_dirs = array( '../util',
                         'controller/message',
                         'validator',
                         'validator/message',
-                        'validator/trip'
+                        'validator/trip',
+                        'validator/good'
                       );
 
 // blockIp();

@@ -5,9 +5,9 @@ register('POST', '/trip/:tripid', new UpdateTripController());
 register('POST', '/trip',         new CreateTripController(), new CreateTripValidator());
 
 // good
-register('GET',  '/search/packages', new SearchGoodController());
-register('POST', '/package/:goodid', new UpdateGoodController());
-register('POST', '/package',         new CreateGoodController());
+register('GET',  '/search/goods', new SearchGoodController());
+register('POST', '/good/:goodid', new UpdateGoodController());
+register('POST', '/good',         new CreateGoodController(), new CreateGoodValidator());
 
 // message
 register('GET',  '/search/message', new SearchMessageController());
