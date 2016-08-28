@@ -13,7 +13,8 @@ $autoload_dirs = array( '../util',
                         'controller/trip',
                         'controller/message',
                         'validator',
-                        'validator/message'
+                        'validator/message',
+                        'validator/trip'
                       );
 
 // blockIp();
@@ -24,6 +25,8 @@ $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = parseGetparams($uri);
 $uri = substr($uri, 5); // remove "/ajax" from the uri.
+
+session_start();
 
 // find the handler based on request uri from $services configured in mapping.php
 //
@@ -48,7 +51,6 @@ foreach ($services[$method] as $key=>$val) {
             $controller = $services[$method][$key][0];
             $validator = $services[$method][$key][1];
 
-            ASession::init();
             if (isset($validator)) {
                 if ($validator->validate($params)) {
                     $controller->execute($params);

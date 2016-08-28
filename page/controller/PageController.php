@@ -2,8 +2,6 @@
 abstract class PageController {
 
     public function execute($params) {
-        session_start();
-
         $isLogin = ASession::isSignedIn();
         $locale = $this->getLocale();
 

@@ -5,31 +5,21 @@ class CreateTripController extends AjaxController {
         $status = 0;
         $message = '';
 
-        if (ASession::isSignedIn()) {
-            $departure = $_POST['departure'];
-            $arrival = $_POST['arrival'];
-            $date = $_POST['date'];
+        $departure = $_POST['departure'];
+        $arrival = $_POST['arrival'];
+        $date = $_POST['date'];
 
-            $validDate = Format::isValidMySQLDate($date, true);
-            if ($validDate) {
-                $tripDao = new TripDao();
-                $tripDao->setDepartureCode($departure);
-                $tripDao->setArrivalCode($arrival);
-                $tripDao->setTripDate($date);
-                $tripDao->setUserId(ASession::getSessionUserId());
-                if ($tripDao->save()) {
-                    $message = $tripDao->getId();
-                } else {
-                    $status = 1;
-                    $message = '';
-                }
-            } else {
-                $status = 2;
-                $message = '';
-            }
+        $tripDao = new TripDao();
+        $tripDao->setDepartureCode($departure);
+        $tripDao->setArrivalCode($arrival);
+        $tripDao->setTripDate($date);
+        $tripDao->setUserId(ASession::getSessionUserId());
+
+        if ($tripDao->save()) {
+            $message = $tripDao->getId();
         } else {
-            $status = 3;
-            $message = '';
+            $status = 1;
+            $message = 'internal_error';
         }
 
         return array('status'=>$status, 'message'=>$message);

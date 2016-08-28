@@ -5,7 +5,7 @@ From: <select name="departure">
 <option>--</option>
 <option disabled><?=$area['description'] ?></option>
     <?php foreach ($area as $key=>$airport) { if ($key!='description') { ?>
-    <option><?=$airport ?></option>
+    <option value="<?=$key ?>"><?=$airport ?></option>
     <?php } } ?>
 <?php } ?>
 </select>
@@ -14,7 +14,7 @@ To: <select name="arrival">
 <option>--</option>
 <option disabled><?=$area['description'] ?></option>
     <?php foreach ($area as $key=>$airport) { if ($key!='description') { ?>
-    <option><?=$airport ?></option>
+    <option value="<?=$key ?>"><?=$airport ?></option>
     <?php } } ?>
 <?php } ?>
 </select>

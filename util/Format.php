@@ -16,13 +16,13 @@ class Format {
     public static function isValidMySQLDate($date, $isFuture=false) {
         $d = DateTime::createFromFormat('Y-m-d', $date);
         $flag = true;
-        if ($isFUture) {
+        if ($isFuture) {
             $today = date('Y-m-d');
             $dateST = strtotime($date);
             $todayST = strtotime($today);
             $flag = ($dateST >= $todayST);
         }
-        return $flag && $d && ($d->format($format) == $date);
+        return $flag && $d && ($d->format('Y-m-d') == $date);
     }
 }
 ?>

@@ -5,7 +5,7 @@ class Log {
 
     public static function debug($message, $type=Log::GENERAL) {
         global $log_level;
-        if ($log_level>4) { Log::write($message, 4, $type); }
+        if ($log_level>4) { Log::write($message, 5, $type); }
     }
 
     public static function info($message, $type=Log::GENERAL) {

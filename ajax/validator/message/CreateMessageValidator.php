@@ -7,14 +7,14 @@ class CreateMessageValidator extends AjaxValidator {
         if ($valid) {
             $valid = ASession::isSignedIn();
             if (!$valid) {
-                $this->setErrorMessage('not_signed_in');
+                $this->setErrorDescription('not_signed_in');
             }
         }
 
         if ($valid) {
             $valid = !empty($_POST['msg']) && $_POST['gid'] && $_POST['tid'] && isset($_POST['context']);
             if (!$valid) {
-                $this->setErrorMessage('invalid_post_params');
+                $this->setErrorDescription('invalid_post_params');
             }
         }
 

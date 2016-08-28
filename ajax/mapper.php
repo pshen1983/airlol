@@ -2,7 +2,7 @@
 // trip
 register('GET',  '/search/trips', new SearchTripController());
 register('POST', '/trip/:tripid', new UpdateTripController());
-register('POST', '/trip',         new CreateTripController());
+register('POST', '/trip',         new CreateTripController(), new CreateTripValidator());
 
 // good
 register('GET',  '/search/packages', new SearchGoodController());

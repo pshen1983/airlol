@@ -26,6 +26,8 @@ if ($uri == '' || $uri == '/') { $uri = '/index'; }
 
 header('X-Frame-Options: DENY');
 
+session_start();
+
 // find the handler based on request uri from $services configured in mapping.php
 //
 $uris = explode('/', $uri);
