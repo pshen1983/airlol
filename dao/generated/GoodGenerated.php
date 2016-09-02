@@ -11,6 +11,7 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->var['end_date'] = NULL;
         $this->var['good_type'] = NULL;
         $this->var['good_unit'] = NULL;
+        $this->var['good_price'] = NULL;
         $this->var['description'] = NULL;
         $this->var['price'] = NULL;
         $this->var['price_adjust'] = NULL;
@@ -25,6 +26,7 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->update['end_date'] = false;
         $this->update['good_type'] = false;
         $this->update['good_unit'] = false;
+        $this->update['good_price'] = false;
         $this->update['description'] = false;
         $this->update['price'] = false;
         $this->update['price_adjust'] = false;
@@ -95,6 +97,16 @@ abstract class GoodGenerated extends AirlolDaoBase {
     }
     public function getGoodUnit() {
         return $this->var['good_unit'];
+    }
+
+    public function setGoodPrice($good_price) {
+        if ($this->var['good_price'] !== $good_price) {
+            $this->var['good_price'] = $good_price;
+            $this->update['good_price'] = true;
+        }
+    }
+    public function getGoodPrice() {
+        return $this->var['good_price'];
     }
 
     public function setDescription($description) {

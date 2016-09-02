@@ -9,6 +9,7 @@ CREATE TABLE airlol.good
     end_date DATE NOT NULL,
     good_type TINYINT NOT NULL,
     good_unit TINYINT NOT NULL,
+    good_price SMALLINT UNSIGNED,
     description VARCHAR(1024) NOT NULL,
     price SMALLINT UNSIGNED,
     price_adjust VARCHAR(2),

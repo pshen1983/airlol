@@ -9,6 +9,7 @@ abstract class TripGenerated extends AirlolDaoBase {
         $this->var['departure_code'] = NULL;
         $this->var['arrival_code'] = NULL;
         $this->var['trip_date'] = NULL;
+        $this->var['trip_price'] = NULL;
         $this->var['space_type'] = NULL;
         $this->var['space_num'] = NULL;
         $this->var['space_unit'] = NULL;
@@ -23,6 +24,7 @@ abstract class TripGenerated extends AirlolDaoBase {
         $this->update['departure_code'] = false;
         $this->update['arrival_code'] = false;
         $this->update['trip_date'] = false;
+        $this->update['trip_price'] = false;
         $this->update['space_type'] = false;
         $this->update['space_num'] = false;
         $this->update['space_unit'] = false;
@@ -75,6 +77,16 @@ abstract class TripGenerated extends AirlolDaoBase {
     }
     public function getTripDate() {
         return $this->var['trip_date'];
+    }
+
+    public function setTripPrice($trip_price) {
+        if ($this->var['trip_price'] !== $trip_price) {
+            $this->var['trip_price'] = $trip_price;
+            $this->update['trip_price'] = true;
+        }
+    }
+    public function getTripPrice() {
+        return $this->var['trip_price'];
     }
 
     public function setSpaceType($space_type) {
