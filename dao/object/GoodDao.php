@@ -1,8 +1,18 @@
 <?php
 class GoodDao extends GoodQuery {
+    public static $PART = 1;
+    public static $BAG = 2;
 
-    public static function findGoodByLocationAndDay($departure, $arrival, $target, $start, $size) {
-        $res = parent::findGoodByLocationAndDay($departure, $arrival, $target, $start, $size);
+    public static function findGoodByLocationAndDay($departure, $arrival, $date, $start, $size) {
+        $res = parent::findGoodByLocationAndDay($departure, $arrival, $date, $start, $size);
+
+        $goods = self::newFromQueryResultList($res);
+
+        return $goods;
+    }
+
+    public static function findGoodByLocationAndDayAndBag($departure, $arrival, $date, $start, $size) {
+        $res = parent::findGoodByLocationAndDayAndBag($departure, $arrival, self::$BAG, $date, $start, $size);
 
         $goods = self::newFromQueryResultList($res);
 
@@ -21,6 +31,13 @@ class GoodDao extends GoodQuery {
     // ======================================================================
 
     protected function actionBeforeInsert() {
+        $type = $this->getGoodType();
+        if (empty($type)) {
+            $this->setGoodType(self::$PART);
+        }
+
+        $this->setActive('Y');
+
         $now = date("Y-m-d H:i:s");
         $this->setCreateTime($now);
     }

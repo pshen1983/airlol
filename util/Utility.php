@@ -45,5 +45,13 @@ class Utility {
     public static function setLocaleCookie($locale) {
         setcookie( 'locale', $locale, time()+31536000, '/', 'airlol.com' );
     }
+
+    public static function getSuggestedPriceByGood($goodPrice, $defaultPrice) {
+        return $defaultPrice;
+    }
+
+    public static function getSuggestedPriceByTrip($tripPrice, $defaultPrice) {
+        return $defaultPrice;
+    }
 }
 ?>

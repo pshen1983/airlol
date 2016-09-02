@@ -1,9 +1,18 @@
 <?php
 class TripDao extends TripQuery {
+    public static $PARTBAG = 1;
+    public static $WHOLEBAG = 2;
 
-    public static function findTripByLocationAndDay($departure, $arrival, $startDate, $days, $start, $size) {
-        $endDate = date('Y-m-d', strtotime($startDate. ' + '.$days.' days'));
+    public static function findTripByLocationAndDay($departure, $arrival, $startDate, $endDate, $start, $size) {
         $res = parent::findTripByLocationAndDay($departure, $arrival, $startDate, $endDate, $start, $size);
+
+        $trips = self::newFromQueryResultList($res);
+
+        return $trips;
+    }
+
+    public static function findTripByLocationAndDayAndBag($departure, $arrival, $startDate, $endDate, $start, $size) {
+        $res = parent::findTripByLocationAndDayAndBag($departure, $arrival, self::$WHOLEBAG, $startDate, $endDate, $start, $size);
 
         $trips = self::newFromQueryResultList($res);
 
@@ -22,6 +31,13 @@ class TripDao extends TripQuery {
     // ======================================================================
 
     protected function actionBeforeInsert() {
+        $type = $this->getSpaceType();
+        if (empty($type)) {
+            $this->setSpaceType(self::$PARTBAG);
+        }
+
+        $this->setActive('Y');
+
         $now = date("Y-m-d H:i:s");
         $this->setCreateTime($now);
     }

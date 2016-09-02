@@ -1,13 +1,29 @@
 <?php
 class GoodQuery extends GoodGenerated {
 
-    public static function findGoodByLocationAndDay($departure, $arrival, $target, $start, $size) {
+    public static function findGoodByLocationAndDay($departure, $arrival, $date, $start, $size) {
         $query = new QueryBuilder();
         $res = $query->select('*', self::$table)
-                     ->where('departure_id', $departure)
-                     ->where('arrival_id', $arrival)
+                     ->where('departure_code', $departure)
+                     ->where('arrival_code', $arrival)
                      ->where('active', 'Y')
-                     ->where('end_date', $target, '>=')
+                     ->where('start_date', $date, '<=')
+                     ->where('end_date', $date, '>=')
+                     ->limit($start, $size)
+                     ->find_all();
+
+        return $res;
+    }
+
+    public static function findGoodByLocationAndDayAndBag($departure, $arrival, $bag, $date, $start, $size) {
+        $query = new QueryBuilder();
+        $res = $query->select('*', self::$table)
+                     ->where('departure_code', $departure)
+                     ->where('arrival_code', $arrival)
+                     ->where('good_type', $bag)
+                     ->where('active', 'Y')
+                     ->where('start_date', $date, '<=')
+                     ->where('end_date', $date, '>=')
                      ->limit($start, $size)
                      ->find_all();
 
