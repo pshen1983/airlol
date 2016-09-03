@@ -40,6 +40,12 @@ class GoodDao extends GoodQuery {
 
         $now = date("Y-m-d H:i:s");
         $this->setCreateTime($now);
+
+        $endDate = $this->getEndDate();
+        if (empty($endDate)) {
+            $endDate = date('Y-m-d H:i:s', strtotime("+90 days"));
+            $this->setEndDate($endDate);
+        }
     }
 
     protected static function cacheById() { return TRUE; }

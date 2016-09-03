@@ -7,7 +7,6 @@ class GoodQuery extends GoodGenerated {
                      ->where('departure_code', $departure)
                      ->where('arrival_code', $arrival)
                      ->where('active', 'Y')
-                     ->where('start_date', $date, '<=')
                      ->where('end_date', $date, '>=')
                      ->limit($start, $size)
                      ->find_all();
@@ -22,7 +21,6 @@ class GoodQuery extends GoodGenerated {
                      ->where('arrival_code', $arrival)
                      ->where('good_type', $bag)
                      ->where('active', 'Y')
-                     ->where('start_date', $date, '<=')
                      ->where('end_date', $date, '>=')
                      ->limit($start, $size)
                      ->find_all();
