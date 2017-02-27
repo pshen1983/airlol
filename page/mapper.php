@@ -38,5 +38,6 @@ register('GET', '/package/:goodid', new GoodDetailController());
 // user
 register('GET', '/history',      new HistoryController());
 register('GET', '/message/list', new MessageListController());
+register('GET', '/dashboard',    new DashBoardController());
 
 ?>
