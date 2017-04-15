@@ -4,8 +4,6 @@ if [ "$#" -ne 1 ]; then
     exit 1;
 fi
 cp /opt/airlol/metadata/config/$1/apache-vhost.conf /opt/airlol/
-cp /opt/airlol/metadata/config/$1/ajax.config /opt/airlol/ajax/.config
-cp /opt/airlol/metadata/config/$1/page.config /opt/airlol/page/.config
-cp /opt/airlol/metadata/config/$1/rest.config /opt/airlol/rest/.config
+service apache2 restart
 echo "$1 is successfully deployed"
 exit 0;
