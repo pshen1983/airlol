@@ -5,6 +5,13 @@ class SearchTripController extends AjaxController {
         $status = 0;
         $message = '';
 
+        $trips = array();
+
+        if ($_GET['debug']==1) {
+            global $test_search_trips;
+            return $test_search_trips;
+        }
+
         if (!empty($_GET['departure']) && !empty($_GET['arrival']) && !empty($_GET['page']) && 
             Format::isValidMySQLDate($_GET['start']) && Format::isValidMySQLDate($_GET['end'], true)) {
 
@@ -21,13 +28,12 @@ class SearchTripController extends AjaxController {
                 $tripDaos = TripDao::findTripByLocationAndDay($departure, $arrival, $startDate, $endDate, $start, $page_size);
             }
 
-            $trips = array();
             foreach ($tripDaos as $tripDao) {
                 $trips[] = $tripDao->toArray();
             }
-
-            View::addTemplate('trip_list', $trips);
         }
+
+        return $trips;
     }
 }
 ?>
