@@ -1,0 +1,21 @@
+#!/bin/sh
+
+DATE=`date +%Y%m%d%H%M%S`
+
+git clone -b trunk https://pshen1983:Langara2@github.com/pshen1983/airlol.git /tmp/cairyme/$DATE
+
+mv /tmp/cairyme/$DATE /opt/cairyme/releases/$DATE
+rm -rf /tmp/cairyme/$DATE
+
+ln -s /opt/cairyme/releases/$DATE/metadata/config/dev/rest.config /opt/cairyme/releases/$DATE/rest/.config
+ln -s /opt/cairyme/releases/$DATE/metadata/config/dev/ajax.config /opt/cairyme/releases/$DATE/ajax/.config
+cp /opt/cairyme/releases/$DATE/metadata/config/dev/apache-vhost.conf /opt/cairyme/releases/$DATE/
+cp /opt/cairyme/releases/$DATE/metadata/config/dev/.htpasswd /opt/cairyme/releases/$DATE/
+cp /opt/cairyme/releases/$DATE/metadata/config/dev/.htaccess /opt/cairyme/releases/$DATE/ajax/docs/
+
+rm /opt/cairyme/current
+ln -s /opt/cairyme/releases/$DATE /opt/cairyme/current
+
+service apache2 restart
+
+echo 'Deployed Successfully...'

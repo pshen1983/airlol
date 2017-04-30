@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Restricted Content"
+AuthUserFile /opt/cairyme/current/.htpasswd
+Require valid-user
