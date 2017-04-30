@@ -16,6 +16,9 @@ register('POST', '/good',         new CreateGoodController(), new CreateGoodVali
 register('GET',  '/search/message', new SearchMessageController());
 register('POST', '/message',        new CreateMessageController(), new CreateMessageValidator());
 
+// user
+register('POST', '/user/rating', new RateUserController(), new RateUserValidator());
+
 /*
 // generic
 register('GET',  '/index',             new HomePageController());
