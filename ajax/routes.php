@@ -8,14 +8,15 @@ $autoload_dirs = array( '../util',
                         '../dao/querier',
                         '../dao/object',
                         'controller',
-                        'controller/generic',
+                        'controller/account',
                         'controller/good',
                         'controller/trip',
                         'controller/message',
                         'validator',
-                        'validator/message',
+                        'validator/account',
                         'validator/trip',
-                        'validator/good'
+                        'validator/good',
+                        'validator/message'
                       );
 
 // blockIp();

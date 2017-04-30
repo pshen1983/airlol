@@ -1,4 +1,7 @@
 <?php
+// account
+register('POST', '/account/signin/email', new SignInEmailController(), new SignInEmailValidator());
+
 // trip
 register('GET',  '/search/trips', new SearchTripController());
 register('POST', '/trip/:tripid', new UpdateTripController());
