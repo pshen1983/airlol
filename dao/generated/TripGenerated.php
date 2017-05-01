@@ -9,13 +9,10 @@ abstract class TripGenerated extends AirlolDaoBase {
         $this->var['departure_code'] = NULL;
         $this->var['arrival_code'] = NULL;
         $this->var['trip_date'] = NULL;
-        $this->var['trip_price'] = NULL;
         $this->var['space_type'] = NULL;
-        $this->var['space_num'] = NULL;
-        $this->var['space_unit'] = NULL;
-        $this->var['contact_type'] = NULL;
+        $this->var['weight'] = NULL;
         $this->var['price'] = NULL;
-        $this->var['price_adjust'] = NULL;
+        $this->var['currency'] = NULL;
         $this->var['active'] = NULL;
         $this->var['create_time'] = NULL;
 
@@ -24,13 +21,10 @@ abstract class TripGenerated extends AirlolDaoBase {
         $this->update['departure_code'] = false;
         $this->update['arrival_code'] = false;
         $this->update['trip_date'] = false;
-        $this->update['trip_price'] = false;
         $this->update['space_type'] = false;
-        $this->update['space_num'] = false;
-        $this->update['space_unit'] = false;
-        $this->update['contact_type'] = false;
+        $this->update['weight'] = false;
         $this->update['price'] = false;
-        $this->update['price_adjust'] = false;
+        $this->update['currency'] = false;
         $this->update['active'] = false;
         $this->update['create_time'] = false;
     }
@@ -79,16 +73,6 @@ abstract class TripGenerated extends AirlolDaoBase {
         return $this->var['trip_date'];
     }
 
-    public function setTripPrice($trip_price) {
-        if ($this->var['trip_price'] !== $trip_price) {
-            $this->var['trip_price'] = $trip_price;
-            $this->update['trip_price'] = true;
-        }
-    }
-    public function getTripPrice() {
-        return $this->var['trip_price'];
-    }
-
     public function setSpaceType($space_type) {
         if ($this->var['space_type'] !== $space_type) {
             $this->var['space_type'] = $space_type;
@@ -99,34 +83,14 @@ abstract class TripGenerated extends AirlolDaoBase {
         return $this->var['space_type'];
     }
 
-    public function setSpaceNum($space_num) {
-        if ($this->var['space_num'] !== $space_num) {
-            $this->var['space_num'] = $space_num;
-            $this->update['space_num'] = true;
+    public function setWeight($weight) {
+        if ($this->var['weight'] !== $weight) {
+            $this->var['weight'] = $weight;
+            $this->update['weight'] = true;
         }
     }
-    public function getSpaceNum() {
-        return $this->var['space_num'];
-    }
-
-    public function setSpaceUnit($space_unit) {
-        if ($this->var['space_unit'] !== $space_unit) {
-            $this->var['space_unit'] = $space_unit;
-            $this->update['space_unit'] = true;
-        }
-    }
-    public function getSpaceUnit() {
-        return $this->var['space_unit'];
-    }
-
-    public function setContactType($contact_type) {
-        if ($this->var['contact_type'] !== $contact_type) {
-            $this->var['contact_type'] = $contact_type;
-            $this->update['contact_type'] = true;
-        }
-    }
-    public function getContactType() {
-        return $this->var['contact_type'];
+    public function getWeight() {
+        return $this->var['weight'];
     }
 
     public function setPrice($price) {
@@ -139,14 +103,14 @@ abstract class TripGenerated extends AirlolDaoBase {
         return $this->var['price'];
     }
 
-    public function setPriceAdjust($price_adjust) {
-        if ($this->var['price_adjust'] !== $price_adjust) {
-            $this->var['price_adjust'] = $price_adjust;
-            $this->update['price_adjust'] = true;
+    public function setCurrency($currency) {
+        if ($this->var['currency'] !== $currency) {
+            $this->var['currency'] = $currency;
+            $this->update['currency'] = true;
         }
     }
-    public function getPriceAdjust() {
-        return $this->var['price_adjust'];
+    public function getCurrency() {
+        return $this->var['currency'];
     }
 
     public function setActive($active) {

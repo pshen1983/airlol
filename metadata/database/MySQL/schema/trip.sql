@@ -7,14 +7,11 @@ CREATE TABLE airlol.trip
     departure_code VARCHAR(16) NOT NULL,
     arrival_code VARCHAR(16) NOT NULL,
     trip_date DATE NOT NULL,
-    trip_price SMALLINT UNSIGNED,
     space_type TINYINT NOT NULL,
-    space_num TINYINT NOT NULL,
-    space_unit TINYINT NOT NULL,
-    contact_type TINYINT NOT NULL,
+    weight TINYINT,
     price SMALLINT UNSIGNED,
-    price_adjust VARCHAR(2),
-    active VARCHAR(2),
+    currency VARCHAR(4),
+    active VARCHAR(2) NOT NULL,
     create_time DATETIME NOT NULL,
 
     PRIMARY KEY (id)

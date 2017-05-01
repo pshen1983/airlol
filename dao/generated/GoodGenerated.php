@@ -9,14 +9,12 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->var['departure_code'] = NULL;
         $this->var['arrival_code'] = NULL;
         $this->var['end_date'] = NULL;
-        $this->var['good_type'] = NULL;
-        $this->var['good_unit'] = NULL;
-        $this->var['good_price'] = NULL;
+        $this->var['type'] = NULL;
+        $this->var['weight'] = NULL;
         $this->var['description'] = NULL;
         $this->var['price'] = NULL;
-        $this->var['price_adjust'] = NULL;
+        $this->var['currency'] = NULL;
         $this->var['active'] = NULL;
-        $this->var['contact_type'] = NULL;
         $this->var['create_time'] = NULL;
 
         $this->update['id'] = false;
@@ -24,14 +22,12 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->update['departure_code'] = false;
         $this->update['arrival_code'] = false;
         $this->update['end_date'] = false;
-        $this->update['good_type'] = false;
-        $this->update['good_unit'] = false;
-        $this->update['good_price'] = false;
+        $this->update['type'] = false;
+        $this->update['weight'] = false;
         $this->update['description'] = false;
         $this->update['price'] = false;
-        $this->update['price_adjust'] = false;
+        $this->update['currency'] = false;
         $this->update['active'] = false;
-        $this->update['contact_type'] = false;
         $this->update['create_time'] = false;
     }
 
@@ -79,34 +75,24 @@ abstract class GoodGenerated extends AirlolDaoBase {
         return $this->var['end_date'];
     }
 
-    public function setGoodType($good_type) {
-        if ($this->var['good_type'] !== $good_type) {
-            $this->var['good_type'] = $good_type;
-            $this->update['good_type'] = true;
+    public function setType($type) {
+        if ($this->var['type'] !== $type) {
+            $this->var['type'] = $type;
+            $this->update['type'] = true;
         }
     }
-    public function getGoodType() {
-        return $this->var['good_type'];
+    public function getType() {
+        return $this->var['type'];
     }
 
-    public function setGoodUnit($good_unit) {
-        if ($this->var['good_unit'] !== $good_unit) {
-            $this->var['good_unit'] = $good_unit;
-            $this->update['good_unit'] = true;
+    public function setWeight($weight) {
+        if ($this->var['weight'] !== $weight) {
+            $this->var['weight'] = $weight;
+            $this->update['weight'] = true;
         }
     }
-    public function getGoodUnit() {
-        return $this->var['good_unit'];
-    }
-
-    public function setGoodPrice($good_price) {
-        if ($this->var['good_price'] !== $good_price) {
-            $this->var['good_price'] = $good_price;
-            $this->update['good_price'] = true;
-        }
-    }
-    public function getGoodPrice() {
-        return $this->var['good_price'];
+    public function getWeight() {
+        return $this->var['weight'];
     }
 
     public function setDescription($description) {
@@ -129,14 +115,14 @@ abstract class GoodGenerated extends AirlolDaoBase {
         return $this->var['price'];
     }
 
-    public function setPriceAdjust($price_adjust) {
-        if ($this->var['price_adjust'] !== $price_adjust) {
-            $this->var['price_adjust'] = $price_adjust;
-            $this->update['price_adjust'] = true;
+    public function setCurrency($currency) {
+        if ($this->var['currency'] !== $currency) {
+            $this->var['currency'] = $currency;
+            $this->update['currency'] = true;
         }
     }
-    public function getPriceAdjust() {
-        return $this->var['price_adjust'];
+    public function getCurrency() {
+        return $this->var['currency'];
     }
 
     public function setActive($active) {
@@ -147,16 +133,6 @@ abstract class GoodGenerated extends AirlolDaoBase {
     }
     public function getActive() {
         return $this->var['active'];
-    }
-
-    public function setContactType($contact_type) {
-        if ($this->var['contact_type'] !== $contact_type) {
-            $this->var['contact_type'] = $contact_type;
-            $this->update['contact_type'] = true;
-        }
-    }
-    public function getContactType() {
-        return $this->var['contact_type'];
     }
 
     public function setCreateTime($create_time) {
