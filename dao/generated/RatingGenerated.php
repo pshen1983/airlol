@@ -6,6 +6,7 @@ abstract class RatingGenerated extends AirlolDaoBase {
     protected function init() {
         $this->var['id'] = 0;
         $this->var['trip_id'] = NULL;
+        $this->var['good_id'] = NULL;
         $this->var['user_id'] = NULL;
         $this->var['rater_id'] = NULL;
         $this->var['type'] = NULL;
@@ -15,6 +16,7 @@ abstract class RatingGenerated extends AirlolDaoBase {
 
         $this->update['id'] = false;
         $this->update['trip_id'] = false;
+        $this->update['good_id'] = false;
         $this->update['user_id'] = false;
         $this->update['rater_id'] = false;
         $this->update['type'] = false;
@@ -35,6 +37,16 @@ abstract class RatingGenerated extends AirlolDaoBase {
     }
     public function getTripId() {
         return $this->var['trip_id'];
+    }
+
+    public function setGoodId($good_id) {
+        if ($this->var['good_id'] !== $good_id) {
+            $this->var['good_id'] = $good_id;
+            $this->update['good_id'] = true;
+        }
+    }
+    public function getGoodId() {
+        return $this->var['good_id'];
     }
 
     public function setUserId($user_id) {

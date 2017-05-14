@@ -46,12 +46,12 @@ class Utility {
         setcookie( 'locale', $locale, time()+31536000, '/', 'airlol.com' );
     }
 
-    public static function getSuggestedPriceByGood($goodPrice, $defaultPrice) {
-        return $defaultPrice;
+    public static function getSuggestedPriceByGood($currency, $departure, $arrival) {
+        return '100'.$currency;
     }
 
-    public static function getSuggestedPriceByTrip($tripPrice, $defaultPrice) {
-        return $defaultPrice;
+    public static function getSuggestedPriceByTrip($currency, $departure, $arrival) {
+        return '100'.$currency;
     }
 }
 ?>

@@ -3,6 +3,13 @@ class GoodDao extends GoodQuery {
     public static $PART = 1;
     public static $BAG = 2;
 
+    public static $WEIGHT_KG = 1;
+    public static $WEIGHT_LB = 2;
+
+    public function getDisplayValue() {
+        return $this->getPrice().$this->getCurrency();
+    }
+
     public static function findGoodByLocationAndDay($departure, $arrival, $date, $start, $size) {
         $res = parent::findGoodByLocationAndDay($departure, $arrival, $date, $start, $size);
 

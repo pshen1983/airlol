@@ -3,6 +3,9 @@ class TripDao extends TripQuery {
     public static $PARTBAG = 1;
     public static $WHOLEBAG = 2;
 
+    public static $WEIGHT_KG = 1;
+    public static $WEIGHT_LB = 2;
+
     public static function findTripByLocationAndDay($departure, $arrival, $startDate, $endDate, $start, $size) {
         $res = parent::findTripByLocationAndDay($departure, $arrival, $startDate, $endDate, $start, $size);
 

@@ -4,6 +4,7 @@ CREATE TABLE airlol.rating
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 
     trip_id INT(10) UNSIGNED NOT NULL,
+    good_id INT(10) UNSIGNED NOT NULL,
     user_id INT(10) UNSIGNED NOT NULL,
     rater_id INT(10) UNSIGNED NOT NULL,
     type TINYINT NOT NULL,

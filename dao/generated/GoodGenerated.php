@@ -11,6 +11,7 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->var['end_date'] = NULL;
         $this->var['type'] = NULL;
         $this->var['weight'] = NULL;
+        $this->var['weight_unit'] = NULL;
         $this->var['description'] = NULL;
         $this->var['price'] = NULL;
         $this->var['currency'] = NULL;
@@ -24,6 +25,7 @@ abstract class GoodGenerated extends AirlolDaoBase {
         $this->update['end_date'] = false;
         $this->update['type'] = false;
         $this->update['weight'] = false;
+        $this->update['weight_unit'] = false;
         $this->update['description'] = false;
         $this->update['price'] = false;
         $this->update['currency'] = false;
@@ -93,6 +95,16 @@ abstract class GoodGenerated extends AirlolDaoBase {
     }
     public function getWeight() {
         return $this->var['weight'];
+    }
+
+    public function setWeightUnit($weight_unit) {
+        if ($this->var['weight_unit'] !== $weight_unit) {
+            $this->var['weight_unit'] = $weight_unit;
+            $this->update['weight_unit'] = true;
+        }
+    }
+    public function getWeightUnit() {
+        return $this->var['weight_unit'];
     }
 
     public function setDescription($description) {

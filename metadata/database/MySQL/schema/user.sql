@@ -17,6 +17,12 @@ CREATE TABLE airlol.user
     preferred_method TINYINT,
     living_city VARCHAR(255),
     self_description TEXT,
+    response_count SMALLINT UNSIGNED,
+    response_time TINYINT UNSIGNED,
+    rate_trip_count SMALLINT UNSIGNED,
+    rate_trip_value TINYINT UNSIGNED,
+    rate_good_count SMALLINT UNSIGNED,
+    rate_good_value TINYINT UNSIGNED,
     create_time DATETIME NOT NULL,
 
     PRIMARY KEY (id)

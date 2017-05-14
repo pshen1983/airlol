@@ -18,6 +18,8 @@ class MessageDao extends MessageQuery {
     protected function actionBeforeInsert() {
         $now = date("Y-m-d H:i:s");
         $this->setCreateTime($now);
+
+        // TODO: calculate response time and update User Dao
     }
 
     protected static function cacheById() { return TRUE; }

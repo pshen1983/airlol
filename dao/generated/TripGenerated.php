@@ -11,6 +11,7 @@ abstract class TripGenerated extends AirlolDaoBase {
         $this->var['trip_date'] = NULL;
         $this->var['space_type'] = NULL;
         $this->var['weight'] = NULL;
+        $this->var['weight_unit'] = NULL;
         $this->var['price'] = NULL;
         $this->var['currency'] = NULL;
         $this->var['active'] = NULL;
@@ -23,6 +24,7 @@ abstract class TripGenerated extends AirlolDaoBase {
         $this->update['trip_date'] = false;
         $this->update['space_type'] = false;
         $this->update['weight'] = false;
+        $this->update['weight_unit'] = false;
         $this->update['price'] = false;
         $this->update['currency'] = false;
         $this->update['active'] = false;
@@ -91,6 +93,16 @@ abstract class TripGenerated extends AirlolDaoBase {
     }
     public function getWeight() {
         return $this->var['weight'];
+    }
+
+    public function setWeightUnit($weight_unit) {
+        if ($this->var['weight_unit'] !== $weight_unit) {
+            $this->var['weight_unit'] = $weight_unit;
+            $this->update['weight_unit'] = true;
+        }
+    }
+    public function getWeightUnit() {
+        return $this->var['weight_unit'];
     }
 
     public function setPrice($price) {

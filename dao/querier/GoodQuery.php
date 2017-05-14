@@ -19,7 +19,7 @@ class GoodQuery extends GoodGenerated {
         $res = $query->select('*', self::$table)
                      ->where('departure_code', $departure)
                      ->where('arrival_code', $arrival)
-                     ->where('good_type', $bag)
+                     ->where('type', $bag)
                      ->where('active', 'Y')
                      ->where('end_date', $date, '>=')
                      ->limit($start, $size)

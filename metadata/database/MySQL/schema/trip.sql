@@ -9,6 +9,7 @@ CREATE TABLE airlol.trip
     trip_date DATE NOT NULL,
     space_type TINYINT NOT NULL,
     weight TINYINT,
+    weight_unit TINYINT,
     price SMALLINT UNSIGNED,
     currency VARCHAR(4),
     active VARCHAR(2) NOT NULL,
