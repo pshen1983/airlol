@@ -33,6 +33,11 @@ class TripDao extends TripQuery {
 
     // ======================================================================
 
+    public function getWeightUnit() {
+        $unit = parent::getWeightUnit();
+        return $unit==self::$WEIGHT_LB ? 'lb' : 'kg';
+    }
+
     protected function actionBeforeInsert() {
         $type = $this->getSpaceType();
         if (empty($type)) {

@@ -16,7 +16,7 @@ GET
 <br><br><br>
 <span class="title">URL</span>
 <div class="sep"></div>
-/<br><br>
+/search/goods<br><br>
 <br><br><br>
 <span class="title">Header</span>
 <div class="sep"></div>
@@ -25,11 +25,13 @@ GET
 <tbody><tr><td class="hfirst">Content-Type</td><td>application/json</td></tr>
 </tbody></table>
 <br><br><br>
-<span class="title">Request Body</span>
+<span class="title">GET Parameters</span>
 <div class="sep"></div>
-<div class="tab0">{</div>
-<div class="tab1">"email":""</div>
-<div class="tab0">}</div>
+<div class="tab0">departure=YVR&arrival=SHA&date=2017-06-09&page=1</div>
+<div class="tab1">departure - The departure city code</div>
+<div class="tab1">arrival - The arrival city code</div>
+<div class="tab1">date - The trip date to search available goods</div>
+<div class="tab1">page - The pagination number</div>
 <br><br><br>
 <span class="title">Response</span>
 <div class="sep"></div>
@@ -37,9 +39,47 @@ GET
 <thead><tr><th class="hfirst">Case</th><th class="second">Body</th></tr></thead>
 <tbody><tr><td class="hfirst">SUCCESS</td><td>
 200 OK<br><br>
-<div class="tab0">{</div>
-<div class="tab1">"status":"success"</div>
-<div class="tab0">}</div>
+<div class="tab0">[</div>
+<div class="tab1">{</div>
+<div class="tab2">"user":{</div>
+<div class="tab3">"name":"TB001 User0001",</div>
+<div class="tab3">"rating":{</div>
+<div class="tab4">"value":3.5,</div>
+<div class="tab4">"total":12</div>
+<div class="tab3">},</div>
+<div class="tab3">"join_time":"2017-05-12",</div>
+<div class="tab3">"response_time":"1"</div>
+<div class="tab2">},</div>
+<div class="tab2">"good":{</div>
+<div class="tab3">"id":"1",</div>
+<div class="tab3">"weight":"23",</div>
+<div class="tab3">"weight_unit":"kg",</div>
+<div class="tab3">"items":"test bed 001 good 0001",</div>
+<div class="tab3">"value":"25CAD",</div>
+<div class="tab3">"before":"2017-06-14"</div>
+<div class="tab2">}</div>
+<div class="tab1">},</div>
+<div class="tab1">{</div>
+<div class="tab2">"user":{</div>
+<div class="tab3">"name":"TB001 User0002",</div>
+<div class="tab3">"rating":{</div>
+<div class="tab4">"value":4.5,</div>
+<div class="tab4">"total":2</div>
+<div class="tab3">},</div>
+<div class="tab3">"join_time":"2017-07-12",</div>
+<div class="tab3">"response_time":"3"</div>
+<div class="tab2">},</div>
+<div class="tab2">"good":{</div>
+<div class="tab3">"id":"4",</div>
+<div class="tab3">"weight":"20",</div>
+<div class="tab3">"weight_unit":"kg",</div>
+<div class="tab3">"items":"test bed 001 good 0002",</div>
+<div class="tab3">"value":"25CAD",</div>
+<div class="tab3">"before":"2017-06-14"</div>
+<div class="tab2">}</div>
+<div class="tab1">},</div>
+<div class="tab1">...</div>
+<div class="tab0">]</div>
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 403 Forbidden<br><br>

@@ -37,6 +37,11 @@ class GoodDao extends GoodQuery {
 
     // ======================================================================
 
+    public function getWeightUnit() {
+        $unit = parent::getWeightUnit();
+        return $unit==self::$WEIGHT_LB ? 'lb' : 'kg';
+    }
+
     protected function actionBeforeInsert() {
         $type = $this->getGoodType();
         if (empty($type)) {

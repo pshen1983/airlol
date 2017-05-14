@@ -7,12 +7,15 @@ b{cursor:pointer;}
 div#title{margin:10px 0 10px 0;}
 div.title{font-style:italic;margin:30px 0 15px 0;color:green;font-size:.8em;}
 a{font-size:.8em;text-decoration:underline;color:blue;display:block;margin-bottom:5px;}
+a.disable{pointer-events:none;color:gray;}
 </style>
 <script>
 function navigate(link, url) {
     var anchors = document.getElementsByTagName('a');
     for(var i = 0; i < anchors.length; i++) {
-        anchors[i].style.color = 'blue';
+    	if (!anchors[i].classList.contains('disable')) {
+        	anchors[i].style.color = 'blue';
+    	}
     }
     parent.document.getElementById('content').src = url;
     if (link!=null) { link.style.color = "#f00"; }
@@ -28,50 +31,50 @@ Account API :
 </div>
 <div>
 <a href="#" onclick='javascript:navigate(this,"account_sign_in_email.html")'>Email Sign In</a>
-<a href="#" onclick='javascript:navigate(this,"account_sign_up_email.html")'>Email Sign Up</a>
-<a href="#" onclick='javascript:navigate(this,"account_sign_out.html")'>Email Sign Out</a>
-<a href="#" onclick='javascript:navigate(this,"account_forget_passwd.html")'>Forget Password</a>
-<a href="#" onclick='javascript:navigate(this,"account_get_token_email.html")'>Get Email from Token</a>
-<a href="#" onclick='javascript:navigate(this,"account_reset_passwd.html")'>Reset Password</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"account_sign_up_email.html")'>Email Sign Up</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"account_sign_out.html")'>Email Sign Out</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"account_forget_passwd.html")'>Forget Password</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"account_get_token_email.html")'>Get Email from Token</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"account_reset_passwd.html")'>Reset Password</a>
 </div>
 <div class="title">
 Trip API :
 </div>
 <div>
-<a href="#" onclick='javascript:navigate(this,"trip_search.html")'>Search Trips</a>
-<a href="#" onclick='javascript:navigate(this,"trip_user_get.html")'>Get User Trips</a>
-<a href="#" onclick='javascript:navigate(this,"trip_detail_get.html")'>Get Trip Detail</a>
-<a href="#" onclick='javascript:navigate(this,"trip_create.html")'>Create Trip</a>
-<a href="#" onclick='javascript:navigate(this,"trip_update.html")'>Update Trip</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"trip_search.html")'>Search Trips</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"trip_user_get.html")'>Get User Trips</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"trip_detail_get.html")'>Get Trip Detail</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"trip_create.html")'>Create Trip</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"trip_update.html")'>Update Trip</a>
 </div>
 <div class="title">
 Good API :
 </div>
 <div>
 <a href="#" onclick='javascript:navigate(this,"good_search.html")'>Search Goods</a>
-<a href="#" onclick='javascript:navigate(this,"good_user_get.html")'>Get User Goods</a>
-<a href="#" onclick='javascript:navigate(this,"good_detail_get.html")'>Get Good Detail</a>
-<a href="#" onclick='javascript:navigate(this,"good_create.html")'>Create Good</a>
-<a href="#" onclick='javascript:navigate(this,"good_update.html")'>Update Good</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"good_user_get.html")'>Get User Goods</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"good_detail_get.html")'>Get Good Detail</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"good_create.html")'>Create Good</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"good_update.html")'>Update Good</a>
 </div>
 <div class="title">
 Message API :
 </div>
 <div>
-<a href="#" onclick='javascript:navigate(this,"message_trip_user_get.html")'>Get Trip User Messages</a>
-<a href="#" onclick='javascript:navigate(this,"message_accept_trip.html")'>Accept Trip Messages</a>
-<a href="#" onclick='javascript:navigate(this,"message_good_user_get.html")'>Get Good User Messages</a>
-<a href="#" onclick='javascript:navigate(this,"message_accept_good.html")'>Accept Good Messages</a>
-<a href="#" onclick='javascript:navigate(this,"message_create.html")'>Create Message</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"message_trip_user_get.html")'>Get Trip User Messages</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"message_accept_trip.html")'>Accept Trip Messages</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"message_good_user_get.html")'>Get Good User Messages</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"message_accept_good.html")'>Accept Good Messages</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"message_create.html")'>Create Message</a>
 </div>
 <div class="title">
 User API :
 </div>
 <div>
-<a href="#" onclick='javascript:navigate(this,"user_profile_update.html")'>Update User Profile</a>
-<a href="#" onclick='javascript:navigate(this,"user_profile_get.html")'>Get User Profile</a>
-<a href="#" onclick='javascript:navigate(this,"user_tobe_rated.html")'>Get Users tobe Rated</a>
-<a href="#" onclick='javascript:navigate(this,"user_rating.html")'>Rate a User</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"user_profile_update.html")'>Update User Profile</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"user_profile_get.html")'>Get User Profile</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"user_tobe_rated.html")'>Get Users tobe Rated</a>
+<a href="#" class='disable' onclick='javascript:navigate(this,"user_rating.html")'>Rate a User</a>
 </div>
 <br>
 </body>
