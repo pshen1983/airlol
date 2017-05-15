@@ -17,10 +17,10 @@ INSERT INTO airlol.trip
 (user_id, departure_code, arrival_code, trip_date, space_type, weight, weight_unit, price, currency, active, create_time)
 VALUES
 (1, 'SHA', 'YVR', NOW() + INTERVAL 1 DAY, 1, 20, 1, 25, 'CAD', 'N', NOW()),
-(2, 'YVR', 'SHA', NOW() + INTERVAL 2 DAY, 2, 23, 1, 30, 'USD', 'Y', NOW()),
-(3, 'SHA', 'YVR', NOW() + INTERVAL 3 DAY, 1, 20, 1, 25, 'CAD', 'Y', NOW()),
-(4, 'YVR', 'SHA', NOW() + INTERVAL 4 DAY, 2, 23, 1, 50, 'CAD', 'Y', NOW()),
-(5, 'SHA', 'YVR', NOW() + INTERVAL 5 DAY, 1, 20, 1, 25, 'CAD', 'Y', NOW()),
+(2, 'YVR', 'SHA', NOW() + INTERVAL 2 DAY, 1, 23, 1, 30, 'USD', 'Y', NOW()),
+(3, 'SHA', 'YVR', NOW() + INTERVAL 3 DAY, 2, 20, 1, 25, 'CAD', 'Y', NOW()),
+(4, 'YVR', 'SHA', NOW() + INTERVAL 4 DAY, 1, 23, 1, 50, 'CAD', 'Y', NOW()),
+(5, 'SHA', 'YVR', NOW() + INTERVAL 5 DAY, 2, 20, 1, 25, 'CAD', 'Y', NOW()),
 (6, 'YVR', 'SHA', NOW() + INTERVAL 6 DAY, 2, 23, 1, 60, 'USD', 'Y', NOW()),
 (7, 'SHA', 'YVR', NOW() + INTERVAL 7 DAY, 1, 20, 1, 25, 'CAD', 'Y', NOW()),
 (8, 'YVR', 'SHA', NOW() + INTERVAL 8 DAY, 2, 23, 1, 75, 'CAD', 'Y', NOW()),
@@ -31,10 +31,10 @@ VALUES
 INSERT INTO airlol.good
 (user_id, departure_code, arrival_code, end_date, type, weight, weight_unit, description, price, currency, active, create_time)
 VALUES
-(1, 'YVR', 'SHA', NOW() + INTERVAL 1 MONTH, 2, 23, 1, 'test bed 001 good 0001', 25, 'CAD', 'Y', NOW()),
-(2, 'SHA', 'YVR', NOW() + INTERVAL 1 MONTH, 1, 20, 1, 'test bed 001 good 0002', 45, 'USD', 'N', NOW()),
-(3, 'YVR', 'SHA', NOW() + INTERVAL 1 MONTH, 2, 23, 1, 'test bed 001 good 0003', 25, 'CAD', 'Y', NOW()),
-(4, 'SHA', 'YVR', NOW() + INTERVAL 1 MONTH, 1, 20, 1, 'test bed 001 good 0004', 65, 'CAD', 'Y', NOW()),
+(1, 'YVR', 'SHA', NOW() + INTERVAL 1 MONTH, 1, 23, 1, 'test bed 001 good 0001', 25, 'CAD', 'Y', NOW()),
+(2, 'SHA', 'YVR', NOW() + INTERVAL 1 MONTH, 2, 20, 1, 'test bed 001 good 0002', 45, 'USD', 'N', NOW()),
+(3, 'YVR', 'SHA', NOW() + INTERVAL 1 MONTH, 1, 23, 1, 'test bed 001 good 0003', 25, 'CAD', 'Y', NOW()),
+(4, 'SHA', 'YVR', NOW() + INTERVAL 1 MONTH, 2, 20, 1, 'test bed 001 good 0004', 65, 'CAD', 'Y', NOW()),
 (5, 'YVR', 'SHA', NOW() + INTERVAL 1 MONTH, 2, 23, 1, 'test bed 001 good 0005', 25, 'CAD', 'Y', NOW()),
 (6, 'SHA', 'YVR', NOW() + INTERVAL 1 MONTH, 1, 20, 1, 'test bed 001 good 0006', 15, 'USD', 'Y', NOW()),
 (7, 'YVR', 'SHA', NOW() + INTERVAL 1 MONTH, 2, 23, 1, 'test bed 001 good 0007', 25, 'CAD', 'Y', NOW()),
