@@ -19,6 +19,10 @@ register('POST', '/message',        new CreateMessageController(), new CreateMes
 // user
 register('POST', '/user/rating', new RateUserController(), new RateUserValidator());
 
+// iterm
+register('GET', '/iterm/cities', new GetCitiesListController(), new GetCitiesListValidator());
+
+
 /*
 // generic
 register('GET',  '/index',             new HomePageController());

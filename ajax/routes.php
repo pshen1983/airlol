@@ -13,12 +13,14 @@ $autoload_dirs = array( '../util',
                         'controller/trip',
                         'controller/message',
                         'controller/user',
+                        'controller/iterm',
                         'validator',
                         'validator/account',
                         'validator/trip',
                         'validator/good',
                         'validator/message',
-                        'validator/user'
+                        'validator/user',
+                        'validator/iterm'
                       );
 
 // blockIp();
