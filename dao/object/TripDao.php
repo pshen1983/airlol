@@ -46,7 +46,8 @@ class TripDao extends TripQuery {
             $this->setSpaceType(self::$PARTBAG);
         }
 
-        $this->setActive('Y');
+        $active = $this->getActive();
+        if ($active!='N') { $this->setActive('Y'); }
 
         $now = date("Y-m-d H:i:s");
         $this->setCreateTime($now);

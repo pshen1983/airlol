@@ -17,7 +17,10 @@ class CreateTripController extends AjaxController {
 
         if (!empty($params['weight'])) $tripDao->setWeight($params['weight']);
         if (!empty($params['weight_unit'])) $tripDao->setWeightUnit($params['weight_unit']);
-        if (!empty($params['active'])) $tripDao->setActive($params['active']);
+        if (isset($params['searchable'])) {
+            $active = $params['searchable']=='true' ? 'Y' : 'N';
+            $tripDao->setActive($active);
+        }
 
         if ($tripDao->save()) {
             $atReturn['trip_id'] = $tripDao->getId();

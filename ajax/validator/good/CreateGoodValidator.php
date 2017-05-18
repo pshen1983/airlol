@@ -7,25 +7,44 @@ class CreateGoodValidator extends AjaxValidator {
         if ($valid) {
             $valid = ASession::isSignedIn();
             if (!$valid) {
+                $this->errorStatusCode = 401;
                 $this->setErrorDescription('not_signed_in');
             }
         }
 
         if ($valid) {
-            $valid = !empty($_POST['departure']) && !empty($_POST['arrival']);
+            $valid = !empty($params['departure']) && !empty($params['arrival']);
             if (!$valid) {
-                $this->setErrorDescription('empty_params');
+                $this->setErrorDescription('missing_cities');
             }
         }
 
         if ($valid) {
-            $valid = Format::isValidMySQLDate($_POST['date'], true);
+            $valid = Format::isValidMySQLDate($params['date'], true);
             if (!$valid) {
                 $this->setErrorDescription('invalid_date_format');
             }
         }
 
+        if ($valid) {
+            $valid = !empty($params['type']);// && !empty($params['weight']) && !empty($params['weight_unit']);
+            if (!$valid) {
+                $this->setErrorDescription('missing_good_type');
+            }
+        }
+
+        if ($valid) {
+            $valid = !empty($params['price']) && !empty($params['currency']);
+            if (!$valid) {
+                $this->setErrorDescription('missing_price');
+            }
+        }
+
         return $valid;
+    }
+
+    protected function getErrorCode() {
+        return 400;
     }
 }
 ?>

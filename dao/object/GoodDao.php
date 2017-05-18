@@ -43,7 +43,7 @@ class GoodDao extends GoodQuery {
     }
 
     protected function actionBeforeInsert() {
-        $type = $this->getGoodType();
+        $type = $this->getType();
         if (empty($type)) {
             $this->setGoodType(self::$PART);
         }

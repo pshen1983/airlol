@@ -4,35 +4,33 @@ class CreateGoodController extends AjaxController {
     protected function handle($params) {
         $status = 0;
         $message = '';
+        $atReturn = array('status'=>$status);
 
-        if (ASession::isSignedIn()) {
-            $departure = $_POST['departure'];
-            $arrival = $_POST['arrival'];
-            $date = $_POST['date'];
+        $goodDao = new GoodDao();
+        $goodDao->setDepartureCode($params['departure']);
+        $goodDao->setArrivalCode($params['arrival']);
+        $goodDao->setEndDate($params['date']);
+        $goodDao->setUserId(ASession::getSessionUserId());
+        $goodDao->setPrice($params['price']);
+        $goodDao->setCurrency($params['currency']);
+        $goodDao->setType($params['type']);
 
-            $validDate = Format::isValidMySQLDate($date, true);
-            if ($validDate) {
-                $goodDao = new GoodDao();
-                $goodDao->setDepartureCode($departure);
-                $goodDao->setArrivalCode($arrival);
-                $goodDao->setEndDate($date);
-                $goodDao->setUserId(ASession::getSessionUserId());
-                if ($goodDao->save()) {
-                    $message = $goodDao->getId();
-                } else {
-                    $status = 1;
-                    $message = '';
-                }
-            } else {
-                $status = 2;
-                $message = '';
-            }
-        } else {
-            $status = 3;
-            $message = '';
+        if (!empty($params['weight'])) $goodDao->setWeight($params['weight']);
+        if (!empty($params['description'])) $goodDao->setDescription($params['description']);
+        if (!empty($params['weight_unit'])) $goodDao->setWeightUnit($params['weight_unit']);
+        if (isset($params['searchable'])) {
+            $active = $params['searchable']=='true' ? 'Y' : 'N';
+            $goodDao->setActive($active);
         }
 
-        return array('status'=>$status, 'message'=>$message);
+        if ($goodDao->save()) {
+            $atReturn['good_id'] = $goodDao->getId();
+        } else {
+            $status = 1;
+            $atReturn['message'] = 'internal_error';
+        }
+
+        return $atReturn;
     }
 }
 ?>
