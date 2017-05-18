@@ -2,37 +2,33 @@
 class SignInEmailController extends AjaxController {
 
     protected function handle($params) {
-        $status = 0;
-        $message = '';
+        $atReturn = array('status'=>0);
 
-        if (ASession::isSignedIn()) {
-            $departure = $_POST['departure'];
-            $arrival = $_POST['arrival'];
-            $date = $_POST['date'];
+        $email = trim($params['email']);
+        $passwd = $params['password'];
 
-            $validDate = Format::isValidMySQLDate($date, true);
-            if ($validDate) {
-                $goodDao = new GoodDao();
-                $goodDao->setDepartureCode($departure);
-                $goodDao->setArrivalCode($arrival);
-                $goodDao->setEndDate($date);
-                $goodDao->setUserId(ASession::getSessionUserId());
-                if ($goodDao->save()) {
-                    $message = $goodDao->getId();
-                } else {
-                    $status = 1;
-                    $message = '';
+        $user = UserDao::getUserByEmail($email);
+        if ($user) {
+            $validPasswd = $user->checkPassword($passwd);
+            if ($validPasswd) {
+                ASession::setSessionUserId($user->getId());
+
+                if (isset($_POST['remember']) && $_POST['remember']=='remember') {
+                    $this->saveRememberMeCookie();
                 }
+                $atReturn['user_id'] = $user->getId();
             } else {
-                $status = 2;
-                $message = '';
+                $this->setStatusCode(401);
+                $atReturn['status'] = 2;
+                $atReturn['message'] = 'invalid_combination';
             }
         } else {
-            $status = 3;
-            $message = '';
+            $this->setStatusCode(404);
+            $atReturn['status'] = 1;
+            $atReturn['message'] = 'account_not_found';
         }
 
-        return array('status'=>$status, 'message'=>$message);
+        return $atReturn;
     }
 }
 ?>

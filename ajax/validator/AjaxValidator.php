@@ -39,6 +39,7 @@ abstract class AjaxValidator {
             case 414: $text = 'Request-URI Too Large'; break;
             case 415: $text = 'Unsupported Media Type'; break;
     		case 500: $text = 'Internal Server Error'; break;
+            case 503: $text = 'Service Unavailable'; break;
     	}
 
     	header('HTTP/1.0 '.$code.' '.$text);

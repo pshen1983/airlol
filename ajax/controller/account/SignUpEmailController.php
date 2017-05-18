@@ -21,7 +21,7 @@ class SignUpEmailController extends AjaxController {
             }
             $atReturn['user_id'] = $user->getId();
         } else {
-            header('HTTP/1.0 503 Service Unavailable');
+            $this->setStatusCode(503);
             $atReturn['status'] = 1;
             $atReturn['description'] = 'cannot_save_user';
         }

@@ -5,14 +5,14 @@ class SignInEmailValidator extends AjaxValidator {
         $valid = true;
 
         if ($valid) {
-            $valid = !empty($_POST['email']);
+            $valid = !empty($params['email']);
             if (!$valid) {
                 $this->setErrorDescription('empty_email');
             }
         }
 
         if ($valid) {
-            $valid = !empty($_POST['passwd']);
+            $valid = !empty($params['password']);
             if (!$valid) {
                 $this->setErrorDescription('empty_password');
             }
