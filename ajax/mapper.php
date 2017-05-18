@@ -23,7 +23,8 @@ register('POST', '/message',        new CreateMessageController(), new CreateMes
 register('POST', '/user/rating', new RateUserController(), new RateUserValidator());
 
 // iterm
-register('GET', '/iterm/cities', new GetCitiesListController(), new GetCitiesListValidator());
+register('GET', '/iterm/cities',      new GetCitiesListController(), new GetCitiesListValidator());
+register('GET', '/iterm/city/lookup', new CityNameLookupController(), new CityNameLookupValidator());
 
 
 /*

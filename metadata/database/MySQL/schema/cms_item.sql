@@ -4,6 +4,7 @@ CREATE TABLE airlol.cms_item
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 
     language VARCHAR(3),
+    type TINYINT,
     content TEXT,
     code VARCHAR(16) NOT NULL,
     create_time DATETIME NOT NULL,

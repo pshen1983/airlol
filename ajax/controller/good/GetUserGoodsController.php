@@ -7,14 +7,14 @@ class GetUserGoodsController extends AjaxController {
         $userId = ASession::getSessionUserId();
         $year = isset($_GET['year']) ? $_GET['year'] : date('Y');
 
-        $futureGoods = GoodDao::getUserFutureGoods($userId);
-        $pastGoods = GoodDao::getUserPastGoods($userId, $year);
-
-        $mostResentId = 0;
-        foreach ($futureGoods as $futureGood) {
-            $atReturn['future'][] = $this->transferDao($futureGood);
+        if (empty($_GET['year'])) {
+            $futureGoods = GoodDao::getUserFutureGoods($userId);
+            foreach ($futureGoods as $futureGood) {
+                $atReturn['future'][] = $this->transferDao($futureGood);
+            }
         }
 
+        $pastGoods = GoodDao::getUserPastGoods($userId, $year);
         foreach ($pastGoods as $pastGood) {
             $atReturn['past'][] = $this->transferDao($pastGood);
         }

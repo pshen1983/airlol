@@ -7,14 +7,14 @@ class GetUserTripsController extends AjaxController {
         $userId = ASession::getSessionUserId();
         $year = isset($_GET['year']) ? $_GET['year'] : date('Y');
 
-        $futureTrips = TripDao::getUserFutureTrips($userId);
-        $pastTrips = TripDao::getUserPastTrips($userId, $year);
-
-        $mostResentId = 0;
-        foreach ($futureTrips as $futureTrip) {
-            $atReturn['future'][] = $this->transferDao($futureTrip);
+        if (empty($_GET['year'])) {
+            $futureTrips = TripDao::getUserFutureTrips($userId);
+            foreach ($futureTrips as $futureTrip) {
+                $atReturn['future'][] = $this->transferDao($futureTrip);
+            }
         }
 
+        $pastTrips = TripDao::getUserPastTrips($userId, $year);
         foreach ($pastTrips as $pastTrip) {
             $atReturn['past'][] = $this->transferDao($pastTrip);
         }

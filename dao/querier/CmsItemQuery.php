@@ -25,5 +25,20 @@ class CmsItemQuery extends CmsItemGenerated {
 
         return $return;
     }
+
+    public static function getTypeContents($type, $language) {
+        $query = new QueryBuilder();
+        $res = $query->select('code, content', self::$table)
+                     ->where('type', $type)
+                     ->where('language', $language)
+                     ->find_all();
+
+        $return = array();
+        foreach ($res as $row) {
+            $return[$row['code']] = $row['content'];
+        }
+
+        return $return;
+    }
     
 }
