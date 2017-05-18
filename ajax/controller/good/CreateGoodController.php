@@ -2,9 +2,7 @@
 class CreateGoodController extends AjaxController {
 
     protected function handle($params) {
-        $status = 0;
-        $message = '';
-        $atReturn = array('status'=>$status);
+        $atReturn = array('status'=>0);
 
         $goodDao = new GoodDao();
         $goodDao->setDepartureCode($params['departure']);
@@ -26,7 +24,7 @@ class CreateGoodController extends AjaxController {
         if ($goodDao->save()) {
             $atReturn['good_id'] = $goodDao->getId();
         } else {
-            $status = 1;
+            $atReturn['status'] = 1;
             $atReturn['message'] = 'internal_error';
         }
 

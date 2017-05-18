@@ -2,9 +2,7 @@
 class CreateTripController extends AjaxController {
 
     protected function handle($params) {
-        $status = 0;
-        $message = '';
-        $atReturn = array('status'=>$status);
+        $atReturn = array('status'=>0);
 
         $tripDao = new TripDao();
         $tripDao->setDepartureCode($params['departure']);
@@ -25,7 +23,7 @@ class CreateTripController extends AjaxController {
         if ($tripDao->save()) {
             $atReturn['trip_id'] = $tripDao->getId();
         } else {
-            $status = 1;
+            $atReturn['status'] = 1;
             $atReturn['message'] = 'internal_error';
         }
 

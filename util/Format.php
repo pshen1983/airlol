@@ -8,7 +8,7 @@ class Format {
     public static function isValidPassword($passwd) {
         $valid = true;
 
-        $valid = strlen($passwd) >= 6;
+        $valid = strlen($passwd) >= 8;
 
         return $valid;
     }

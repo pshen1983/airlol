@@ -1,16 +1,16 @@
 INSERT INTO airlol.user
 (email, password, name, profile_img, birth_day, tel, whatsapp, wechat, preferred_language, preferred_currency, preferred_timezone, preferred_method, living_city, self_description, response_count, response_time, rate_trip_count, rate_trip_value, rate_good_count, rate_good_value, create_time)
 VALUES
-('tb_001_user_0001@cairyme.com', '', 'TB001 User0001', NULL, '1982-01-03', '6040010001', NULL, 'wechat_tb001_user0001', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0001', 3, 1, 1, 7, 0, 0, NOW()),
-('tb_001_user_0002@cairyme.com', '', 'TB001 User0002', NULL, '1982-02-03', '6040010002', NULL, 'wechat_tb001_user0002', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0002', 1, 0, 0, 0, 1, 9, NOW()),
-('tb_001_user_0003@cairyme.com', '', 'TB001 User0003', NULL, '1982-03-03', '6040010003', NULL, 'wechat_tb001_user0003', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0003', 1, 2, 0, 0, 0, 0, NOW()),
-('tb_001_user_0004@cairyme.com', '', 'TB001 User0004', NULL, '1982-04-03', '6040010004', NULL, 'wechat_tb001_user0004', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0004', 1, 3, 0, 0, 0, 0, NOW()),
-('tb_001_user_0005@cairyme.com', '', 'TB001 User0005', NULL, '1982-05-03', '6040010005', NULL, 'wechat_tb001_user0005', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0005', 1, 4, 0, 0, 0, 0, NOW()),
-('tb_001_user_0006@cairyme.com', '', 'TB001 User0006', NULL, '1982-06-03', '6040010006', NULL, 'wechat_tb001_user0006', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0006', 1, 2, 0, 0, 0, 0, NOW()),
-('tb_001_user_0007@cairyme.com', '', 'TB001 User0007', NULL, '1982-07-03', '6040010007', NULL, 'wechat_tb001_user0007', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0007', 1, 3, 0, 0, 0, 0, NOW()),
-('tb_001_user_0008@cairyme.com', '', 'TB001 User0008', NULL, '1982-08-03', '6040010008', NULL, 'wechat_tb001_user0008', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0008', 1, 2, 0, 0, 0, 0, NOW()),
-('tb_001_user_0009@cairyme.com', '', 'TB001 User0009', NULL, '1982-09-03', '6040010009', NULL, 'wechat_tb001_user0009', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0009', 1, 1, 0, 0, 0, 0, NOW()),
-('tb_001_user_0010@cairyme.com', '', 'TB001 User0010', NULL, '1982-10-03', '6040010010', NULL, 'wechat_tb001_user0010', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0010', 1, 0, 0, 0, 0, 0, NOW());
+('tb_001_user_0001@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0001', NULL, '1982-01-03', '6040010001', NULL, 'wechat_tb001_user0001', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0001', 3, 1, 1, 7, 0, 0, NOW()),
+('tb_001_user_0002@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0002', NULL, '1982-02-03', '6040010002', NULL, 'wechat_tb001_user0002', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0002', 1, 0, 0, 0, 1, 9, NOW()),
+('tb_001_user_0003@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0003', NULL, '1982-03-03', '6040010003', NULL, 'wechat_tb001_user0003', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0003', 1, 2, 0, 0, 0, 0, NOW()),
+('tb_001_user_0004@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0004', NULL, '1982-04-03', '6040010004', NULL, 'wechat_tb001_user0004', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0004', 1, 3, 0, 0, 0, 0, NOW()),
+('tb_001_user_0005@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0005', NULL, '1982-05-03', '6040010005', NULL, 'wechat_tb001_user0005', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0005', 1, 4, 0, 0, 0, 0, NOW()),
+('tb_001_user_0006@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0006', NULL, '1982-06-03', '6040010006', NULL, 'wechat_tb001_user0006', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0006', 1, 2, 0, 0, 0, 0, NOW()),
+('tb_001_user_0007@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0007', NULL, '1982-07-03', '6040010007', NULL, 'wechat_tb001_user0007', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0007', 1, 3, 0, 0, 0, 0, NOW()),
+('tb_001_user_0008@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0008', NULL, '1982-08-03', '6040010008', NULL, 'wechat_tb001_user0008', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0008', 1, 2, 0, 0, 0, 0, NOW()),
+('tb_001_user_0009@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0009', NULL, '1982-09-03', '6040010009', NULL, 'wechat_tb001_user0009', 'CN_zh', 'CAD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0009', 1, 1, 0, 0, 0, 0, NOW()),
+('tb_001_user_0010@cairyme.com', '4608008d816b02180a17c0a6c2f3f423', 'TB001 User0010', NULL, '1982-10-03', '6040010010', NULL, 'wechat_tb001_user0010', 'CN_zh', 'USD', 8, 1, 'Vancouver, BC', 'I am Test Bed 001 User 0010', 1, 0, 0, 0, 0, 0, NOW());
 
 
 INSERT INTO airlol.trip

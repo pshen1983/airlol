@@ -1,6 +1,7 @@
 <?php
 // account
 register('POST', '/account/signin/email', new SignInEmailController(), new SignInEmailValidator());
+register('POST', '/account/signup/email', new SignUpEmailController(), new SignUpEmailValidator());
 
 // trip
 register('GET',  '/search/trips', new SearchTripController());

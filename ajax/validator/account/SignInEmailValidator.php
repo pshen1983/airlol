@@ -20,5 +20,9 @@ class SignInEmailValidator extends AjaxValidator {
 
         return $valid;
     }
+
+    protected function getErrorCode() {
+        return 400;
+    }
 }
 ?>
