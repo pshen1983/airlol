@@ -5,10 +5,10 @@
 <link href="docs.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="title"></div><br>
+<div id="title">Create a Trip for the current User</div><br>
 <span class="title">Description</span>
 <div class="sep"></div>
-Create an trip in CairyMe platform
+Create an trip in CairyMe platform for the current logged in user.
 <br><br><br>
 <span class="title">Method</span>
 <div class="sep"></div>
@@ -16,7 +16,7 @@ POST
 <br><br><br>
 <span class="title">URL</span>
 <div class="sep"></div>
-/<br><br>
+/trip<br><br>
 <br><br><br>
 <span class="title">Header</span>
 <div class="sep"></div>
@@ -28,7 +28,14 @@ POST
 <span class="title">Request Body</span>
 <div class="sep"></div>
 <div class="tab0">{</div>
-<div class="tab1">"email":""</div>
+<div class="tab1">"departure":"SHA",</div>
+<div class="tab1">"arrival":"YVR",</div>
+<div class="tab1">"date":"2017-06-01",</div>
+<div class="tab1">"space_type":1,</div>
+<div class="tab1">"weight":20, <span class="optional">(optional)</span></div>
+<div class="tab1">"weight_unit":1, <span class="optional">(optional)</span></div>
+<div class="tab1">"price":"50",</div>
+<div class="tab1">"currency":"CAD"</div>
 <div class="tab0">}</div>
 <br><br><br>
 <span class="title">Response</span>
@@ -38,8 +45,44 @@ POST
 <tbody><tr><td class="hfirst">SUCCESS</td><td>
 200 OK<br><br>
 <div class="tab0">{</div>
-<div class="tab1">"status":"success"</div>
+<div class="tab1">"status":0,</div>
+<div class="tab1">"trip_id":12</div>
 <div class="tab0">}</div>
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+401 Unauthorized<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"not_signed_in"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"missing_cities"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"invalid_date_format"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"missing_space_type"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"missing_price"</div>
+}
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 403 Forbidden<br><br>

@@ -54,6 +54,9 @@ foreach ($services[$method] as $key=>$val) {
         }
 
         if ($match) {
+            $input = Utility::getJsonRequestData();
+            $params = array_merge($params, $input);
+
             $controller = $services[$method][$key][0];
             $validator = $services[$method][$key][1];
 
