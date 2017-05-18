@@ -7,13 +7,17 @@ class ASession {
 
         $session = isset($_SESSION['uid']) && $_SESSION['uid']>0;
 
-        $test = $evn!='production' && isset($_GET['test_session']) && $_GET['test_session'] == 1;
+        $test = $env!='production' && isset($_GET['test_session']) && $_GET['test_session']==1;
 
         return $session || $test;
     }
 
     public static function getSessionUserId() {
-        return $_SESSION['uid'];
+        global $env;
+
+        $test = $env!='production' && isset($_GET['test_user']) && $_GET['test_user']>0;
+
+        return $test ? $_GET['test_user'] : $_SESSION['uid'];
     }
 
     public static function setSessionUserId($userId) {

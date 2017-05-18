@@ -30,11 +30,13 @@ class TripQuery extends TripGenerated {
         return $res;
     }
 
-    public static function getTripsByUserId($userId, $start, $size) {
+    public static function getTripsByUserIdWithStartEndDate($userId, $startDate, $endDate) {
         $query = new QueryBuilder();
         $res = $query->select('*', self::$table)
                      ->where('user_id', $userId)
-                     ->limit($start, $size)
+                     ->where('trip_date', $startDate, '>=')
+                     ->where('trip_date', $endDate, '<')
+                     ->order('id', true)
                      ->find_all();
 
         return $res;

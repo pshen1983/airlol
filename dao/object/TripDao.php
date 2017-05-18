@@ -24,9 +24,34 @@ class TripDao extends TripQuery {
         return $trips;
     }
 
+    public static function getTripsByUserIdWithStartEndDate($userId, $startDate, $endDate) {
+        $res = parent::getTripsByUserIdWithStartEndDate($userId, $startDate, $endDate);
 
-    public static function getTripsByUserId($userId, $start, $size) {
-        $res = parent::getTripsByUserId($userId, $start, $size);
+        $trips = self::newFromQueryResultList($res);
+
+        return $trips;
+    }
+
+    public static function getUserFutureTrips($userId) {
+        $now = date("Y-m-d");
+        $end = date("Y-m-d", strtotime("+2 years"));
+
+        $res = parent::getTripsByUserIdWithStartEndDate($userId, $now, $end);
+
+        $trips = self::newFromQueryResultList($res);
+
+        return $trips;
+    }
+
+    public static function getUserPastTrips($userId, $year) {
+        $start = $year.'-01-01';
+        $end = $year.'-12-31';
+
+        if ($year == date("Y")) {
+            $end = date("Y-m-d");
+        }
+
+        $res = parent::getTripsByUserIdWithStartEndDate($userId, $start, $end);
 
         $trips = self::newFromQueryResultList($res);
 

@@ -4,14 +4,16 @@ register('POST', '/account/signin/email', new SignInEmailController(), new SignI
 register('POST', '/account/signup/email', new SignUpEmailController(), new SignUpEmailValidator());
 
 // trip
-register('GET',  '/search/trips', new SearchTripController());
-register('POST', '/trip/:tripid', new UpdateTripController());
-register('POST', '/trip',         new CreateTripController(), new CreateTripValidator());
+register('GET',  '/search/trips',   new SearchTripController());
+register('POST', '/trip/:tripid',   new UpdateTripController());
+register('POST', '/trip',           new CreateTripController(), new CreateTripValidator());
+register('GET',  '/trip/user/list', new GetUserTripsController(), new GetUserTripsValidator());
 
 // good
-register('GET',  '/search/goods', new SearchGoodController());
-register('POST', '/good/:goodid', new UpdateGoodController());
-register('POST', '/good',         new CreateGoodController(), new CreateGoodValidator());
+register('GET',  '/search/goods',   new SearchGoodController());
+register('POST', '/good/:goodid',   new UpdateGoodController());
+register('POST', '/good',           new CreateGoodController(), new CreateGoodValidator());
+register('GET',  '/good/user/list', new GetUserGoodsController(), new GetUserGoodsValidator());
 
 // message
 register('GET',  '/search/message', new SearchMessageController());

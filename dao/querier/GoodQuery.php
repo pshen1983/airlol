@@ -28,11 +28,13 @@ class GoodQuery extends GoodGenerated {
         return $res;
     }
 
-    public static function getGoodsByUserId($userId, $start, $size) {
+    public static function getGoodsByUserIdWithStartEndDate($userId, $startDate, $endDate) {
         $query = new QueryBuilder();
         $res = $query->select('*', self::$table)
                      ->where('user_id', $userId)
-                     ->limit($start, $size)
+                     ->where('end_date', $startDate, '>=')
+                     ->where('end_date', $endDate, '<')
+                     ->order('id', true)
                      ->find_all();
 
         return $res;

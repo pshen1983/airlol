@@ -27,8 +27,34 @@ class GoodDao extends GoodQuery {
     }
 
 
-    public static function getGoodsByUserId($userId, $start, $size) {
-        $res = parent::getGoodsByUserId($userId, $start, $size);
+    public static function getGoodsByUserIdWithStartEndDate($userId, $startDate, $endDate) {
+        $res = parent::getGoodsByUserIdWithStartEndDate($userId, $startDate, $endDate);
+
+        $goods = self::newFromQueryResultList($res);
+
+        return $goods;
+    }
+
+    public static function getUserFutureGoods($userId) {
+        $now = date("Y-m-d");
+        $end = date("Y-m-d", strtotime("+2 years"));
+
+        $res = parent::getGoodsByUserIdWithStartEndDate($userId, $now, $end);
+
+        $goods = self::newFromQueryResultList($res);
+
+        return $goods;
+    }
+
+    public static function getUserPastGoods($userId, $year) {
+        $start = $year.'-01-01';
+        $end = $year.'-12-31';
+
+        if ($year == date("Y")) {
+            $end = date("Y-m-d");
+        }
+
+        $res = parent::getGoodsByUserIdWithStartEndDate($userId, $start, $end);
 
         $goods = self::newFromQueryResultList($res);
 
