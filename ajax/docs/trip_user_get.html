@@ -5,10 +5,10 @@
 <link href="docs.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="title"></div><br>
+<div id="title">Get List of Trips of current user</div><br>
 <span class="title">Description</span>
 <div class="sep"></div>
-Get the list of trip of the current user.
+Get the list of Trips of current user with future and past sections, (note if GET parameter 'year' is supplied, only the past section will be returned).
 <br><br><br>
 <span class="title">Method</span>
 <div class="sep"></div>
@@ -16,7 +16,7 @@ GET
 <br><br><br>
 <span class="title">URL</span>
 <div class="sep"></div>
-/<br><br>
+/trip/user/list<br><br>
 <br><br><br>
 <span class="title">Header</span>
 <div class="sep"></div>
@@ -25,11 +25,9 @@ GET
 <tbody><tr><td class="hfirst">Content-Type</td><td>application/json</td></tr>
 </tbody></table>
 <br><br><br>
-<span class="title">Request Body</span>
+<span class="title">GET Parameter</span>
 <div class="sep"></div>
-<div class="tab0">{</div>
-<div class="tab1">"email":""</div>
-<div class="tab0">}</div>
+year=2016 <span class="optional">(optional, if provided, only the trips in that year will be returned.)</span>
 <br><br><br>
 <span class="title">Response</span>
 <div class="sep"></div>
@@ -38,20 +36,66 @@ GET
 <tbody><tr><td class="hfirst">SUCCESS</td><td>
 200 OK<br><br>
 <div class="tab0">{</div>
-<div class="tab1">"status":"success"</div>
+<div class="tab1">"future":[</div>
+<div class="tab2">{</div>
+<div class="tab3">"id":"1",</div>
+<div class="tab3">"departure":"YVR",</div>
+<div class="tab3">"arrival":"SHA",</div>
+<div class="tab3">"date":"2017-06-18",</div>
+<div class="tab3">"space_type":"1",</div>
+<div class="tab3">"weight":"23",</div>
+<div class="tab3">"weight_unit":"kg"</div>
+<div class="tab2">},</div>
+<div class="tab2">{</div>
+<div class="tab3">"id":"2",</div>
+<div class="tab3">"departure":"YVR",</div>
+<div class="tab3">"arrival":"SHA",</div>
+<div class="tab3">"date":"2017-06-18",</div>
+<div class="tab3">"space_type":"2",</div>
+<div class="tab3">"weight":"20",</div>
+<div class="tab3">"weight_unit":"lb"</div>
+<div class="tab2">}</div>
+<div class="tab1">],</div>
+<div class="tab1">"past":[</div>
+<div class="tab2">{</div>
+<div class="tab3">"id":"12",</div>
+<div class="tab3">"departure":"YVR",</div>
+<div class="tab3">"arrival":"SHA",</div>
+<div class="tab3">"date":"2017-04-18",</div>
+<div class="tab3">"space_type":"2",</div>
+<div class="tab3">"weight":"20",</div>
+<div class="tab3">"weight_unit":"lb"</div>
+<div class="tab2">},</div>
+<div class="tab2">{</div>
+<div class="tab3">"id":"21",</div>
+<div class="tab3">"departure":"YVR",</div>
+<div class="tab3">"arrival":"SHA",</div>
+<div class="tab3">"date":"2017-03-18",</div>
+<div class="tab3">"space_type":"1",</div>
+<div class="tab3">"weight":"23",</div>
+<div class="tab3">"weight_unit":"kg"</div>
+<div class="tab2">}</div>
+<div class="tab1">]</div>
 <div class="tab0">}</div>
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+401 Unauthorized<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"description":"not_signed_in"</div>
+}
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 403 Forbidden<br><br>
 {<br>
-<div class="tab1">"status":"error",</div>
+<div class="tab1">"status":-1,</div>
 <div class="tab1">"description":"not_authorized"</div>
 }
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 500 Internal Server Error<br><br>
 {<br>
-<div class="tab1">"status":"error",</div>
+<div class="tab1">"status":-1,</div>
 <div class="tab1">"description":"internal_server_error"</div>
 }
 </td></tr>
