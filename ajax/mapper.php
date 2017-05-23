@@ -4,26 +4,30 @@ register('POST', '/account/signin/email', new SignInEmailController(), new SignI
 register('POST', '/account/signup/email', new SignUpEmailController(), new SignUpEmailValidator());
 
 // trip
-register('GET',  '/search/trips',   new SearchTripController());
-register('POST', '/trip/:tripid',   new UpdateTripController());
-register('POST', '/trip',           new CreateTripController(), new CreateTripValidator());
-register('GET',  '/trip/user/list', new GetUserTripsController(), new GetUserTripsValidator());
+register('GET',  '/search/trips',       new SearchTripController());
+register('POST', '/trip/:tripid',       new UpdateTripController());
+register('POST', '/trip',               new CreateTripController(),   new CreateTripValidator());
+register('GET',  '/trip/user/list',     new GetUserTripsController(), new GetUserTripsValidator());
+register('GET',  '/trip/:tripid/goods', new GetTripGoodsController(), new GetTripGoodsValidator());
 
 // good
-register('GET',  '/search/goods',   new SearchGoodController());
-register('POST', '/good/:goodid',   new UpdateGoodController());
-register('POST', '/good',           new CreateGoodController(), new CreateGoodValidator());
-register('GET',  '/good/user/list', new GetUserGoodsController(), new GetUserGoodsValidator());
+register('GET',  '/search/goods',       new SearchGoodController());
+register('POST', '/good/:goodid',       new UpdateGoodController());
+register('POST', '/good',               new CreateGoodController(),   new CreateGoodValidator());
+register('GET',  '/good/user/list',     new GetUserGoodsController(), new GetUserGoodsValidator());
+register('GET',  '/good/:goodid/trips', new GetGoodTripsController(), new GetGoodTripsValidator());
 
 // message
-register('GET',  '/search/message', new SearchMessageController());
-register('POST', '/message',        new CreateMessageController(), new CreateMessageValidator());
+register('GET',  '/message/search',          new SearchMessageController());
+register('POST', '/message',                 new CreateMessageController(),        new CreateMessageValidator());
+register('GET',  '/message/:tripid/:goodid', new GetTripGoodMessagesCountroller(), new GetTripGoodMessagesValidator());
 
 // user
-register('POST', '/user/rating', new RateUserController(), new RateUserValidator());
+register('POST', '/user/rating', 				 new RateUserController(), new RateUserValidator());
+register('GET',  '/user/profile/image/:imageid', new GetUserProfileImageController());
 
 // iterm
-register('GET', '/iterm/cities',      new GetCitiesListController(), new GetCitiesListValidator());
+register('GET', '/iterm/cities',      new GetCitiesListController(),  new GetCitiesListValidator());
 register('GET', '/iterm/city/lookup', new CityNameLookupController(), new CityNameLookupValidator());
 
 

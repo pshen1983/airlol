@@ -46,6 +46,10 @@ class Utility {
         setcookie( 'locale', $locale, time()+31536000, '/', 'airlol.com' );
     }
 
+    public static function generateImageId($userId) {
+        return substr(md5($userId), 16).'.'.strtotime("now");
+    }
+
     public static function getSuggestedPriceByGood($currency, $departure, $arrival) {
         return '100'.$currency;
     }

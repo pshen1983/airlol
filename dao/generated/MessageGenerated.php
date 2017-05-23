@@ -5,18 +5,18 @@ abstract class MessageGenerated extends AirlolDaoBase {
 
     protected function init() {
         $this->var['id'] = 0;
-        $this->var['trip_id'] = NULL;
-        $this->var['good_id'] = NULL;
-        $this->var['sender'] = NULL;
-        $this->var['receiver'] = NULL;
+        $this->var['trip_good_map_id'] = NULL;
+        $this->var['sender_id'] = NULL;
+        $this->var['receiver_id'] = NULL;
+        $this->var['type'] = NULL;
         $this->var['comment'] = NULL;
         $this->var['create_time'] = NULL;
 
         $this->update['id'] = false;
-        $this->update['trip_id'] = false;
-        $this->update['good_id'] = false;
-        $this->update['sender'] = false;
-        $this->update['receiver'] = false;
+        $this->update['trip_good_map_id'] = false;
+        $this->update['sender_id'] = false;
+        $this->update['receiver_id'] = false;
+        $this->update['type'] = false;
         $this->update['comment'] = false;
         $this->update['create_time'] = false;
     }
@@ -25,44 +25,44 @@ abstract class MessageGenerated extends AirlolDaoBase {
         return $this->var['id'];
     }
 
-    public function setTripId($trip_id) {
-        if ($this->var['trip_id'] !== $trip_id) {
-            $this->var['trip_id'] = $trip_id;
-            $this->update['trip_id'] = true;
+    public function setTripGoodMapId($trip_good_map_id) {
+        if ($this->var['trip_good_map_id'] !== $trip_good_map_id) {
+            $this->var['trip_good_map_id'] = $trip_good_map_id;
+            $this->update['trip_good_map_id'] = true;
         }
     }
-    public function getTripId() {
-        return $this->var['trip_id'];
+    public function getTripGoodMapId() {
+        return $this->var['trip_good_map_id'];
     }
 
-    public function setGoodId($good_id) {
-        if ($this->var['good_id'] !== $good_id) {
-            $this->var['good_id'] = $good_id;
-            $this->update['good_id'] = true;
+    public function setSenderId($sender_id) {
+        if ($this->var['sender_id'] !== $sender_id) {
+            $this->var['sender_id'] = $sender_id;
+            $this->update['sender_id'] = true;
         }
     }
-    public function getGoodId() {
-        return $this->var['good_id'];
+    public function getSenderId() {
+        return $this->var['sender_id'];
     }
 
-    public function setSender($sender) {
-        if ($this->var['sender'] !== $sender) {
-            $this->var['sender'] = $sender;
-            $this->update['sender'] = true;
+    public function setReceiverId($receiver_id) {
+        if ($this->var['receiver_id'] !== $receiver_id) {
+            $this->var['receiver_id'] = $receiver_id;
+            $this->update['receiver_id'] = true;
         }
     }
-    public function getSender() {
-        return $this->var['sender'];
+    public function getReceiverId() {
+        return $this->var['receiver_id'];
     }
 
-    public function setReceiver($receiver) {
-        if ($this->var['receiver'] !== $receiver) {
-            $this->var['receiver'] = $receiver;
-            $this->update['receiver'] = true;
+    public function setType($type) {
+        if ($this->var['type'] !== $type) {
+            $this->var['type'] = $type;
+            $this->update['type'] = true;
         }
     }
-    public function getReceiver() {
-        return $this->var['receiver'];
+    public function getType() {
+        return $this->var['type'];
     }
 
     public function setComment($comment) {

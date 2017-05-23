@@ -5,7 +5,7 @@
 <link href="docs.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="title"></div><br>
+<div id="title">Get Messages of a Trip and a Package</div><br>
 <span class="title">Description</span>
 <div class="sep"></div>
 Get the messages between current user and a user on a trip
@@ -16,7 +16,7 @@ GET
 <br><br><br>
 <span class="title">URL</span>
 <div class="sep"></div>
-/<br><br>
+/message/:tripid/:goodid?page=1<br><br>
 <br><br><br>
 <span class="title">Header</span>
 <div class="sep"></div>
@@ -25,11 +25,11 @@ GET
 <tbody><tr><td class="hfirst">Content-Type</td><td>application/json</td></tr>
 </tbody></table>
 <br><br><br>
-<span class="title">Request Body</span>
+<span class="title">Request Parameters</span>
 <div class="sep"></div>
-<div class="tab0">{</div>
-<div class="tab1">"email":""</div>
-<div class="tab0">}</div>
+<div class="tab0">tripid - the id of the Trip</div>
+<div class="tab0">goodid - the id of the Good</div>
+<div class="tab0">page - the page number of the messages for dynamic loading of old messages</div>
 <br><br><br>
 <span class="title">Response</span>
 <div class="sep"></div>
@@ -37,9 +37,21 @@ GET
 <thead><tr><th class="hfirst">Case</th><th class="second">Body</th></tr></thead>
 <tbody><tr><td class="hfirst">SUCCESS</td><td>
 200 OK<br><br>
-<div class="tab0">{</div>
-<div class="tab1">"status":"success"</div>
-<div class="tab0">}</div>
+<div class="tab0">[</div>
+<div class="tab1">{</div>
+<div class="tab2">"sender_id":12,</div>
+<div class="tab2">"receiver_id":1,</div>
+<div class="tab2">"text":"Hi Jon, I am Bob Jon.",</div>
+<div class="tab2">"ago_second":1351</div>
+<div class="tab1">},</div>
+<div class="tab1">{</div>
+<div class="tab2">"sender_id":1,</div>
+<div class="tab2">"receiver_id":12,</div>
+<div class="tab2">"text":"Hi My name is Jon Bob.",</div>
+<div class="tab2">"ago_second":24621</div>
+<div class="tab1">},</div>
+<div class="tab1">}...</div>
+<div class="tab0">]</div>
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 403 Forbidden<br><br>

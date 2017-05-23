@@ -43,6 +43,45 @@ VALUES
 (10, 'SHA', 'YVR', NOW() + INTERVAL 1 MONTH, 1, 20, 1, 'test bed 001 good 0010', 25, 'CAD', 'Y', NOW());
 
 
+INSERT INTO airlol.map_trip_good
+(trip_id, good_id, create_time)
+VALUES
+(1, 2, NOW()),
+(1, 4, NOW()),
+(1, 6, NOW()),
+(1, 8, NOW());
+
+
+INSERT INTO airlol.map_user_message
+(user_id, map_id, last_read)
+VALUES
+(1, 1, NOW()),
+(2, 1, NOW()),
+(1, 2, NOW()),
+(4, 2, NOW()),
+(1, 3, NOW()),
+(6, 3, NOW()),
+(1, 4, NOW()),
+(8, 4, NOW());
+
+
+INSERT INTO airlol.message
+(trip_good_map_id, sender_id, receiver_id, type, comment, create_time)
+VALUES
+(1, 2, 1, 0, 'Hi Test message 001', NOW()),
+(1, 1, 2, 0, 'Hi Test message 002', NOW()),
+(1, 2, 1, 0, 'Hi Test message 003', NOW()),
+(1, 1, 2, 0, 'Hi Test message 004', NOW()),
+(2, 4, 1, 0, 'Hi Test message 005', NOW()),
+(2, 1, 4, 0, 'Hi Test message 006', NOW()),
+(3, 1, 6, 0, 'Hi Test message 007', NOW()),
+(3, 6, 1, 0, 'Hi Test message 008', NOW()),
+(4, 1, 8, 0, 'Hi Test message 007', NOW()),
+(4, 8, 1, 0, 'Hi Test message 008', NOW()),
+(4, 1, 8, 0, 'Hi Test message 007', NOW()),
+(4, 8, 1, 0, 'Hi Test message 008', NOW());
+
+
 INSERT INTO airlol.rating
 (trip_id, good_id, user_id, rater_id, type, rating, comment, create_time)
 VALUES

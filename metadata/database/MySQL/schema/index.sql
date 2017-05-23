@@ -43,8 +43,15 @@ CREATE INDEX airlol_rating_rater ON airlol.rating (rater_id);
 CREATE INDEX airlol_rating_type ON airlol.rating (type);
 CREATE INDEX airlol_rating_rating ON airlol.rating (rating);
 
+-- map
+CREATE INDEX airlol_map_trip_good_tid ON airlol.map_trip_good (trip_id);
+CREATE INDEX airlol_map_trip_good_gid ON airlol.map_trip_good (good_id);
+
+-- map user message
+CREATE INDEX airlol_map_user_message_uid ON airlol.map_user_message (user_id);
+CREATE INDEX airlol_map_user_message_mid ON airlol.map_user_message (map_id);
+
 -- message
-CREATE INDEX airlol_message_trip ON airlol.message (trip_id);
-CREATE INDEX airlol_message_good ON airlol.message (good_id);
-CREATE INDEX airlol_message_sender ON airlol.message (sender);
-CREATE INDEX airlol_message_receiver ON airlol.message (receiver);
+CREATE INDEX airlol_message_sid ON airlol.message (sender_id);
+CREATE INDEX airlol_message_rid ON airlol.message (receiver_id);
+CREATE INDEX airlol_message_type ON airlol.message (type);

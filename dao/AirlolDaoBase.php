@@ -89,15 +89,15 @@ abstract class AirlolDaoBase {
             $res = $query->select('*', static::$table)
                          ->where($id_column, $id)
                          ->find_one();
-
-            if (self::isIdCaching()) {
-                $cacher->set(static::$table.'.'.$id, $res);
-            }
         }
 
         if (isset($res) && $res) {
             $this->var = $res;
             $this->fromDB = TRUE;
+
+            if (self::isIdCaching()) {
+                $cacher->set(static::$table.'.'.$id, $res);
+            }
         } else {
             $this->init();
         }

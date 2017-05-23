@@ -32,6 +32,28 @@ class UserDao extends UserQuery {
         return $image;
     }
 
+    public function getOverallRatingValue() {
+        $tripCount = $this->getRateTripCount();
+        $goodCount = $this->getRateGoodCount();
+        $total = $tripCount+$goodCount;
+
+        if ($total==0) {
+            return 0;
+        }
+
+        $tripRating = $tripCount*$this->getRateTripValue();
+        $goodRating = $goodCount*$this->getRateGoodValue();
+
+        return ($tripRating+$goodRating)/($tripCount+$goodCount);
+    }
+
+    public function getOverallRatingCount() {
+        $tripCount = $this->getRateTripCount();
+        $goodCount = $this->getRateGoodCount();
+
+        return $tripCount+$goodCount;
+    }
+
     public function checkPassword($password) {
         $passwd = $this->getPassword();
         return md5($password) == $passwd;
