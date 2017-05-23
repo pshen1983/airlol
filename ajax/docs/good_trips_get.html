@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="docs.css" media="all" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="title">Get the Trips for a given Good</div><br>
+<span class="title">Description</span>
+<div class="sep"></div>
+Get the Trips for a given Package but not the messages.
+<br><br><br>
+<span class="title">Method</span>
+<div class="sep"></div>
+GET
+<br><br><br>
+<span class="title">URL</span>
+<div class="sep"></div>
+/good/:goodid/trips<br><br>
+<br><br><br>
+<span class="title">Header</span>
+<div class="sep"></div>
+<table cellspacing="1">
+<thead><tr><th class="hfirst">Name</th><th class="second">Value</th></tr></thead>
+<tbody><tr><td class="hfirst">Content-Type</td><td>application/json</td></tr>
+</tbody></table>
+<br><br><br>
+<span class="title">Request Body</span>
+<div class="sep"></div>
+<div class="tab0">NONE</div>
+<br><br><br>
+<span class="title">Response</span>
+<div class="sep"></div>
+<table cellspacing="1">
+<thead><tr><th class="hfirst">Case</th><th class="second">Body</th></tr></thead>
+<tbody><tr><td class="hfirst">SUCCESS</td><td>
+200 OK<br><br>
+<div class="tab0">[</div>
+<div class="tab1">{</div>
+<div class="tab2">"id":"8",</div>
+<div class="tab2">"departure":"SHA",</div>
+<div class="tab2">"arrival":"YVR",</div>
+<div class="tab2">"date":"2017-06-23",</div>
+<div class="tab2">"space_type":"1",</div>
+<div class="tab2">"weight":"20",</div>
+<div class="tab2">"weight_unit":"kg",</div>
+<div class="tab2">"user":{</div>
+<div class="tab3">"id":"8",</div>
+<div class="tab3">"name":"TB001 User0008",</div>
+<div class="tab3">"profile_image":null,</div>
+<div class="tab3">"overall_rating_value":0,</div>
+<div class="tab3">"overall_rating_count":0</div>
+<div class="tab2">},</div>
+<div class="tab2">"new_message_count":"2"</div>
+<div class="tab1">},</div>
+<div class="tab1">{</div>
+<div class="tab2">"id":"81",</div>
+<div class="tab2">"departure":"SHA",</div>
+<div class="tab2">"arrival":"YVR",</div>
+<div class="tab2">"date":"2017-06-22",</div>
+<div class="tab2">"space_type":"1",</div>
+<div class="tab2">"weight":"20",</div>
+<div class="tab2">"weight_unit":"kg",</div>
+<div class="tab2">"user":{</div>
+<div class="tab3">"id":"1",</div>
+<div class="tab3">"name":"TB001 User0001",</div>
+<div class="tab3">"profile_image":null,</div>
+<div class="tab3">"overall_rating_value":9,</div>
+<div class="tab3">"overall_rating_count":4</div>
+<div class="tab2">},</div>
+<div class="tab2">"new_message_count":"7"</div>
+<div class="tab1">},</div>
+<div class="tab1">...</div>
+<div class="tab0">]</div>
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+401 Unauthorized<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"not_signed_in"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+403 Forbidden<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"description":"not_authorized"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+500 Internal Server Error<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"description":"internal_server_error"</div>
+}
+</td></tr>
+</tbody></table>
+<br><br>
+</body>
+</html>
