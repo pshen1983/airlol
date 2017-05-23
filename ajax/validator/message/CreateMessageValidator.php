@@ -12,7 +12,7 @@ class CreateMessageValidator extends AjaxValidator {
         }
 
         if ($valid) {
-            $valid = !empty($_POST['msg']) && $_POST['gid'] && $_POST['tid'] && isset($_POST['context']);
+            $valid = $params['good_id'] && $params['trip_id'] && $params['text'] && $params['receiver_id'];
             if (!$valid) {
                 $this->setErrorDescription('invalid_post_params');
             }

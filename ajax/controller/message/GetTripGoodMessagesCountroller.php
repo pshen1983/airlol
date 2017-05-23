@@ -16,6 +16,7 @@ class GetTripGoodMessagesCountroller extends AjaxController {
 
     	foreach ($messageDaos as $messageDao) {
     		$message = array();
+            $message['id'] = $messageDao->getId();
     		$message['sender_id'] = $messageDao->getSenderId();
     		$message['receiver_id'] = $messageDao->getReceiverId();
     		$message['text'] = $messageDao->getComment();

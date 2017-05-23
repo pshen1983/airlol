@@ -7,16 +7,17 @@ class GetGoodTripsController extends AjaxController {
 
         $trips = array();
         foreach ($tripDaos as $tripDao) {
-            $trip = $this->transferTripDao($tripDao);
+            if (ASession::getSessionUserId()!=$tripDao->getUserId()) {
+                $trip = $this->transferTripDao($tripDao);
+                $userDao = new User($tripDao->getUserId());
+                $trip['user'] = $this->transferUserDao($userDao);
 
-            $userDao = new User($tripDao->getUserId());
-            $trip['user'] = $this->transferUserDao($userDao);
+                $mapTripGoodDao = MapTripGoodDao::getDaoByTripAndGood($tripDao->getId(), $params['goodid']);
+                $mapUserMessageDao = MapUserMessageDao::getDaoByMapAndUser($mapTripGoodDao->getId(), ASession::getSessionUserId());
+                $trip['new_message_count'] = MessageDao::getTripGoodNewMessageCount($mapTripGoodDao->getId(), $mapUserMessageDao->getLastRead());
 
-            $mapTripGoodDao = MapTripGoodDao::getDaoByTripAndGood($tripDao->getId(), $params['goodid']);
-            $mapUserMessageDao = MapUserMessageDao::getDaoByMapAndUser($mapTripGoodDao->getId(), ASession::getSessionUserId());
-            $trip['new_message_count'] = MessageDao::getTripGoodNewMessageCount($mapTripGoodDao->getId(), $mapUserMessageDao->getLastRead());
-
-            $trips[] = $trip;
+                $trips[] = $trip;
+            }
         }
 
         return $trips;

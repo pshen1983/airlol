@@ -39,12 +39,14 @@ GET
 200 OK<br><br>
 <div class="tab0">[</div>
 <div class="tab1">{</div>
+<div class="tab2">"id":12,</div>
 <div class="tab2">"sender_id":12,</div>
 <div class="tab2">"receiver_id":1,</div>
 <div class="tab2">"text":"Hi Jon, I am Bob Jon.",</div>
 <div class="tab2">"ago_second":1351</div>
 <div class="tab1">},</div>
 <div class="tab1">{</div>
+<div class="tab2">"id":7,</div>
 <div class="tab2">"sender_id":1,</div>
 <div class="tab2">"receiver_id":12,</div>
 <div class="tab2">"text":"Hi My name is Jon Bob.",</div>
@@ -52,6 +54,13 @@ GET
 <div class="tab1">},</div>
 <div class="tab1">}...</div>
 <div class="tab0">]</div>
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+401 Unauthorized<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"not_signed_in"</div>
+}
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 403 Forbidden<br><br>
