@@ -45,5 +45,5 @@ abstract class AjaxValidator {
     	header('HTTP/1.0 '.$code.' '.$text);
     }
 
-    abstract public function validate($params);
+    abstract public function validate(& $params);
 }

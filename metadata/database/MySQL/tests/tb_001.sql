@@ -83,7 +83,7 @@ VALUES
 
 
 INSERT INTO airlol.rating
-(trip_id, good_id, user_id, rater_id, type, rating, comment, create_time)
+(trip_good_map_id, user_id, rater_id, type, rating, comment, create_time)
 VALUES
-(1, 1, 1, 2, 1, 7, 'TB001 User 0002 rate User 0001 on Trip', NOW()),
-(1, 1, 2, 1, 2, 9, 'TB001 User 0001 rate User 0002 on Good', NOW());
+(1, 1, 2, 1, 7, 'TB001 User 0002 rate User 0001 on Trip', NOW()),
+(1, 2, 1, 2, 9, 'TB001 User 0001 rate User 0002 on Good', NOW());

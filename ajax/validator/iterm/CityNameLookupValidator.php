@@ -1,7 +1,7 @@
 <?php
 class CityNameLookupValidator extends AjaxValidator {
 
-    public function validate($params) {
+    public function validate(& $params) {
         $valid = !empty($_GET['locale']);
         if (!$valid) {
             $this->setErrorDescription('missing_locale');

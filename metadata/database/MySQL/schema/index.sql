@@ -37,7 +37,7 @@ CREATE INDEX airlol_good_price_adjust ON airlol.good (currency(1));
 CREATE INDEX airlol_good_active ON airlol.good (active(1));
 
 -- rating
-CREATE INDEX airlol_rating_trip ON airlol.rating (trip_id);
+CREATE INDEX airlol_rating_trip ON airlol.rating (trip_good_map_id);
 CREATE INDEX airlol_rating_user ON airlol.rating (user_id);
 CREATE INDEX airlol_rating_rater ON airlol.rating (rater_id);
 CREATE INDEX airlol_rating_type ON airlol.rating (type);

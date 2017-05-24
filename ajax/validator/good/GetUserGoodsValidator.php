@@ -1,7 +1,7 @@
 <?php
 class GetUserGoodsValidator extends AjaxValidator {
 
-    public function validate($params) {
+    public function validate(& $params) {
         $valid = true;
 
         if ($valid) {

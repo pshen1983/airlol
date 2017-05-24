@@ -5,10 +5,10 @@
 <link href="docs.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="title"></div><br>
+<div id="title">Rate another User</div><br>
 <span class="title">Description</span>
 <div class="sep"></div>
-Rate an user with a trip or package id
+Rate another User based on a Trip and Package pair.
 <br><br><br>
 <span class="title">Method</span>
 <div class="sep"></div>
@@ -16,7 +16,7 @@ POST
 <br><br><br>
 <span class="title">URL</span>
 <div class="sep"></div>
-/<br><br>
+/user/rate<br><br>
 <br><br><br>
 <span class="title">Header</span>
 <div class="sep"></div>
@@ -28,8 +28,12 @@ POST
 <span class="title">Request Body</span>
 <div class="sep"></div>
 <div class="tab0">{</div>
-<div class="tab1">"email":""</div>
+<div class="tab1">"rating":7,</div>
+<div class="tab1">"trip_id":1,</div>
+<div class="tab1">"good_id":2,</div>
+<div class="tab1">"comment":"Test comment" <span class="optional">(Optional)</span></div>
 <div class="tab0">}</div>
+(Note: rating are 0-10 integers, but represented 0-5 with 0.5 incrementals.)
 <br><br><br>
 <span class="title">Response</span>
 <div class="sep"></div>
@@ -40,6 +44,34 @@ POST
 <div class="tab0">{</div>
 <div class="tab1">"status":"success"</div>
 <div class="tab0">}</div>
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+401 Unauthorized<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"not_signed_in"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"missing_parameters"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+404 Not Found<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"cannot_find_autorization"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+403 Forbidden<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"cannot_rate"</div>
+}
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 403 Forbidden<br><br>
