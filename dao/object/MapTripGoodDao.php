@@ -4,7 +4,12 @@ class MapTripGoodDao extends MapTripGoodQuery {
     public static function getGoodTripIds($goodId) {
         $res = parent::getGoodTripIds($goodId);
 
-        return self::newFromQueryResultList($res);
+        $ids = array();
+        foreach ($res as $row) {
+            $ids[] = $row['trip_id'];
+        }
+
+        return $ids;
     }
 
     public static function getTripGoodIds($tripId) {

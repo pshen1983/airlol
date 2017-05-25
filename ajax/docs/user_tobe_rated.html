@@ -5,7 +5,7 @@
 <link href="docs.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="title"></div><br>
+<div id="title">Get list of users to be Rated</div><br>
 <span class="title">Description</span>
 <div class="sep"></div>
 Get the list of users eligibe to be rated by the current user
@@ -16,7 +16,7 @@ GET
 <br><br><br>
 <span class="title">URL</span>
 <div class="sep"></div>
-/<br><br>
+/user/tobe/rate<br><br>
 <br><br><br>
 <span class="title">Header</span>
 <div class="sep"></div>
@@ -25,11 +25,9 @@ GET
 <tbody><tr><td class="hfirst">Content-Type</td><td>application/json</td></tr>
 </tbody></table>
 <br><br><br>
-<span class="title">Request Body</span>
+<span class="title">GET Parameters</span>
 <div class="sep"></div>
-<div class="tab0">{</div>
-<div class="tab1">"email":""</div>
-<div class="tab0">}</div>
+<div class="tab0">type=trip or type=package</div>
 <br><br><br>
 <span class="title">Response</span>
 <div class="sep"></div>
@@ -37,9 +35,39 @@ GET
 <thead><tr><th class="hfirst">Case</th><th class="second">Body</th></tr></thead>
 <tbody><tr><td class="hfirst">SUCCESS</td><td>
 200 OK<br><br>
-<div class="tab0">{</div>
-<div class="tab1">"status":"success"</div>
-<div class="tab0">}</div>
+<div class="tab0">[</div>
+<div class="tab1">{</div>
+<div class="tab2">"user_id":"8",</div>
+<div class="tab2">"name":"TB001 User0008",</div>
+<div class="tab2">"profile_image":null,</div>
+<div class="tab2">"good_id":"8",</div>
+<div class="tab2">"description":"test bed 001 good 0008",</div>
+<div class="tab2">"trip_id":"1"</div>
+<div class="tab1">},</div>
+<div class="tab1">{</div>
+<div class="tab2">"user_id":"6",</div>
+<div class="tab2">"name":"TB001 User0006",</div>
+<div class="tab2">"profile_image":null,</div>
+<div class="tab2">"good_id":"6",</div>
+<div class="tab2">"description":"test bed 001 good 0006",</div>
+<div class="tab2">"trip_id":"1"</div>
+<div class="tab1">},</div>
+<div class="tab1">...</div>
+<div class="tab0">]</div>
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+401 Unauthorized<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"not_signed_in"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"message":"invalid_type"</div>
+}
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 403 Forbidden<br><br>

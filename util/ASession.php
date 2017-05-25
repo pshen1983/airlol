@@ -7,7 +7,7 @@ class ASession {
 
         $session = isset($_SESSION['uid']) && $_SESSION['uid']>0;
 
-        $test = $env!='production' && isset($_GET['test_session']) && $_GET['test_session']==1;
+        $test = $env!='production' && isset($_GET['test_user']) && $_GET['test_user']>0;
 
         return $session || $test;
     }

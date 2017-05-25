@@ -4,6 +4,12 @@ class RatingDao extends RatingQuery {
 	public static $TRIP = 1;
 	public static $GOOD = 2;
 
+    public static function getLastRateTime($userId, $type) {
+        $res = parent::getLastRateTime($userId, $type);
+
+        return $res['create_time'];
+    }
+
     // ======================================================================
 
     protected function actionBeforeInsert() {

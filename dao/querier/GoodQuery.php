@@ -39,5 +39,16 @@ class GoodQuery extends GoodGenerated {
 
         return $res;
     }
+
+    public static function getGoodsAfter($time, $userId) {
+        $query = new QueryBuilder();
+        $res = $query->select('*', self::$table)
+                     ->where('user_id', $userId)
+                     ->where('end_date', $time, '>')
+                     ->order('id', true)
+                     ->find_all();
+
+        return $res;
+    }
     
 }

@@ -23,7 +23,8 @@ register('POST', '/message',                 new CreateMessageController(),     
 register('GET',  '/message/:tripid/:goodid', new GetTripGoodMessagesCountroller(), new GetTripGoodMessagesValidator());
 
 // user
-register('POST', '/user/rate',	 				 new RateUserController(), new RateUserValidator());
+register('POST', '/user/rate',	 				 new RateUserController(),     new RateUserValidator());
+register('GET',  '/user/tobe/rate',              new GetTobeRatedController(), new GetTobeRatedValidator());
 register('GET',  '/user/profile/image/:imageid', new GetUserProfileImageController());
 
 // iterm

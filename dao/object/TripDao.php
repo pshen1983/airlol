@@ -32,6 +32,12 @@ class TripDao extends TripQuery {
         return $trips;
     }
 
+    public static function getTripsAfter($time, $userId) {
+        $res = parent::getTripsAfter($time, $userId);
+
+        return self::newFromQueryResultList($res);
+    }
+
     public static function getUserFutureTrips($userId) {
         $now = date("Y-m-d");
         $end = date("Y-m-d", strtotime("+2 years"));

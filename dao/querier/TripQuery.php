@@ -41,5 +41,16 @@ class TripQuery extends TripGenerated {
 
         return $res;
     }
+
+    public static function getTripsAfter($time, $userId) {
+        $query = new QueryBuilder();
+        $res = $query->select('*', self::$table)
+                     ->where('user_id', $userId)
+                     ->where('trip_date', $time, '>')
+                     ->order('id', true)
+                     ->find_all();
+
+        return $res;
+    }
     
 }
