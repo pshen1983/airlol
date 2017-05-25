@@ -7,7 +7,7 @@ class RatingDao extends RatingQuery {
     public static function getLastRateTime($userId, $type) {
         $res = parent::getLastRateTime($userId, $type);
 
-        return $res['create_time'];
+        return isset($res['create_time']) ? $res['create_time'] : '2017-01-01';
     }
 
     // ======================================================================
