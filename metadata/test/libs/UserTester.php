@@ -10,7 +10,7 @@ class UserTester {
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array("email"=>$email, "password"=>$password)));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_COOKIESESSION, true);
-		curl_setopt($ch, CURLOPT_COOKIEJAR, '.cairyme_cookie');  //could be empty, but cause problems on some hosts
+		curl_setopt($ch, CURLOPT_COOKIEJAR, '.cairyme.cookie');  //could be empty, but cause problems on some hosts
 		curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/cairyme.cookie');  //could be empty, but cause problems on some hosts
 		$answer = curl_exec($ch);
 
@@ -34,7 +34,7 @@ class UserTester {
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array("email"=>$email, "passwd"=>$password, "passwd1"=>$password, "name"=>$name)));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_COOKIESESSION, true);
-		curl_setopt($ch, CURLOPT_COOKIEJAR, '.cairyme_cookie');  //could be empty, but cause problems on some hosts
+		curl_setopt($ch, CURLOPT_COOKIEJAR, '.cairyme.cookie');  //could be empty, but cause problems on some hosts
 		curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/cairyme.cookie');  //could be empty, but cause problems on some hosts
 		$answer = curl_exec($ch);
 
