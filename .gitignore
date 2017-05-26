@@ -3,4 +3,5 @@
 /page/.config
 /ajax/.config
 /rest/.config
+/metadata/test/.cairyme.cookie
 /upload/*
