@@ -1,8 +1,14 @@
 <?php
 $random = uniqid();
 
-if ($result) $result = UserTester::register("tb_".$random."@cairyme.com", "cairyme0", "Test ".$random);
+if ($result) {
+	$userId = AccountTester::register("tb_".$random."@cairyme.com", "cairyme0", "Test ".$random);
+	$result = $userId>0;
+}
 
-if ($result) $result = TripTester::getUserTrips();
+if ($result) {
+	$res = TripTester::getUserTrips();
+	$result = isset($res['past']);
+}
 
 ?>
