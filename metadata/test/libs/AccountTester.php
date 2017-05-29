@@ -2,9 +2,9 @@
 class AccountTester extends Tester {
 
 	public static function login($email, $password) {
-		global $ch; echo get_called_class().'::'.__FUNCTION__.'()';
+		global $ch, $host; echo get_called_class().'::'.__FUNCTION__.'()';
 
-		curl_setopt($ch, CURLOPT_URL, 'http://localhost/ajax/account/signin/email');
+		curl_setopt($ch, CURLOPT_URL, $host.'/account/signin/email');
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array("email"=>$email, "password"=>$password)));
 		curl_setopt($ch, CURLOPT_COOKIESESSION, true);
@@ -18,9 +18,9 @@ class AccountTester extends Tester {
 
 
 	public static function register($email, $password, $name) {
-		global $ch; echo get_called_class().'::'.__FUNCTION__.'()';
+		global $ch, $host; echo get_called_class().'::'.__FUNCTION__.'()';
 
-		curl_setopt($ch, CURLOPT_URL, 'http://localhost/ajax/account/signup/email');
+		curl_setopt($ch, CURLOPT_URL, $host.'/account/signup/email');
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array("email"=>$email, "passwd"=>$password, "passwd1"=>$password, "name"=>$name)));
 		curl_setopt($ch, CURLOPT_COOKIESESSION, true);

@@ -18,7 +18,19 @@ class CreateMessageValidator extends AjaxValidator {
             }
         }
 
+        if ($valid) {
+            $valid = ASession::getSessionUserId()!=$params['receiver_id'];
+            if (!$valid) {
+                $this->errorStatusCode = 409;
+                $this->setErrorDescription('conflict_ids');
+            }
+        }
+
         return $valid;
+    }
+
+    protected function getErrorCode() {
+        return 400;
     }
 }
 ?>

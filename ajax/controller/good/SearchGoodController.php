@@ -45,6 +45,7 @@ class SearchGoodController extends AjaxController {
                 foreach ($userDaos as $userDao) {
                     $user = array();
 
+                    $user['id'] = $userDao->getId();
                     $user['name'] = $userDao->getName();
                     $user['rating'] = array();
                     $user['rating']['value'] = $userDao->getRateGoodValue();

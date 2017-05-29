@@ -2,9 +2,9 @@
 class TripTester extends Tester {
 
 	public static function search($departure, $arrival, $date, $page, $whole_bag=null) {
-		global $ch; echo get_called_class().'::'.__FUNCTION__.'()';
+		global $ch, $host; echo get_called_class().'::'.__FUNCTION__.'()';
 
-		$url = 'http://localhost/ajax/search/trips?departure='.$departure
+		$url = $host.'/search/trips?departure='.$departure
 												.'&arrival='.$arrival
 												.'&date='.$date
 												.'&page='.$page;
@@ -20,8 +20,9 @@ class TripTester extends Tester {
 		return $res;
 	}
 
+
 	public static function createTrip($departure, $arrival, $date, $space_type, $price, $currency, $searchable, $weight=null, $weight_unit=null) {
-		global $ch; echo get_called_class().'::'.__FUNCTION__.'()';
+		global $ch, $host; echo get_called_class().'::'.__FUNCTION__.'()';
 
 		$request = array('departure'  => $departure,
 						 'arrival'    => $arrival,
@@ -33,7 +34,7 @@ class TripTester extends Tester {
 		if (isset($weight)) $request['weight'] = $weight;
 		if (isset($weight_unit)) $request['weight_unit'] = $weight_unit;
 
-		curl_setopt($ch, CURLOPT_URL, 'http://localhost/ajax/trip');
+		curl_setopt($ch, CURLOPT_URL, $host.'/trip');
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
 
@@ -42,10 +43,23 @@ class TripTester extends Tester {
 		return $res;
 	}
 
-	public static function getUserTrips() {
-		global $ch; echo get_called_class().'::'.__FUNCTION__.'()';
 
-		curl_setopt($ch, CURLOPT_URL, 'http://localhost/ajax/trip/user/list');
+	public static function getUserTrips() {
+		global $ch, $host; echo get_called_class().'::'.__FUNCTION__.'()';
+
+		curl_setopt($ch, CURLOPT_URL, $host.'/trip/user/list');
+		curl_setopt($ch, CURLOPT_POST, false);
+
+		$res = self::getResult();
+
+		return $res;
+	}
+
+
+	public static function getTripGoods($tripId) {
+		global $ch, $host; echo get_called_class().'::'.__FUNCTION__.'()';
+
+		curl_setopt($ch, CURLOPT_URL, $host.'/trip/'.$tripId.'/goods');
 		curl_setopt($ch, CURLOPT_POST, false);
 
 		$res = self::getResult();

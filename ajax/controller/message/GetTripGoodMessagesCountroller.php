@@ -11,8 +11,14 @@ class GetTripGoodMessagesCountroller extends AjaxController {
     	$messageDaos = MessageDao::getTripGoodMessages($mapDao->getId(), $start);
 
         // update the last read time
-        $mapDao->setLastRead(date("Y-m-d H:i:s"));
-        $mapDao->save();
+        $messageReadDao = MapUserMessageDao::getDaoByMapAndUser($mapDao->getId(), ASession::getSessionUserId());
+        if (!isset($messageReadDao)) {
+            $messageReadDao = new MapUserMessageDao();
+            $messageReadDao->setMapId($mapDao->getId());
+            $messageReadDao->setUserId(ASession::getSessionUserId());
+        }
+        $messageReadDao->setLastRead(date("Y-m-d H:i:s"));
+        $messageReadDao->save();
 
     	foreach ($messageDaos as $messageDao) {
     		$message = array();

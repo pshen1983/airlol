@@ -32,7 +32,6 @@ class MapTripGoodDao extends MapTripGoodQuery {
         }
 
         return self::newFromQueryResult($res);
-
     }
 
     // ======================================================================

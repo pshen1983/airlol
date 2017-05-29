@@ -2,10 +2,9 @@
 class GoodTester extends Tester {
 
 	public static function search($departure, $arrival, $date, $page, $whole_bag=null) {
+		global $ch, $host; echo get_called_class().'::'.__FUNCTION__.'()';
 
-		global $ch; echo get_called_class().'::'.__FUNCTION__.'()';
-
-		$url = 'http://localhost/ajax/search/goods?departure='.$departure
+		$url = $host.'/search/goods?departure='.$departure
 												.'&arrival='.$arrival
 												.'&date='.$date
 												.'&page='.$page;

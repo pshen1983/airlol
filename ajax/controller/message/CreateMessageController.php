@@ -5,7 +5,8 @@ class CreateMessageController extends AjaxController {
         $atReturn = array('status'=>0);
         $mapDao = MapTripGoodDao::getDaoByTripAndGood($params['trip_id'], $params['good_id']);
 
-        if (!$mapDao->isFromDB()) {
+        if (!isset($mapDao)) {
+            $mapDao = new MapTripGoodDao();
             $mapDao->setTripId($params['trip_id']);
             $mapDao->setGoodId($params['good_id']);
             if (!$mapDao->save()) {
