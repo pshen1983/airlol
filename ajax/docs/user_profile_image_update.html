@@ -5,29 +5,30 @@
 <link href="docs.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="title">Get the a User's Info</div><br>
+<div id="title">Update the Profile Image of the Current User</div><br>
 <span class="title">Description</span>
 <div class="sep"></div>
-Retrieve a user's information based on the id provided.
+Update the Profile Image of the Current User.
 <br><br><br>
 <span class="title">Method</span>
 <div class="sep"></div>
-GET
+POST
 <br><br><br>
 <span class="title">URL</span>
 <div class="sep"></div>
-/user/:userid/profile<br><br>
+/user/profile/image<br><br>
 <br><br><br>
 <span class="title">Header</span>
 <div class="sep"></div>
 <table cellspacing="1">
 <thead><tr><th class="hfirst">Name</th><th class="second">Value</th></tr></thead>
-<tbody><tr><td class="hfirst">Content-Type</td><td>application/json</td></tr>
+<tbody><tr><td class="hfirst">Content-Type</td><td>image/*;base64 (*: png, jpg, gif and etc)</td></tr>
 </tbody></table>
 <br><br><br>
 <span class="title">Request Body</span>
 <div class="sep"></div>
-<div class="tab0">None</div>
+<div class="tab0">Base 64 presentation of an image (example below):</div>
+<div class="tab0" style="max-width:800px;word-wrap: break-word;">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAArlBMVEX////fmDiyei36+vqoflTlplTalDfdlzinciq/gjBcOBqGY0r29vbSkDfXkzd5ZFONa1Du7ezOx8KveDKCWiy5gDR/a1peORuMXSjJijbpnjmfbjEfHSCZi39VNBeniGapfURlSzSpmot9UCTTzspUNhyQgHShbit+UyNOLhWHWSd9XEOJdGVyUzltTTN2VDiZcU16X0qik4l0WENuRSAAAABbPiSec0fSnFnloUV+Uc8HAAABlklEQVQ4ja2T23aCMBBFSSlgAgQVuanEO4goiFrU//+xTsBQxPrS1fNCMmczmUwSSfpfybJhyPJbd70M926xD5frX5lhVBS63u/relFEwxd7cDqn3ObS9fR8GnT8/Y9fE/vBs39IUyCEYHJ4IsIsz9PjZ6NjmudZ2KqvzPLrTWnpds2zsqnUcLNsrtxRS3dlnmWu0SQoRwrqSBmVTYqQeHbXR8j2yKMK2SKXACHcw8KrhsGFWHVH5UUF9L56SFMpVbVqyIFFDRgluWCV/0bBBoTyDCq+kNIQgBebGtJMFaHxGCG1msSeAGAJsnJMCmFEHYcicKnprIhYQrYY8XwnAH88mU4nkEMLHN8j7FGkFAJAdiav34zj+ruDEBPNHm4YYVta7ZDXAKJbCG1EowxYg/lqu0uqDyFLtFoaJizxaRugPoRa1ypiySr+aCleJSxqXxgrITbfZi3NtEliPV8pK9liQWgm3nZ8IKKNjwM4CDiOAPubqOPzSt2R7eAgwI49cl+vvVQ9nNl8Es9nbx5OxRigt+4f9Q2qxCgyGmOsfwAAAABJRU5ErkJggg==</div>
 <br><br><br>
 <span class="title">Response</span>
 <div class="sep"></div>
@@ -36,45 +37,21 @@ GET
 <tbody><tr><td class="hfirst">SUCCESS</td><td>
 200 OK<br><br>
 <div class="tab0">{</div>
-<div class="tab1">"status":"success",</div>
-<div class="tab1">"user":"{"</div>
-<div class="tab2">"id":42,</div>
-<div class="tab2">"email":"text001_ca_001@cairyme.com",</div>
-<div class="tab2">"password":""</div>
-<div class="tab2">"name":""</div>
-<div class="tab2">"profile_img":""</div>
-<div class="tab2">"birth_day":""</div>
-<div class="tab2">"tel":""</div>
-<div class="tab2">"whatsapp":""</div>
-<div class="tab2">"wechat":""</div>
-<div class="tab2">"preferred_language":""</div>
-<div class="tab2">"preferred_currency":""</div>
-<div class="tab2">"preferred_timezone":""</div>
-<div class="tab2">"preferred_method":""</div>
-<div class="tab2">"living_city":""</div>
-<div class="tab2">"self_description":""</div>
-<div class="tab2">"response_count":""</div>
-<div class="tab2">"response_time":""</div>
-<div class="tab2">"rate_trip_count":""</div>
-<div class="tab2">"rate_trip_value":""</div>
-<div class="tab2">"rate_good_count":""</div>
-<div class="tab2">"rate_good_value":""</div>
-<div class="tab2">"create_time":""</div>
-<div class="tab1">}</div>
+<div class="tab1">"status":"success"</div>
 <div class="tab0">}</div>
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"description":"wrong_file_format"</div>
+}
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 401 Unauthorized<br><br>
 {<br>
 <div class="tab1">"status":-1,</div>
 <div class="tab1">"description":"not_signed_in"</div>
-}
-</td></tr>
-<tr><td class="hfirst">ERROR</td><td>
-404 Not Found<br><br>
-{<br>
-<div class="tab1">"status":-1,</div>
-<div class="tab1">"description":"user_not_found"</div>
 }
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
