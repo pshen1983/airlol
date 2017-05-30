@@ -8,6 +8,46 @@ abstract class AjaxController {
         }
     }
 
+
+    protected function saveRememberMeCookie() {
+        $token = Utility::generateToken(64);
+
+        $cookieTokenDao = new CookieTokenDao();
+        $cookieTokenDao->setUserId(ASession::getSessionUserId());
+        $cookieTokenDao->setValue($token);
+        $cookieTokenDao->setType(CookieTokenDao::REMEMBER_ME);
+        $cookieTokenDao->save();
+
+        setcookie(
+            'REMEMBERME',
+            $token,
+            time() + CookieTokenDao::DURATION*86400,
+            '/',
+            null,
+            false, // TLS-only
+            true  // http-only
+        );
+    }
+
+
+    protected function logoutCookie() {
+        $token = $_COOKIE['REMEMBERME'];
+        $cookieTokenDao = CookieTokenDao::getRememberMeTokenByValue($token);
+        if ($cookieTokenDao) {
+            $cookieTokenDao->delete();
+        }
+    }
+
+
+    private function cookieLogin() {
+        $token = $_COOKIE['REMEMBERME'];
+        $cookieTokenDao = CookieTokenDao::getRememberMeTokenByValue($token);
+        if ($cookieTokenDao) {
+            ASession::setSessionUserId($cookieTokenDao->getUserId());
+        }
+    }
+
+
     protected function setStatusCode($code) {
     	switch ($code) {
     		case 200: $text = 'OK'; break;

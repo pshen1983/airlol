@@ -13,7 +13,7 @@ class SignInEmailController extends AjaxController {
             if ($validPasswd) {
                 ASession::setSessionUserId($user->getId());
 
-                if (isset($_POST['remember']) && $_POST['remember']=='remember') {
+                if (isset($params['remember']) && $params['remember']==1) {
                     $this->saveRememberMeCookie();
                 }
                 $atReturn['user_id'] = $user->getId();

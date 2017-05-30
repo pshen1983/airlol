@@ -2,6 +2,7 @@
 // account
 register('POST', '/account/signin/email', new SignInEmailController(), new SignInEmailValidator());
 register('POST', '/account/signup/email', new SignUpEmailController(), new SignUpEmailValidator());
+register('POST', '/account/signout',      new SignOutController());
 
 // trip
 register('GET',  '/search/trips',       new SearchTripController());
@@ -18,13 +19,13 @@ register('GET',  '/good/user/list',     new GetUserGoodsController(), new GetUse
 register('GET',  '/good/:goodid/trips', new GetGoodTripsController(), new GetGoodTripsValidator());
 
 // message
-register('GET',  '/message/search',          new SearchMessageController());
 register('POST', '/message',                 new CreateMessageController(),        new CreateMessageValidator());
 register('GET',  '/message/:tripid/:goodid', new GetTripGoodMessagesCountroller(), new GetTripGoodMessagesValidator());
 
 // user
-register('POST', '/user/rate',	 				 new RateUserController(),     new RateUserValidator());
-register('GET',  '/user/tobe/rate',              new GetTobeRatedController(), new GetTobeRatedValidator());
+register('POST', '/user/rate',	 				 new RateUserController(),       new RateUserValidator());
+register('GET',  '/user/tobe/rate',              new GetTobeRatedController(),   new GetTobeRatedValidator());
+register('GET',  '/user/profile',                new GetSessionUserController(), new GetSessionUserValidator());
 register('GET',  '/user/profile/image/:imageid', new GetUserProfileImageController());
 
 // iterm
