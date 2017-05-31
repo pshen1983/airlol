@@ -28,7 +28,7 @@ register('GET',   '/user/profile',               new GetSessionUserController(),
 register('GET',   '/user/:userid/profile',       new GetUserProfileController(),      new GetUserProfileValidator());
 register('GET',   '/user/:userid/profile/image', new GetUserProfileImageController(), new GetUserProfileImageValidator());
 register('POST',  '/user/profile/image',         new UpdateUserImageController());
-register('PATCH', '/user/profile',               new UpdateuserProfileController(),   new UpdateUserProfileValidator());
+register('PATCH', '/user/profile',               new UpdateUserProfileController(),   new UpdateUserProfileValidator());
 register('POST',  '/user/rate',	 			  	 new RateUserController(),            new RateUserValidator());
 
 // iterm
