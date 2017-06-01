@@ -1,39 +1,29 @@
 <?php
 class UpdateTripController extends AjaxController {
 
-    protected function handle($params) {        $status = 0;
-        $message = '';
+    protected function handle($params) {
+        $atReturn = array('status'=>'success');
 
-        if (ASession::isSignedIn()) {
-            $tripDao = new TripDao($params['tripid']);
-            if ($tripDao->isFromDB()) {
-                if ($tripDao->getUserId()==ASession::getSessionUserId()) {
-                    if (isset($_POST['departure'])) { $tripDao->setDepartureCode($_POST['departure']); }
-                    if (isset($_POST['arrival'])) { $tripDao->setArrivalCode($_POST['arrival']); }
-                    if (isset($_POST['trip_date'])) { $tripDao->setTripDate($_POST['trip_date']); }
-                    if (isset($_POST['space_type'])) { $tripDao->setSpaceType($_POST['space_type']); }
-                    if (isset($_POST['space_num'])) { $tripDao->setSpaceNum($_POST['space_num']); }
-                    if (isset($_POST['space_unit'])) { $tripDao->setSpaceUnit($_POST['space_unit']); }
-                    if (isset($_POST['active'])) { $tripDao->setActive($_POST['active']); }
-                    if (isset($_POST['contact'])) { $tripDao->setContactType($_POST['contact']); }
-                    if (isset($_POST['price'])) { $tripDao->setPrice($_POST['price']); }
-                    if (isset($_POST['price_adjust'])) { $tripDao->setPriceAdjust($_POST['price_adjust']); }
+        $tripDao = $params['trip'];
 
-                    $tripDao->save();
-                } else {
-                    $status = 1;
-                    $message = 'not_allow';
-                }
-            } else {
-                $status = 2;
-                $message = 'not_found';
-            }
-        } else {
-            $status = 3;
-            $message = 'not_signin';
+        if (isset($params['departure'])) { $tripDao->setDepartureCode($params['departure']); }
+        if (isset($params['arrival'])) { $tripDao->setArrivalCode($params['arrival']); }
+        if (isset($params['trip_date'])) { $tripDao->setTripDate($params['trip_date']); }
+        if (isset($params['space_type'])) { $tripDao->setSpaceType($params['space_type']); }
+        if (isset($params['space_num'])) { $tripDao->setSpaceNum($params['space_num']); }
+        if (isset($params['space_unit'])) { $tripDao->setSpaceUnit($params['space_unit']); }
+        if (isset($params['active'])) { $tripDao->setActive($params['active']); }
+        if (isset($params['contact'])) { $tripDao->setContactType($params['contact']); }
+        if (isset($params['price'])) { $tripDao->setPrice($params['price']); }
+        if (isset($params['price_adjust'])) { $tripDao->setPriceAdjust($params['price_adjust']); }
+
+        if (!$tripDao->save()) {
+            $this->setStatusCode(500);
+            $atReturn['status'] = 'error';
+            $atReturn['description'] = 'cannot_update_trip';
         }
 
-        return array('status'=>$status, 'message'=>$message);
+        return $atReturn;
     }
 }
 ?>

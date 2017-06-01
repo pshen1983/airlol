@@ -5,18 +5,18 @@ register('POST', '/account/signup/email', new SignUpEmailController(), new SignU
 register('POST', '/account/signout',      new SignOutController());
 
 // trip
-register('GET',   '/search/trips',       new SearchTripController());
-register('PATCH', '/trip/:tripid',       new UpdateTripController());
-register('POST',  '/trip',               new CreateTripController(),   new CreateTripValidator());
-register('GET',   '/trip/user/list',     new GetUserTripsController(), new GetUserTripsValidator());
-register('GET',   '/trip/:tripid/goods', new GetTripGoodsController(), new GetTripGoodsValidator());
+register('GET',  '/search/trips',       new SearchTripController());
+register('POST', '/trip/:tripid',       new UpdateTripController(),   new UpdateTripValidator());
+register('POST', '/trip',               new CreateTripController(),   new CreateTripValidator());
+register('GET',  '/trip/user/list',     new GetUserTripsController(), new GetUserTripsValidator());
+register('GET',  '/trip/:tripid/goods', new GetTripGoodsController(), new GetTripGoodsValidator());
 
 // good
-register('GET',   '/search/goods',       new SearchGoodController());
-register('PATCH', '/good/:goodid',       new UpdateGoodController());
-register('POST',  '/good',               new CreateGoodController(),   new CreateGoodValidator());
-register('GET',   '/good/user/list',     new GetUserGoodsController(), new GetUserGoodsValidator());
-register('GET',   '/good/:goodid/trips', new GetGoodTripsController(), new GetGoodTripsValidator());
+register('GET',  '/search/goods',       new SearchGoodController());
+register('POST', '/good/:goodid',       new UpdateGoodController(),   new UpdateGoodValidator());
+register('POST', '/good',               new CreateGoodController(),   new CreateGoodValidator());
+register('GET',  '/good/user/list',     new GetUserGoodsController(), new GetUserGoodsValidator());
+register('GET',  '/good/:goodid/trips', new GetGoodTripsController(), new GetGoodTripsValidator());
 
 // message
 register('POST', '/message',                 new CreateMessageController(),        new CreateMessageValidator());
