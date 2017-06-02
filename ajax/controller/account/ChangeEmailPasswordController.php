@@ -2,7 +2,7 @@
 class ChangeEmailPasswordController extends AjaxController {
 
     protected function handle($params) {
-        $atReturn = array('status'=>0);
+        $atReturn = array('status'=>'success');
 
         $passwd = $params['password'];
 

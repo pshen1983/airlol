@@ -11,7 +11,7 @@ class ChangeEmailPasswordValidator extends AjaxValidator {
                 $this->setErrorDescription('not_signed_in');
             }
         }
-error_log(json_encode($params));
+
         if ($valid) {
             $valid = !empty($params['password']);
             if (!$valid) {
