@@ -5,18 +5,18 @@
 <link href="docs.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="title"></div><br>
+<div id="title">Update the current user's profile</div><br>
 <span class="title">Description</span>
 <div class="sep"></div>
 Update the profile information of the current user
 <br><br><br>
 <span class="title">Method</span>
 <div class="sep"></div>
-PATCH
+POST
 <br><br><br>
 <span class="title">URL</span>
 <div class="sep"></div>
-/<br><br>
+/user/profile<br><br>
 <br><br><br>
 <span class="title">Header</span>
 <div class="sep"></div>
@@ -28,7 +28,17 @@ PATCH
 <span class="title">Request Body</span>
 <div class="sep"></div>
 <div class="tab0">{</div>
-<div class="tab1">"email":""</div>
+<div class="tab1">"name":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"birth_day":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"tel":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"whatsapp":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"wechat":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"preferred_language":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"preferred_currency":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"preferred_timezone":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"preferred_method":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"living_city":"", <span class="optional">(Optional)</span></div>
+<div class="tab1">"self_description":"" <span class="optional">(Optional)</div>
 <div class="tab0">}</div>
 <br><br><br>
 <span class="title">Response</span>
@@ -42,6 +52,13 @@ PATCH
 <div class="tab0">}</div>
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
+401 Unauthorized<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"description":"not_signed_in"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
 403 Forbidden<br><br>
 {<br>
 <div class="tab1">"status":-1,</div>
@@ -52,7 +69,7 @@ PATCH
 500 Internal Server Error<br><br>
 {<br>
 <div class="tab1">"status":-1,</div>
-<div class="tab1">"description":"internal_server_error"</div>
+<div class="tab1">"description":"cannot_update_user"</div>
 }
 </td></tr>
 </tbody></table>
