@@ -3,6 +3,7 @@
 register('POST', '/account/signin/email', new SignInEmailController(), new SignInEmailValidator());
 register('POST', '/account/signup/email', new SignUpEmailController(), new SignUpEmailValidator());
 register('POST', '/account/signout',      new SignOutController());
+register('POST', '/account/email/passwd', new ChangeEmailPasswordController(), new ChangeEmailPasswordValidator());
 
 // trip
 register('GET',  '/search/trips',       new SearchTripController());
@@ -23,13 +24,13 @@ register('POST', '/message',                 new CreateMessageController(),     
 register('GET',  '/message/:tripid/:goodid', new GetTripGoodMessagesCountroller(), new GetTripGoodMessagesValidator());
 
 // user
-register('GET',   '/user/tobe/rate',             new GetTobeRatedController(),        new GetTobeRatedValidator());
-register('GET',   '/user/profile',               new GetSessionUserController(),      new GetSessionUserValidator());
-register('GET',   '/user/:userid/profile',       new GetUserProfileController(),      new GetUserProfileValidator());
-register('GET',   '/user/:userid/profile/image', new GetUserProfileImageController(), new GetUserProfileImageValidator());
-register('POST',  '/user/profile/image',         new UpdateUserImageController());
-register('PATCH', '/user/profile',               new UpdateUserProfileController(),   new UpdateUserProfileValidator());
-register('POST',  '/user/rate',	 			  	 new RateUserController(),            new RateUserValidator());
+register('GET',  '/user/tobe/rate',             new GetTobeRatedController(),        new GetTobeRatedValidator());
+register('GET',  '/user/profile',               new GetSessionUserController(),      new GetSessionUserValidator());
+register('GET',  '/user/:userid/profile',       new GetUserProfileController(),      new GetUserProfileValidator());
+register('GET',  '/user/:userid/profile/image', new GetUserProfileImageController(), new GetUserProfileImageValidator());
+register('POST', '/user/profile/image',         new UpdateUserImageController());
+register('POST', '/user/profile',               new UpdateUserProfileController(),   new UpdateUserProfileValidator());
+register('POST', '/user/rate',	 			  	new RateUserController(),            new RateUserValidator());
 
 // iterm
 register('GET', '/iterm/cities',      new GetCitiesListController(),  new GetCitiesListValidator());
