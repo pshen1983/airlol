@@ -5,7 +5,7 @@
 <link href="docs.css" media="all" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="title"></div><br>
+<div id="title">Forget Password API</div><br>
 <span class="title">Description</span>
 <div class="sep"></div>
 API to trigger an forget password email to be sent to email provided in the request body.
@@ -16,7 +16,7 @@ POST
 <br><br><br>
 <span class="title">URL</span>
 <div class="sep"></div>
-/<br><br>
+/account/email/forget<br><br>
 <br><br><br>
 <span class="title">Header</span>
 <div class="sep"></div>
@@ -28,7 +28,8 @@ POST
 <span class="title">Request Body</span>
 <div class="sep"></div>
 <div class="tab0">{</div>
-<div class="tab1">"email":""</div>
+<div class="tab1">"email":"test001@cairyme.com",</div>
+<div class="tab1">"recaptcha":"ccia68ngaerh3biuvhyser"</div>
 <div class="tab0">}</div>
 <br><br><br>
 <span class="title">Response</span>
@@ -40,6 +41,27 @@ POST
 <div class="tab0">{</div>
 <div class="tab1">"status":"success"</div>
 <div class="tab0">}</div>
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"description":"empty_email"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"description":"empty_recaptcha"</div>
+}
+</td></tr>
+<tr><td class="hfirst">ERROR</td><td>
+400 Bad Request<br><br>
+{<br>
+<div class="tab1">"status":-1,</div>
+<div class="tab1">"description":"invalid_email_format"</div>
+}
 </td></tr>
 <tr><td class="hfirst">ERROR</td><td>
 403 Forbidden<br><br>

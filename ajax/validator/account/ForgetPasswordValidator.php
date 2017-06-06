@@ -24,6 +24,8 @@ class ForgetPasswordValidator extends AjaxValidator {
                 $this->setErrorDescription('invalid_email_format');
             }
         }
+
+        return $valid;
     }
 
     protected function getErrorCode() {

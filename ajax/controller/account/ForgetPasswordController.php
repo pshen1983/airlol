@@ -2,7 +2,7 @@
 class ForgetPasswordController extends AjaxController {
 
     protected function handle($params) {
-    	$userDao = UserDao::getUserByEmail();
+    	$userDao = UserDao::getUserByEmail($params['email']);
 
     	if (isset($userDao) && $userDao->isFromDB()) {
 	        $token = Utility::generateToken();
