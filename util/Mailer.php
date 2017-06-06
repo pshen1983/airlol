@@ -2,14 +2,14 @@
 class Mailer {
 
     public static function sendSignupWelcomeEmail($email, $name) {
-        global $base_url, $sendgrid_signup;
+        global $base_url, $sendgrid_signup, $mailer_on;
 
 $html = 
 '<div style="background-color:#ffffff;border:#e5e5e5 solid 1px">
     <div class="adM"></div>
     <div style="padding:10px;line-height:18px">
         <div style="font-size:12px">Hello and welcome <strong style="color:#195c9b">'.$name.'</strong></div>
-        <div style="font-size:12px;padding:10px 0 0 0">Thank you for registering with AirLoL Services.</div>
+        <div style="font-size:12px;padding:10px 0 0 0">Thank you for registering with CairyMe Services.</div>
         <div style="font-size:12px;padding:10px 0 0 0">To confirm your registration, click on the link below. The link is valid for <b>30 days</b>. In the event you are unable to confirm your registration within the specified period, do not hesitate to write to us.</div>
         <div style="padding:10px 0px 0px 0px;word-wrap:break-word">
             <a href="http://'.$base_url.'" style="color:#00f" target="_blank">
@@ -18,22 +18,24 @@ $html =
         </div>
         <div style="font-size:12px;padding:10px 0px 0px 0px">Look forward to serving your business needs.</div>
         <div style="font-size:12px;padding:10px 0 0 0;line-height:16px">
-            Thank you<div class="yj6qo ajU"><div id=":o2" class="ajR" role="button" tabindex="0" aria-label="Show trimmed content" data-tooltip="Show trimmed content"><img class="ajT" src="//ssl.gstatic.com/ui/v1/icons/mail/images/cleardot.gif"></div></div><span class="HOEnZb adL"><font color="#888888"><br>AirLoL Team<br> <a href="http://www.airlol.com/" style="color:#00f" target="_blank">http://www.airlol.com/</a>
+            Thank you<div class="yj6qo ajU"><div id=":o2" class="ajR" role="button" tabindex="0" aria-label="Show trimmed content" data-tooltip="Show trimmed content"><img class="ajT" src="//ssl.gstatic.com/ui/v1/icons/mail/images/cleardot.gif"></div></div><span class="HOEnZb adL"><font color="#888888"><br>CairyMe Team<br> <a href="http://'.$base_url.'/" style="color:#00f" target="_blank">http://'.$base_url.'/</a>
         </font></span></div><span class="HOEnZb adL"><font color="#888888">
     </font></span></div><span class="HOEnZb adL"><font color="#888888">
 </font></span></div>';
 
-        $subject = 'Welcome To AirLoL!';
-        $from = 'notifications@airlol.com';
-        $fname = 'AirLoL Team';
+        $subject = 'Welcome To CairyMe!';
+        $from = 'notifications@cairyme.com';
+        $fname = 'CairyMe Team';
         $templateId = $sendgrid_signup;
+
+        if (!$mailer_on) return;
 
         self::send($subject, $from, $fname, $email, $name, $templateId, $html);
     }
 
 
     public static function sendResetPasswordEmail($email, $name, $token) {
-        global $base_url, $sendgrid_forget;
+        global $base_url, $sendgrid_forget, $mailer_on;
 
 $html = 
 '<div style="background-color:#ffffff;border:#e5e5e5 solid 1px">
@@ -49,19 +51,22 @@ $html =
         </div>
         <div style="font-size:12px;padding:10px 0px 0px 0px">Look forward to serving your business needs.</div>
         <div style="font-size:12px;padding:10px 0 0 0;line-height:16px">
-            Thank you<div class="yj6qo ajU"><div id=":o2" class="ajR" role="button" tabindex="0" aria-label="Show trimmed content" data-tooltip="Show trimmed content"><img class="ajT" src="//ssl.gstatic.com/ui/v1/icons/mail/images/cleardot.gif"></div></div><span class="HOEnZb adL"><font color="#888888"><br>AirLoL Team<br> <a href="http://www.airlol.com/" style="color:#00f" target="_blank">http://www.airlol.com/</a>
+            Thank you<div class="yj6qo ajU"><div id=":o2" class="ajR" role="button" tabindex="0" aria-label="Show trimmed content" data-tooltip="Show trimmed content"><img class="ajT" src="//ssl.gstatic.com/ui/v1/icons/mail/images/cleardot.gif"></div></div><span class="HOEnZb adL"><font color="#888888"><br>CairyMe Team<br> <a href="http://'.$base_url.'/" style="color:#00f" target="_blank">http://'.$base_url.'/</a>
         </font></span></div><span class="HOEnZb adL"><font color="#888888">
     </font></span></div><span class="HOEnZb adL"><font color="#888888">
 </font></span></div>';
 
-        $subject = 'Reset Your AirLoL Password';
-        $from = 'notifications@airlol.com';
-        $fname = 'AirLoL Team';
+        $subject = 'Reset Your CairyMe Password';
+        $from = 'notifications@cairyme.com';
+        $fname = 'CairyMe Team';
         $templateId = $sendgrid_forget;
+
+        if (!$mailer_on) return;
 
         self::send($subject, $from, $fname, $email, $name, $templateId, $html);
 
     }
+
 
     private static function send($subject, $from, $fname, $to, $tname, $templateId, $html, $text="") {
         global $sendgrid_apikey;

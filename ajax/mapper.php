@@ -4,6 +4,8 @@ register('POST', '/account/signin/email', new SignInEmailController(), new SignI
 register('POST', '/account/signup/email', new SignUpEmailController(), new SignUpEmailValidator());
 register('POST', '/account/signout',      new SignOutController());
 register('POST', '/account/email/passwd', new ChangeEmailPasswordController(), new ChangeEmailPasswordValidator());
+register('POST', '/account/email/forget', new ForgetPasswordController(), new ForgetPasswordValidator());
+
 
 // trip
 register('GET',  '/search/trips',       new SearchTripController());

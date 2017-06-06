@@ -14,7 +14,7 @@ class SignUpEmailController extends AjaxController {
         $user->setPassword($passwd);
         if ($user->save()) {
             ASession::setSessionUserId($user->getId());
-//            Mailer::sendSignupWelcomeEmail($email, $name);
+            Mailer::sendSignupWelcomeEmail($email, $name);
 
             if (isset($params['remember']) && $params['remember']=='remember') {
                 $this->saveRememberMeCookie();
