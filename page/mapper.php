@@ -1,4 +1,4 @@
 <?php
 // generic
-register('POST', '/index', new HomePageController());
+register('GET', '/index', new HomePageController());
 ?>

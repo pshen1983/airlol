@@ -23,7 +23,6 @@ include 'mapper.php';
 $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = parseGetparams($uri);
-$uri = substr($uri, 5); // remove "/ajax" from the uri.
 
 session_start();
 
@@ -72,7 +71,7 @@ foreach ($services[$method] as $key=>$val) {
 // cannot find handler for the request uri, return 501
 //
 header('HTTP/1.0 404 Not Found');
-echo '{"status":"error", "description":"not_found"}';
+echo '{"status":"error", "description":"page_not_found"}';
 
 
 //=================================================================================================

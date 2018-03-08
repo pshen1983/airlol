@@ -9,12 +9,12 @@ CREATE INDEX airlol_cookie_token_expires ON airlol.cookie_token (expires);
 
 -- cms_item
 CREATE INDEX airlol_cms_item_language ON airlol.cms_item (language(2));
-CREATE INDEX airlol_cms_item_code ON airlol.cms_item (code(15));
+CREATE INDEX airlol_cms_item_code ON airlol.cms_item (code(64));
 
 -- cms_relation
 CREATE INDEX airlol_cms_relation_type ON airlol.cms_relation (type(8));
-CREATE INDEX airlol_cms_relation_parent ON airlol.cms_relation (parent_code(15));
-CREATE INDEX airlol_cms_relation_child ON airlol.cms_relation (child_code(15));
+CREATE INDEX airlol_cms_relation_parent ON airlol.cms_relation (parent_code(64));
+CREATE INDEX airlol_cms_relation_child ON airlol.cms_relation (child_code(64));
 
 -- trip
 CREATE INDEX airlol_trip_user ON airlol.trip (user_id);

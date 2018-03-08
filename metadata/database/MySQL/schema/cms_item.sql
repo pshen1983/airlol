@@ -6,7 +6,7 @@ CREATE TABLE airlol.cms_item
     language VARCHAR(3),
     type TINYINT,
     content TEXT,
-    code VARCHAR(16) NOT NULL,
+    code VARCHAR(65) NOT NULL,
     create_time DATETIME NOT NULL,
 
     PRIMARY KEY (id)
