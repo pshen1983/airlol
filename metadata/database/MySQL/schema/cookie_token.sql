@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS airlol.cookie_token;
-CREATE TABLE airlol.cookie_token
+DROP TABLE IF EXISTS cairyme.cookie_token;
+CREATE TABLE cairyme.cookie_token
 (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     type TINYINT NOT NULL,

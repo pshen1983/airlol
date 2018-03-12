@@ -3,7 +3,7 @@ if [ "$#" -ne 1 ]; then
     echo "Usage: $0 [local|staging|production]";
     exit 1;
 fi
-cp /opt/airlol/metadata/config/$1/apache-vhost.conf /opt/airlol/
+cp /opt/cairyme/metadata/config/$1/apache-vhost.conf /opt/cairyme/
 service apache2 restart
 echo "$1 is successfully deployed"
 exit 0;

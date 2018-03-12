@@ -1,5 +1,5 @@
 <?php
-abstract class TripGenerated extends AirlolDaoBase {
+abstract class TripGenerated extends CairymeDaoBase {
 
     public static $table = 'trip';
 

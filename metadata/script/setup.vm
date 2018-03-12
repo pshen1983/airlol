@@ -1,0 +1,14 @@
+apt-get update
+apt-get install mysql-server
+apt-get install memcached
+apt-get install sshfs
+apt-get install apache2
+a2enmod rewrite
+apt-get install php7.1
+apt-get install libapache2-mod-php
+apt-get install php7.1-curl
+apt-get install php7.1-mysql
+apt-get install php-memcached
+mkdir /opt/cairyme
+mkdir /var/log/cairyme
+chown www-data:www-data /var/log/cairyme

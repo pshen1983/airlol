@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS airlol.map_trip_good;
-CREATE TABLE airlol.map_trip_good
+DROP TABLE IF EXISTS cairyme.map_trip_good;
+CREATE TABLE cairyme.map_trip_good
 (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 

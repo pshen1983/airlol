@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS airlol.map_user_message;
-CREATE TABLE airlol.map_user_message
+DROP TABLE IF EXISTS cairyme.map_user_message;
+CREATE TABLE cairyme.map_user_message
 (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 

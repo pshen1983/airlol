@@ -1,9 +1,9 @@
 #!/bin/sh
-sshfs -o allow_other peng_shen@mac:/Users/peng_shen/airlol/ /opt/airlol
-rm /opt/airlol/page/.config
-rm /opt/airlol/rest/.config
-rm /opt/airlol/ajax/.config
-ln -s /opt/airlol/metadata/config/local/page.config /opt/airlol/page/.config
-ln -s /opt/airlol/metadata/config/local/rest.config /opt/airlol/rest/.config
-ln -s /opt/airlol/metadata/config/local/ajax.config /opt/airlol/ajax/.config
+sshfs -o allow_other peng_shen@mac:/Users/peng_shen/cairyme/ /opt/cairyme
+rm /opt/cairyme/page/.config
+rm /opt/cairyme/rest/.config
+rm /opt/cairyme/ajax/.config
+ln -s /opt/cairyme/metadata/config/local/page.config /opt/cairyme/page/.config
+ln -s /opt/cairyme/metadata/config/local/rest.config /opt/cairyme/rest/.config
+ln -s /opt/cairyme/metadata/config/local/ajax.config /opt/cairyme/ajax/.config
 service apache2 restart

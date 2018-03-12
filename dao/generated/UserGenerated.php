@@ -1,5 +1,5 @@
 <?php
-abstract class UserGenerated extends AirlolDaoBase {
+abstract class UserGenerated extends CairymeDaoBase {
 
     public static $table = 'user';
 

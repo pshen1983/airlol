@@ -6,7 +6,7 @@ class TripDetailController extends PageController {
         $tripDao = new TripDao($params['tripid']);
         $locale = $this->getCmsLocale();
 
-        View::setTitle('AirLoL Home Page');
+        View::setTitle('CairyMe Home Page');
         View::addJs('trip.js');
         View::addCss('trip.css');
 

@@ -1,2 +1,2 @@
 #!/bin/sh
-mysql -uroot -pLangara2 airlol < ../tests/tb_$1.sql;
+mysql -ucairyme -pcairymepass cairyme < ../tests/tb_$1.sql;

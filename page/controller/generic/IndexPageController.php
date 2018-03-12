@@ -1,5 +1,5 @@
 <?php
-class HomePageController extends PageController {
+class IndexPageController extends PageController {
 
     protected function handle($params) {
 
@@ -19,7 +19,7 @@ class HomePageController extends PageController {
             case 'zh-tw':
                 return "";
             default:
-                return "AirLoL Home Page";
+                return "CairyMe Home Page";
         }
     }
 

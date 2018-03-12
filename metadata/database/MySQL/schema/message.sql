@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS airlol.message;
-CREATE TABLE airlol.message
+DROP TABLE IF EXISTS cairyme.message;
+CREATE TABLE cairyme.message
 (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 

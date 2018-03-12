@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS airlol.rating;
-CREATE TABLE airlol.rating
+DROP TABLE IF EXISTS cairyme.rating;
+CREATE TABLE cairyme.rating
 (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 

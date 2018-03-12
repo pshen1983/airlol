@@ -18,7 +18,7 @@ class ErrorPageController extends PageController {
             case 'zh-tw':
                 return "";
             default:
-                return "AirLoL Error Page";
+                return "CairyMe Error Page";
         }
     }
 

@@ -2,8 +2,8 @@
 $db_host = "127.0.0.1";
 $db_user = "root";
 $db_pass = "Langara2";
-$db_sche = "airlol";
-$base_class = 'AirlolDaoBase';
+$db_sche = "cairyme";
+$base_class = 'CairymeDaoBase';
 $target_folder = '../../../../dao/generated/';
 
 $conn = mysqli_connect("p:".$db_host, $db_user, $db_pass, $db_sche);

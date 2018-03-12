@@ -33,17 +33,17 @@ $(function() {
     });
 
     $("#lang_us").on("click", function() {
-        document.cookie = "locale=en-us;domain=.airlol.com;path=/";
+        document.cookie = "locale=en-us;domain=.cairyme.com;path=/";
         location.reload();
     });
 
     $("#lang_cn").on("click", function() {
-        document.cookie = "locale=zh-cn;domain=.airlol.com;path=/";
+        document.cookie = "locale=zh-cn;domain=.cairyme.com;path=/";
         location.reload();
     });
 
     $("#lang_tw").on("click", function() {
-        document.cookie = "locale=zh-tw;domain=.airlol.com;path=/";
+        document.cookie = "locale=zh-tw;domain=.cairyme.com;path=/";
         location.reload();
     });
 });

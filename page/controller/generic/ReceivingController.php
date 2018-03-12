@@ -19,7 +19,7 @@
             case 'zh-tw':
                 return "";
             default:
-                return "AirLoL | Receiving Your Package";
+                return "CairyMe | Receiving Your Package";
         }
     }
 

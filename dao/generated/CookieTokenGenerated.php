@@ -1,5 +1,5 @@
 <?php
-abstract class CookieTokenGenerated extends AirlolDaoBase {
+abstract class CookieTokenGenerated extends CairymeDaoBase {
 
     public static $table = 'cookie_token';
 

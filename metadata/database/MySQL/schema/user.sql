@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS airlol.user;
-CREATE TABLE airlol.user
+DROP TABLE IF EXISTS cairyme.user;
+CREATE TABLE cairyme.user
 (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 

@@ -19,7 +19,7 @@
             case 'zh-tw':
                 return "";
             default:
-                return "AirLoL | Why Share";
+                return "CairyMe | Why Share";
         }
     }
 

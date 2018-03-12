@@ -1,5 +1,5 @@
 -- America
-INSERT INTO airlol.cms_item(language, type, content, code, create_time) VALUES 
+INSERT INTO cairyme.cms_item(language, type, content, code, create_time) VALUES 
 ('en', 1, 'North America', 'NORTHAMERICA', NOW()),
 ('en', 2, 'Los Angoles', 'LAX', NOW()),
 ('en', 2, 'Chicago', 'ORD', NOW()),
@@ -25,7 +25,7 @@ INSERT INTO airlol.cms_item(language, type, content, code, create_time) VALUES
 ('zh', 2, '温哥华', 'YVR', NOW()),
 ('zh', 2, '多伦多', 'YYZ', NOW());
 
-INSERT INTO airlol.cms_relation(type, parent_code, child_code, create_time) VALUES 
+INSERT INTO cairyme.cms_relation(type, parent_code, child_code, create_time) VALUES 
 ('AIRPORT', 'NORTHAMERICA', 'LAX', NOW()),
 ('AIRPORT', 'NORTHAMERICA', 'ORD', NOW()),
 ('AIRPORT', 'NORTHAMERICA', 'IAD', NOW()),
@@ -39,7 +39,7 @@ INSERT INTO airlol.cms_relation(type, parent_code, child_code, create_time) VALU
 ('AIRPORT', 'NORTHAMERICA', 'YYZ', NOW());
 
 -- Europe
-INSERT INTO airlol.cms_item(language, type, content, code, create_time) VALUES 
+INSERT INTO cairyme.cms_item(language, type, content, code, create_time) VALUES 
 ('en', 1, 'Europe', 'EUROPE', NOW()),
 ('en', 2, 'London', 'LHR', NOW()),
 ('en', 2, 'Paris', 'CDG', NOW()),
@@ -47,12 +47,12 @@ INSERT INTO airlol.cms_item(language, type, content, code, create_time) VALUES
 ('zh', 2, '伦敦', 'LHR', NOW()),
 ('zh', 2, '巴黎', 'CDG', NOW());
 
-INSERT INTO airlol.cms_relation(type, parent_code, child_code, create_time) VALUES 
+INSERT INTO cairyme.cms_relation(type, parent_code, child_code, create_time) VALUES 
 ('AIRPORT', 'EUROPE', 'LHR', NOW()),
 ('AIRPORT', 'EUROPE', 'CDG', NOW());
 
 -- China
-INSERT INTO airlol.cms_item(language, type, content, code, create_time) VALUES 
+INSERT INTO cairyme.cms_item(language, type, content, code, create_time) VALUES 
 ('en', 1, 'China', 'CHINA', NOW()),
 ('en', 2, 'Beijing', 'PEK', NOW()),
 ('en', 2, 'Shanghai', 'PVG', NOW()),
@@ -76,7 +76,7 @@ INSERT INTO airlol.cms_item(language, type, content, code, create_time) VALUES
 ('zh', 2, '南京', 'NKG', NOW()),
 ('zh', 2, '杭州', 'HGH', NOW());
 
-INSERT INTO airlol.cms_relation(type, parent_code, child_code, create_time) VALUES 
+INSERT INTO cairyme.cms_relation(type, parent_code, child_code, create_time) VALUES 
 ('AIRPORT', 'CHINA', 'PEK', NOW()),
 ('AIRPORT', 'CHINA', 'PVG', NOW()),
 ('AIRPORT', 'CHINA', 'CAN', NOW()),

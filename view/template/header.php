@@ -16,7 +16,7 @@
 <body>
 <header class="theme">
 <div id="logo">
-<a href="/"><img src="/page/img/logo-icon.png" /><h1>airlol</h1></a>
+<a href="/"><img src="/page/img/logo-icon.png" /><h1>CairyMe</h1></a>
 </div>
 <div>
 </div>

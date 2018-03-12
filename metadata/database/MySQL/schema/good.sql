@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS airlol.good;
-CREATE TABLE airlol.good
+DROP TABLE IF EXISTS cairyme.good;
+CREATE TABLE cairyme.good
 (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 

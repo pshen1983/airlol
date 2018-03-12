@@ -19,7 +19,7 @@
             case 'zh-tw':
                 return "";
             default:
-                return "AirLoL | Carrying Tips";
+                return "CairyMe | Carrying Tips";
         }
     }
 

@@ -1,5 +1,5 @@
 <?php
-abstract class AirlolDaoBase {
+abstract class CairymeDaoBase {
 
     /**
      * the database column name to value holder array.

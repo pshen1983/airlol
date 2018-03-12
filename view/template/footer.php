@@ -41,7 +41,7 @@
 </div>
 <hr class="hide-sm">
 <div id="footer-bottom">
-<div>&copy; <?=date('Y')?>, AirLoL Inc. All rights reserved.</div>
+<div>&copy; <?=date('Y')?>, CairyMe Inc. All rights reserved.</div>
 <div style="margin:20px;"><img src="/page/img/logo-icon.png" /></div>
 </div>
 </div>

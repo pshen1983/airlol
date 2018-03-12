@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS airlol.cms_item;
-CREATE TABLE airlol.cms_item
+DROP TABLE IF EXISTS cairyme.cms_item;
+CREATE TABLE cairyme.cms_item
 (
     id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 

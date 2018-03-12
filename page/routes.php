@@ -23,6 +23,7 @@ include 'mapper.php';
 $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = parseGetparams($uri);
+$uri = ($uri=='/' || empty($uri)) ? '/index' : $uri;
 
 session_start();
 

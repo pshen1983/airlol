@@ -1,5 +1,5 @@
 <?php
-abstract class CmsItemGenerated extends AirlolDaoBase {
+abstract class CmsItemGenerated extends CairymeDaoBase {
 
     public static $table = 'cms_item';
 

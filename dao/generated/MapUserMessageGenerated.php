@@ -1,5 +1,5 @@
 <?php
-abstract class MapUserMessageGenerated extends AirlolDaoBase {
+abstract class MapUserMessageGenerated extends CairymeDaoBase {
 
     public static $table = 'map_user_message';
 

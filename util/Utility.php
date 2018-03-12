@@ -12,7 +12,7 @@ class Utility {
 
     public static function getClientIp() {
         $head = apache_request_headers();
-        $ip = (isset($head['AIRLOL_FORWARDED_IP']) ? $head['AIRLOL_FORWARDED_IP'] : '');
+        $ip = (isset($head['CAIRYME_FORWARDED_IP']) ? $head['CAIRYME_FORWARDED_IP'] : '');
 
         if (empty($ip)) { 
             $ip = (isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : '');
@@ -43,7 +43,7 @@ class Utility {
     }
 
     public static function setLocaleCookie($locale) {
-        setcookie( 'locale', $locale, time()+31536000, '/', 'airlol.com' );
+        setcookie( 'locale', $locale, time()+31536000, '/', 'CairyMe.com' );
     }
 
     public static function generateImageId($userId) {

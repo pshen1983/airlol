@@ -36,7 +36,7 @@ class ProfileController extends PageController {
             case 'zh-tw':
                 return "";
             default:
-                return "AirLoL | Profile";
+                return "CairyMe | Profile";
         }
     }
 

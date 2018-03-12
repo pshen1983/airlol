@@ -1,59 +1,59 @@
 -- user
-CREATE INDEX airlol_user_email ON airlol.user (email(60));
-CREATE INDEX airlol_user_tel ON airlol.user (tel(14));
+CREATE INDEX cairyme_user_email ON cairyme.user (email(60));
+CREATE INDEX cairyme_user_tel ON cairyme.user (tel(14));
 
 -- cookie_token
-CREATE INDEX airlol_cookie_token_type ON airlol.cookie_token (type);
-CREATE INDEX airlol_cookie_token_value ON airlol.cookie_token (value(64));
-CREATE INDEX airlol_cookie_token_expires ON airlol.cookie_token (expires);
+CREATE INDEX cairyme_cookie_token_type ON cairyme.cookie_token (type);
+CREATE INDEX cairyme_cookie_token_value ON cairyme.cookie_token (value(64));
+CREATE INDEX cairyme_cookie_token_expires ON cairyme.cookie_token (expires);
 
 -- cms_item
-CREATE INDEX airlol_cms_item_language ON airlol.cms_item (language(2));
-CREATE INDEX airlol_cms_item_code ON airlol.cms_item (code(64));
+CREATE INDEX cairyme_cms_item_language ON cairyme.cms_item (language(2));
+CREATE INDEX cairyme_cms_item_code ON cairyme.cms_item (code(64));
 
 -- cms_relation
-CREATE INDEX airlol_cms_relation_type ON airlol.cms_relation (type(8));
-CREATE INDEX airlol_cms_relation_parent ON airlol.cms_relation (parent_code(64));
-CREATE INDEX airlol_cms_relation_child ON airlol.cms_relation (child_code(64));
+CREATE INDEX cairyme_cms_relation_type ON cairyme.cms_relation (type(8));
+CREATE INDEX cairyme_cms_relation_parent ON cairyme.cms_relation (parent_code(64));
+CREATE INDEX cairyme_cms_relation_child ON cairyme.cms_relation (child_code(64));
 
 -- trip
-CREATE INDEX airlol_trip_user ON airlol.trip (user_id);
-CREATE INDEX airlol_trip_departure ON airlol.trip (departure_code(15));
-CREATE INDEX airlol_trip_arrival ON airlol.trip (arrival_code(15));
-CREATE INDEX airlol_trip_date ON airlol.trip (trip_date);
-CREATE INDEX airlol_trip_price ON airlol.trip (price);
-CREATE INDEX airlol_trip_space_type ON airlol.trip (space_type);
-CREATE INDEX airlol_trip_price_adjust ON airlol.trip (currency(3));
-CREATE INDEX airlol_trip_active ON airlol.trip (active(1));
-CREATE INDEX airlol_trip_time ON airlol.trip (create_time);
+CREATE INDEX cairyme_trip_user ON cairyme.trip (user_id);
+CREATE INDEX cairyme_trip_departure ON cairyme.trip (departure_code(15));
+CREATE INDEX cairyme_trip_arrival ON cairyme.trip (arrival_code(15));
+CREATE INDEX cairyme_trip_date ON cairyme.trip (trip_date);
+CREATE INDEX cairyme_trip_price ON cairyme.trip (price);
+CREATE INDEX cairyme_trip_space_type ON cairyme.trip (space_type);
+CREATE INDEX cairyme_trip_price_adjust ON cairyme.trip (currency(3));
+CREATE INDEX cairyme_trip_active ON cairyme.trip (active(1));
+CREATE INDEX cairyme_trip_time ON cairyme.trip (create_time);
 
 -- good 
-CREATE INDEX airlol_good_user ON airlol.good (user_id);
-CREATE INDEX airlol_good_departure ON airlol.good (departure_code(15));
-CREATE INDEX airlol_good_arrival ON airlol.good (arrival_code(15));
-CREATE INDEX airlol_good_date ON airlol.good (end_date);
-CREATE INDEX airlol_good_price ON airlol.good (price);
-CREATE INDEX airlol_good_type ON airlol.good (type);
-CREATE INDEX airlol_good_price_adjust ON airlol.good (currency(1));
-CREATE INDEX airlol_good_active ON airlol.good (active(1));
-CREATE INDEX airlol_good_time ON airlol.good (create_time);
+CREATE INDEX cairyme_good_user ON cairyme.good (user_id);
+CREATE INDEX cairyme_good_departure ON cairyme.good (departure_code(15));
+CREATE INDEX cairyme_good_arrival ON cairyme.good (arrival_code(15));
+CREATE INDEX cairyme_good_date ON cairyme.good (end_date);
+CREATE INDEX cairyme_good_price ON cairyme.good (price);
+CREATE INDEX cairyme_good_type ON cairyme.good (type);
+CREATE INDEX cairyme_good_price_adjust ON cairyme.good (currency(1));
+CREATE INDEX cairyme_good_active ON cairyme.good (active(1));
+CREATE INDEX cairyme_good_time ON cairyme.good (create_time);
 
 -- rating
-CREATE INDEX airlol_rating_trip ON airlol.rating (trip_good_map_id);
-CREATE INDEX airlol_rating_user ON airlol.rating (user_id);
-CREATE INDEX airlol_rating_rater ON airlol.rating (rater_id);
-CREATE INDEX airlol_rating_type ON airlol.rating (type);
-CREATE INDEX airlol_rating_rating ON airlol.rating (rating);
+CREATE INDEX cairyme_rating_trip ON cairyme.rating (trip_good_map_id);
+CREATE INDEX cairyme_rating_user ON cairyme.rating (user_id);
+CREATE INDEX cairyme_rating_rater ON cairyme.rating (rater_id);
+CREATE INDEX cairyme_rating_type ON cairyme.rating (type);
+CREATE INDEX cairyme_rating_rating ON cairyme.rating (rating);
 
 -- map
-CREATE INDEX airlol_map_trip_good_tid ON airlol.map_trip_good (trip_id);
-CREATE INDEX airlol_map_trip_good_gid ON airlol.map_trip_good (good_id);
+CREATE INDEX cairyme_map_trip_good_tid ON cairyme.map_trip_good (trip_id);
+CREATE INDEX cairyme_map_trip_good_gid ON cairyme.map_trip_good (good_id);
 
 -- map user message
-CREATE INDEX airlol_map_user_message_uid ON airlol.map_user_message (user_id);
-CREATE INDEX airlol_map_user_message_mid ON airlol.map_user_message (map_id);
+CREATE INDEX cairyme_map_user_message_uid ON cairyme.map_user_message (user_id);
+CREATE INDEX cairyme_map_user_message_mid ON cairyme.map_user_message (map_id);
 
 -- message
-CREATE INDEX airlol_message_sid ON airlol.message (sender_id);
-CREATE INDEX airlol_message_rid ON airlol.message (receiver_id);
-CREATE INDEX airlol_message_type ON airlol.message (type);
+CREATE INDEX cairyme_message_sid ON cairyme.message (sender_id);
+CREATE INDEX cairyme_message_rid ON cairyme.message (receiver_id);
+CREATE INDEX cairyme_message_type ON cairyme.message (type);
