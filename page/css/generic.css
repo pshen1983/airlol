@@ -1,0 +1,80 @@
+#oval_top {
+	width: 400px;
+	height: 40px;
+	margin-top:-40px;
+	margin-left:360px;
+	-webkit-border-top-left-radius: 20px;
+	-moz-border-top-left-radius: 20px;
+	border-top-left-radius: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-top-right-radius: 20px;
+	border-top-right-radius: 20px;
+	background-color: #ffca59;
+	text-align: center;
+	padding-top:10px;
+}
+.oval_top label {
+	width: 378px;
+	height: 21px;
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.5;
+	letter-spacing: normal;
+	text-align: right;
+	color: #000000;
+}
+.oval_option {
+	margin-bottom:20px;
+	width: 110px;
+	height: 110px;
+	-webkit-border-radius: 55px;
+	-moz-border-radius: 55px;
+	border-radius: 55px;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.23);
+	outline: none;
+}
+.oval_text {
+	width: 71px;
+	height: 42px;
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: bold;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.5;
+	letter-spacing: normal;
+	text-align: center;
+	color: #9b9b9b;
+	cursor: pointer;
+}
+#package_div {
+	border: solid 3px #ffca59;
+}
+#travelling_div {
+	border: solid 3px #11859e;
+}
+.oval_content {
+	display:none;
+	width:760px;
+	min-height:300px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-moz-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	background-color: #f9f9f9;
+}
+.oval_btns {
+	width:160px;float:left;margin-top:50px;
+}
+.oval_selects {
+	margin-top:50px;
+	float:left;
+}
