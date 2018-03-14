@@ -16,7 +16,7 @@ class ForgetPasswordController extends AjaxController {
 	        Mailer::sendResetPasswordEmail($params['email'], $userDao->getName(), $key);
 	    }
 
-        return array('status' => 'success');
+        return array('status' => 0);
     }
 }
 ?>

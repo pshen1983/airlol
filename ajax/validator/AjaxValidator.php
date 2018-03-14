@@ -13,6 +13,8 @@ abstract class AjaxValidator {
         $errorCode = isset($this->errorStatusCode) ? $this->errorStatusCode : $this->getErrorCode();
         $this->setStatusCode($errorCode);
         echo json_encode($result);
+
+        Log::info(json_encode($result));
     }
 
     protected function getErrorCode() {

@@ -6,7 +6,7 @@ class SignOutController extends AjaxController {
         setcookie('REMEMBERME', '');
         session_destroy();
 
-        return array('status'=>'success');
+        return array('status' => 0);
     }
 }
 ?>

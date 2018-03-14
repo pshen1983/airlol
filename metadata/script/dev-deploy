@@ -8,6 +8,7 @@ mv /tmp/cairyme/$DATE /opt/cairyme/releases/$DATE
 rm -rf /tmp/cairyme/$DATE
 
 ln -s /opt/cairyme/releases/$DATE/metadata/config/dev/rest.config /opt/cairyme/releases/$DATE/rest/.config
+ln -s /opt/cairyme/releases/$DATE/metadata/config/dev/page.config /opt/cairyme/releases/$DATE/page/.config
 ln -s /opt/cairyme/releases/$DATE/metadata/config/dev/ajax.config /opt/cairyme/releases/$DATE/ajax/.config
 cp /opt/cairyme/releases/$DATE/metadata/config/dev/apache-vhost.conf /opt/cairyme/releases/$DATE/
 cp /opt/cairyme/releases/$DATE/metadata/config/dev/.htpasswd /opt/cairyme/releases/$DATE/

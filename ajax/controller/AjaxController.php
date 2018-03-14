@@ -1,10 +1,16 @@
 <?php
 abstract class AjaxController {
+    private $statusCode = null;
+
     public function execute($params) {
         $result = $this->handle($params);
 
         if (is_array($result)) {
+            Log::debug('AjaxController - '.$_SERVER['REQUEST_URI'].' Result:'.json_encode($result));
             echo json_encode($result);
+            if (empty($this->statusCode)) {
+                $this->setStatusCode(200);
+            }
         }
     }
 
@@ -70,6 +76,8 @@ abstract class AjaxController {
             case 500: $text = 'Internal Server Error'; break;
             case 503: $text = 'Service Unavailable'; break;
     	}
+
+        $this->statusCode = $code;
 
     	header('HTTP/1.0 '.$code.' '.$text);
     }

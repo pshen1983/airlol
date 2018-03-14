@@ -32,6 +32,13 @@ abstract class PageController {
         $this->handle($params);
     }
 
+    private function cookieLogin() {
+        $token = $_COOKIE['REMEMBERME'];
+        $cookieTokenDao = CookieTokenDao::getRememberMeTokenByValue($token);
+        if ($cookieTokenDao) {
+            ASession::setSessionUserId($cookieTokenDao->getUserId());
+        }
+    }
 
     protected function isPost() {
         return $_SERVER['REQUEST_METHOD']=='POST';
@@ -93,8 +100,7 @@ abstract class PageController {
 
         switch ($this->getLocale()) {
             case 'zh-cn':
-                $rv = array('btn_header_signin' => '登入',
-                            'btn_header_signup' => '注册',
+                $rv = array('btn_header_signinup' => '登入 / 注册',
                             'btn_header_message' => '消息',
                             'btn_header_history' => '我的历史',
                             'a_header_profile' => '编辑个人资料',
@@ -121,8 +127,7 @@ abstract class PageController {
                             'a_footer_quicksearch' => '找空位');
                 break;
             case 'zh-tw':
-                $rv = array('btn_header_signin' => '登入',
-                            'btn_header_signup' => '註冊',
+                $rv = array('btn_header_signinup' => '登入 / 注册',
                             'btn_header_message' => '消息',
                             'btn_header_history' => '我的歷史',
                             'a_header_profile' => '編輯資料',
@@ -149,8 +154,7 @@ abstract class PageController {
                             'a_footer_quicksearch' => '找空位');
                 break;
             default:
-                $rv = array('btn_header_signin' => 'Sign in',
-                            'btn_header_signup' => 'Sign up',
+                $rv = array('btn_header_signinup' => 'Login / Sign up',
                             'btn_header_message' => 'Message',
                             'btn_header_history' => 'History',
                             'a_header_profile' => 'Edit Profile',
