@@ -34,7 +34,15 @@
 	-moz-border-radius: 55px;
 	border-radius: 55px;
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.23);
-	outline: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: white;
 }
 .oval_text {
 	width: 71px;

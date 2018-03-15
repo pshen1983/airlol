@@ -1,7 +1,7 @@
 <div style="width:90%;margin: 0 auto;">
 	<div class="oval_btns">
-		<button id="package_btn" class="oval_option" style="background-color: #ffca59;"><label class="oval_text">I have a package</label></button>
-		<button id="travelling_btn" class="oval_option"><label class="oval_text">I am travelling</label></button>
+		<div id="package_btn" class="oval_option" style="background-color: #ffca59;"><label class="oval_text">I have a package</div></button>
+		<div id="travelling_btn" class="oval_option"><label class="oval_text">I am travelling</label></div>
 	</div>
 	<div class="oval_selects">
 		<div id="oval_top"><label></label></div>
