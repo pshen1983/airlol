@@ -13,18 +13,39 @@ $(function() {
         document.getElementById('travelling_btn').style.backgroundColor="#11859e";
         document.getElementById('oval_top').style.backgroundColor="#11859e";
     });
-});
+    $("#p_search_f").submit( function(){
+        event.preventDefault();
+    });
 
-function ovalSelect(evt, elementName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("oval_content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("oval_option");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" oval_select", "");
-    }
-    document.getElementById(elementName).style.display = "block";
-    evt.currentTarget.className += " oval_select";
-}
+    $(".depart_li").on("click", function() {
+        $("#depart").hide();
+        $("#depart_input").text($(this).text());
+        $("#depart_input").css('color', 'black');
+        $("#depart_value").val($(this).attr('id'));
+    });
+    $(".arrive_li").on("click", function() {
+        $("#arrive").hide();
+        $("#arrive_input").text($(this).text());
+        $("#arrive_input").css('color', 'black');
+        $("#arrive_value").val($(this).attr('id'));
+    });
+
+    $("#depart_input").on("click", function(){
+        $("#depart").show();
+        $("#arrive").hide();
+        event.stopPropagation();
+    });
+    $("#arrive_input").on("click", function(){
+        $("#depart").hide();
+        $("#arrive").show();
+        event.stopPropagation();
+    });
+    $("#depart").on("click", function() {event.stopPropagation();});
+    $("#arrive").on("click", function() {event.stopPropagation();});
+    $("body").click(function() {
+        $("#depart").hide();
+        $("#arrive").hide();
+    });
+
+    $( "#package_date" ).datepicker();
+});

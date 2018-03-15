@@ -86,3 +86,41 @@
 	margin-top:50px;
 	float:left;
 }
+.div_t {
+	display:table;
+	margin:20px;
+}
+.div_t_row {
+	display:table-row;
+}
+.div_t_cell {
+	display:table-cell;
+	padding: 5px;
+}
+.div_t_cell label {
+	font-weight: bold;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.5;
+	letter-spacing: normal;
+	color: #666;
+	margin: 0 auto;
+}
+label.droplist {
+	font-weight: normal;
+    display: flex;
+    align-items: center;
+    width:200px;
+    height:30px;
+    background-color:white;
+	border: solid 1px #ddd;
+	padding-left:10px;
+	color:#aaa;
+}
+input {
+	height:30px;
+}
+input#package_date {
+	width:100px;
+	padding-left:10px;
+}

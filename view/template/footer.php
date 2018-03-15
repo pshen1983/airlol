@@ -41,12 +41,12 @@
 </div>
 <hr class="hide-sm">
 <div id="footer-bottom">
-<div>&copy; <?=date('Y')?>, CairyMe Inc. All rights reserved.</div>
-<div style="margin:20px;"><img src="/page/img/logo-icon.png" /></div>
+<div style="margin-bottom:20px;">&copy; <?=date('Y')?>, CairyMe Inc. All rights reserved.</div>
 </div>
 </div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="/page/js/common.js"></script>
 <?php foreach (View::$javascripts as $js) { ?>

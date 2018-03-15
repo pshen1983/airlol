@@ -1,3 +1,42 @@
-div.cities {
-	display: inline;
+.cities {
+	display: none;
+	height:390px;
+	position: absolute;
+    overflow: auto;
+    z-index: 1;
+    overflow-y: hidden;
+    background-color:white;
+    padding:10px;
+	border: solid 1px #ddd;
+    -webkit-animation: dropdown 0.15s;
+    animation: dropdown 0.15s;
+}
+.dropdown_area {
+	float:left;
+}
+.cities label {
+	font-size:1.2em;
+	font-weight: bold;
+	padding:5px;
+}
+.cities ul {
+    list-style-type: none;
+    padding:5px;
+}
+.cities li {
+	font-size:1.1em;
+	padding:3px 50px 3px 50px;
+	cursor: pointer;
+}
+.cities li:hover {
+	font-weight: bold;
+	background-color:#ffca59;
+}
+@-webkit-keyframes dropdown {
+    from {height: 0px} 
+    to {height: 390px}
+}
+@keyframes dropdown {
+    from {height: 0px} 
+    to {height: 390px}
 }

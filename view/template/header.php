@@ -6,6 +6,7 @@
 <title><?=View::$title ?></title>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="shortcut icon" href="/page/img/favicon.png">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/page/css/common.css">
 <link rel="stylesheet" type="text/css" href="/page/css/template.css">
