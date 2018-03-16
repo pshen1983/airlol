@@ -29,7 +29,6 @@ register('GET',  '/message/:tripid/:goodid', new GetTripGoodMessagesCountroller(
 register('GET',  '/user/tobe/rate',             new GetTobeRatedController(),        new GetTobeRatedValidator());
 register('GET',  '/user/profile',               new GetSessionUserController(),      new GetSessionUserValidator());
 register('GET',  '/user/:userid/profile',       new GetUserProfileController(),      new GetUserProfileValidator());
-register('GET',  '/user/:userid/profile/image', new GetUserProfileImageController(), new GetUserProfileImageValidator());
 register('POST', '/user/profile/image',         new UpdateUserImageController());
 register('POST', '/user/profile',               new UpdateUserProfileController(),   new UpdateUserProfileValidator());
 register('POST', '/user/rate',	 			  	new RateUserController(),            new RateUserValidator());

@@ -1,5 +1,5 @@
 <?php
-class GetUserProfileImageController extends AjaxController {
+class GetUserProfileImageController extends PageController {
 
     protected function handle($params) {
     	global $image_upload, $default_img;

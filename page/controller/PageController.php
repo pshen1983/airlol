@@ -88,8 +88,8 @@ abstract class PageController {
 
         $profileImage = $userDao->getProfileImg();
         if (empty($profileImage)) {
-            global $default_profile_img;
-            $profileImage = $default_profile_img;
+            global $base_url;
+            $profileImage = 'http://'.$base_url.'/user/'.ASession::getSessionUserId().'/profile/image';
         }
         View::addParam(array('header_user_pic' => $profileImage));
     }
