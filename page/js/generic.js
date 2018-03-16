@@ -1,17 +1,21 @@
 $(function() {
     $("#package_btn").on("click", function(){
-        document.getElementById('travelling_div').style.display='none';
-        document.getElementById('package_div').style.display='block';
+        $("#package_div").css({"border-color": '#ffca59'});
         document.getElementById('travelling_btn').style.backgroundColor="";
         document.getElementById('package_btn').style.backgroundColor="#ffca59";
         document.getElementById('oval_top').style.backgroundColor="#ffca59";
+
+        $(".elem_t").hide();
+        $(".elem_p").show();
     });
     $("#travelling_btn").on("click", function(){
-        document.getElementById('travelling_div').style.display='block';
-        document.getElementById('package_div').style.display='none';
+        $("#package_div").css({"border-color": '#11859e'});
         document.getElementById('package_btn').style.backgroundColor="";
         document.getElementById('travelling_btn').style.backgroundColor="#11859e";
         document.getElementById('oval_top').style.backgroundColor="#11859e";
+
+        $(".elem_p").hide();
+        $(".elem_t").show();
     });
     $("#p_search_f").submit( function(){
         event.preventDefault();
