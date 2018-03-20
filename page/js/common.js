@@ -36,34 +36,28 @@ $(function() {
     $("#sub_signup").on("click", function() {
         let name = $("#s_name").val();
         if (!name.trim()) {
-            alert('name');
             return;
         }
 
         let email = $("#s_email").val();
         if (!validateEmailFormat(email)) {
-            alert('s_email');
             return;
         }
 
         let passwd = $("#s_passwd").val();
         if (!validatePasswdFormat(passwd)) {
-            alert('s_passwd');
             return;
         }
 
         let passwd1 = $("#s_passwd1").val();
         if (!validatePasswdFormat(passwd1)) {
-            alert('s_passwd1');
             return;
         }
         if (passwd!=passwd1) {
-            alert('passwd1');
             return;
         }
 
         if (!$('#s_agree').is(":checked")) {
-            alert('s_agree');
             return;
         }
 
@@ -103,6 +97,20 @@ $(function() {
         });
     });
 
+    $("#signin_a").on("click", function() {
+        $("#signin_div").show();
+        $("#signup_div").hide();
+    });
+
+    $("#signup_a").on("click", function() {
+        $("#signin_div").hide();
+        $("#signup_div").show();
+    });
+
+    $("#clost_btn").on("click", function() {
+        $("#mask").hide();
+    });
+
     $("#lang_us").on("click", function() {
         document.cookie = "locale=en-us;domain=.cairyme.com;path=/";
         location.reload();
@@ -125,20 +133,6 @@ function validateEmailFormat(email) {
 
 function validatePasswdFormat(passwd) {
     return true;
-}
-
-function openCity(evt, elementName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(elementName).style.display = "block";
-    evt.currentTarget.className += " active";
 }
 
 var modal = document.getElementById('mask');

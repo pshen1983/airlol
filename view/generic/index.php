@@ -4,7 +4,10 @@
 		<div id="travelling_btn" class="oval_option"><label class="oval_text">I am travelling</label></div>
 	</div>
 	<div class="oval_selects">
-		<div id="oval_top"><label></label></div>
+		<div id="oval_top">
+			<label class="elem_p">Search Space for My Package</label>
+			<label class="elem_t" style="color:white">Search Packages to Fill My Space</label>
+		</div>
 		<div id="package_div" class="oval_content" style="display:block">
 		<form id="p_search_f">
 

@@ -62,9 +62,6 @@ div#sign form {
     margin: auto;
     width:100%;
 }
-div#sign div#bottom_div {
-    margin-top:20px;
-}
 div#sign input#remember {
     margin-right:3px;
 }
