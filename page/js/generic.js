@@ -4,6 +4,7 @@ $(function() {
         document.getElementById('travelling_btn').style.backgroundColor="";
         document.getElementById('package_btn').style.backgroundColor="#ffca59";
         document.getElementById('oval_top').style.backgroundColor="#ffca59";
+        $("#f_select").val("package");
 
         $(".elem_t").hide();
         $(".elem_p").show();
@@ -13,12 +14,28 @@ $(function() {
         document.getElementById('package_btn').style.backgroundColor="";
         document.getElementById('travelling_btn').style.backgroundColor="#11859e";
         document.getElementById('oval_top').style.backgroundColor="#11859e";
+        $("#f_select").val("trip");
 
         $(".elem_p").hide();
         $(".elem_t").show();
     });
     $("#p_search_f").submit( function(){
-        event.preventDefault();
+        let selection = $("#f_select").val();
+        let depart = $("#depart_value").val();
+        let arrive = $("#arrive_value").val();
+        let date = $("#package_date").val();
+
+        let valid = depart && arrive && date;
+
+        if (!valid) {
+            event.preventDefault();
+        } else {
+            if (selection=='package') {
+                $("#p_search_f").attr("action", "/package/search");
+            } else {
+                $("#p_search_f").attr("action", "/trip/search");
+            }
+        }
     });
 
     $(".depart_li").on("click", function() {

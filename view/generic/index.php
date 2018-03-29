@@ -9,8 +9,9 @@
 			<label class="elem_t" style="color:white">Search Packages to Fill My Space</label>
 		</div>
 		<div id="package_div" class="oval_content" style="display:block">
-		<form id="p_search_f">
+		<form id="p_search_f" method="post">
 
+		<input type="hidden" value="package" id="f_select" />
 		<table>
 		<tr class="elem_p">
 			<td class="div_t_cell">
