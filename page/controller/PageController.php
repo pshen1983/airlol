@@ -51,7 +51,7 @@ abstract class PageController {
     }
 
 
-    protected function getLocale() {
+    protected function getLocale($isDBLocale=false) {
         if (isset($_COOKIE['locale'])) {
             $lang = $_COOKIE['locale'];
         } else {
@@ -64,6 +64,10 @@ abstract class PageController {
             }
 
             Utility::setLocaleCookie($lang);
+        }
+
+        if ($isDBLocale) {
+            $lang = substr($lang, 0, 2);
         }
 
         return $lang;

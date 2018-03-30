@@ -1,13 +1,12 @@
 <?php
 // generic
-register('GET', '/index', new IndexPageController());
+register('GET', '/index',  new IndexPageController());
+register('GET', '/search', new SearchController());
 
 // good
-register('POST', '/package/search', new SearchGoodController());
-register('GET',  '/packages', new MyGoodsController());
+register('GET', '/packages', new MyGoodsController());
 
 // trip
-register('POST', '/trip/search', new SearchTripController());
 register('GET',  '/trips', new MyTripsController());
 
 // user

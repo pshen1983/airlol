@@ -13,7 +13,6 @@
 	padding-top:12px;
 }
 #oval_top label {
-	width: 378px;
 	height: 21px;
 	font-family: Roboto;
 	font-size: 14px;
@@ -133,4 +132,21 @@ button.oval_submit {
 	border-radius: 3px;
 	background-color: #ffca59;
 	outline:0;
+}
+div#search_head {
+	padding:10px;
+	background-color: #eee;
+}
+div#search_head span {
+	padding-left:10px;
+	padding-right:10px;
+	font-weight:bold;
+}
+div#search_head span.edit {
+	float:right;
+	padding-right:20px;
+	color: #12859d;
+	cursor: pointer;
+}div#search_head span.edit:hover {
+	text-decoration: underline;
 }

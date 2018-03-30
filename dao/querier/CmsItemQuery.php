@@ -8,7 +8,7 @@ class CmsItemQuery extends CmsItemGenerated {
                      ->where('language', $language)
                      ->find_one();
 
-        return $res;
+        return $res['content'];
     }
 
     public static function getContents($codes, $language) {

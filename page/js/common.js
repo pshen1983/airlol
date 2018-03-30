@@ -135,6 +135,10 @@ function validatePasswdFormat(passwd) {
     return true;
 }
 
+function getParam(name) {
+    return (location.search.split(name + '=')[1] || '').split('&')[0];
+}
+
 var modal = document.getElementById('mask');
 window.onclick = function(event) {
     if (event.target == modal) {

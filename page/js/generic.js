@@ -30,11 +30,7 @@ $(function() {
         if (!valid) {
             event.preventDefault();
         } else {
-            if (selection=='package') {
-                $("#p_search_f").attr("action", "/package/search");
-            } else {
-                $("#p_search_f").attr("action", "/trip/search");
-            }
+            $("#p_search_f").attr("action", "/search");
         }
     });
 
@@ -68,5 +64,5 @@ $(function() {
         $("#arrive").hide();
     });
 
-    $( "#package_date" ).datepicker();
+    $( "#package_date" ).datepicker({ dateFormat: 'yy-mm-dd' });
 });

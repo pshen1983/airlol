@@ -7,15 +7,16 @@ class SearchGoodController extends AjaxController {
 
         $goods = array();
 
-        if (!empty($_GET['departure']) && !empty($_GET['arrival']) && !empty($_GET['page']) && Format::isValidMySQLDate($_GET['date'], true) ) {
+        if (!empty($_GET['departure']) && !empty($_GET['arrival']) && !empty($_GET['page']) && Format::isValidMySQLDate($_GET['before'], true) ) {
 
             $departure = $_GET['departure'];
             $arrival = $_GET['arrival'];
             global $page_size;
             $start = $page_size*($_GET['page']-1);
-            $date = $_GET['date'];
+            $date = $_GET['before'];
 
             if (isset($_GET['whole_bag']) && $_GET['whole_bag']=='Y') {
+
                 $goodDaos = GoodDao::findGoodByLocationAndDayAndBag($departure, $arrival, $date, $start, $page_size);
             } else {
                 $goodDaos = GoodDao::findGoodByLocationAndDay($departure, $arrival, $date, $start, $page_size);

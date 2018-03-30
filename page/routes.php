@@ -15,7 +15,6 @@ $autoload_dirs = array( '../util',
                         'controller/user',
                         'controller/generic'
                       );
-
 // blockIp();
 $services = array('GET'=>array(), 'POST'=>array(), 'PUT'=>array(), 'DELETE'=>array());
 include 'mapper.php';
@@ -47,11 +46,6 @@ foreach ($services[$method] as $key=>$val) {
         }
 
         if ($match) {
-            $input = Utility::getJsonRequestData();
-            if (!empty($input)) {
-                $params = array_merge($params, $input);
-            }
-
             $controller = $services[$method][$key][0];
             $validator = $services[$method][$key][1];
 
