@@ -14,7 +14,19 @@
 				<span><?=$params['date'] ?></span>
 				<strong>&#x7c;</strong>
 				<span><?=$params['space'] ?><?=$params['weight'] ?></span>
-				<span class="edit">Edit</span>
+				<a href="/" class="edit">Edit Search</a>
+			</div>
+			<div id="search_results">
+				<div id="search_count"><?=$params['count'].$params['counttext'] ?></div>
+				<?php if ($params['count']==0) { ?>
+				<div id="create_div">
+					
+				</div>
+				<?php } ?>
+				<div class="search_result"></div>
+				<div class="search_result"></div>
+				<div class="search_result"></div>
+				<div class="search_result"></div>
 			</div>
 		</div>
 	</div>

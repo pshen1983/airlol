@@ -83,6 +83,7 @@
 }
 .oval_selects {
 	margin-top:50px;
+	margin-bottom:50px;
 	float:left;
 }
 table {
@@ -134,7 +135,9 @@ button.oval_submit {
 	outline:0;
 }
 div#search_head {
-	padding:10px;
+	height:40px;
+	line-height: 40px;
+	padding-left:10px;
 	background-color: #eee;
 }
 div#search_head span {
@@ -142,11 +145,30 @@ div#search_head span {
 	padding-right:10px;
 	font-weight:bold;
 }
-div#search_head span.edit {
+div#search_head a.edit {
 	float:right;
 	padding-right:20px;
 	color: #12859d;
-	cursor: pointer;
-}div#search_head span.edit:hover {
+	font-weight:bold;
+}
+div#search_head a.edit:hover {
 	text-decoration: underline;
+}
+div#search_results {
+	min-height:260px;
+	max-height:460px;
+	overflow:scroll;
+	background-color: #ddd;
+}
+div#search_count {
+	padding:15px 0px 10px 15px;
+	color: black;
+	font-size: 14px;
+	line-height: 1.5;
+	letter-spacing: normal;
+}
+div.search_result {
+	height:120px;
+	background-color: white;
+	margin:10px;
 }

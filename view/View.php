@@ -12,6 +12,8 @@ Class View {
         include $view.'.php';
         include 'template/footer.php';
 
+        Log::Debug('View: '.$view.' - '.json_encode($params));
+
         self::$title = '';
         self::$javascripts = array();
         self::$stylesheets = array();

@@ -10,16 +10,28 @@ class GoodDao extends GoodQuery {
         return $this->getPrice().$this->getCurrency();
     }
 
+    public static function findGoodByLocationAndDayCount($departure, $arrival, $date) {
+        $res = parent::findGoodsCount($departure, $arrival, $date);
+
+        return $res['count'];
+    }
+
     public static function findGoodByLocationAndDay($departure, $arrival, $date, $start, $size) {
-        $res = parent::findGoodByLocationAndDay($departure, $arrival, $date, $start, $size);
+        $res = parent::findGoods($departure, $arrival, $date, $start, $size);
 
         $goods = self::newFromQueryResultList($res);
 
         return $goods;
     }
 
+    public static function findGoodByLocationAndDayAndBagCount($departure, $arrival, $date) {
+        $res = parent::findGoodsCount($departure, $arrival, $date, self::$BAG);
+
+        return $res['count'];
+    }
+
     public static function findGoodByLocationAndDayAndBag($departure, $arrival, $date, $start, $size) {
-        $res = parent::findGoodByLocationAndDayAndBag($departure, $arrival, self::$BAG, $date, $start, $size);
+        $res = parent::findGoods($departure, $arrival, $date, $start, $size, self::$BAG);
 
         $goods = self::newFromQueryResultList($res);
 
