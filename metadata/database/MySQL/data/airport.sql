@@ -55,7 +55,7 @@ INSERT INTO cairyme.cms_relation(type, parent_code, child_code, create_time) VAL
 INSERT INTO cairyme.cms_item(language, type, content, code, create_time) VALUES 
 ('en', 1, 'China', 'CHINA', NOW()),
 ('en', 2, 'Beijing', 'PEK', NOW()),
-('en', 2, 'Shanghai', 'PVG', NOW()),
+('en', 2, 'Shanghai', 'SHA', NOW()),
 ('en', 2, 'Guangzhou', 'CAN', NOW()),
 ('en', 2, 'Wuhan', 'WUH', NOW()),
 ('en', 2, 'Shenzhen', 'SZX', NOW()),
@@ -66,7 +66,7 @@ INSERT INTO cairyme.cms_item(language, type, content, code, create_time) VALUES
 ('en', 2, 'Hangzhou', 'HGH', NOW()),
 ('zh', 1, '中国', 'CHINA', NOW()),
 ('zh', 2, '北京', 'PEK', NOW()),
-('zh', 2, '上海', 'PVG', NOW()),
+('zh', 2, '上海', 'SHA', NOW()),
 ('zh', 2, '广州', 'CAN', NOW()),
 ('zh', 2, '武汉', 'WUH', NOW()),
 ('zh', 2, '深圳', 'SZX', NOW()),
@@ -78,7 +78,7 @@ INSERT INTO cairyme.cms_item(language, type, content, code, create_time) VALUES
 
 INSERT INTO cairyme.cms_relation(type, parent_code, child_code, create_time) VALUES 
 ('AIRPORT', 'CHINA', 'PEK', NOW()),
-('AIRPORT', 'CHINA', 'PVG', NOW()),
+('AIRPORT', 'CHINA', 'SHA', NOW()),
 ('AIRPORT', 'CHINA', 'CAN', NOW()),
 ('AIRPORT', 'CHINA', 'WUH', NOW()),
 ('AIRPORT', 'CHINA', 'SZX', NOW()),

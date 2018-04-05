@@ -18,15 +18,23 @@
 			</div>
 			<div id="search_results">
 				<div id="search_count"><?=$params['count'].$params['counttext'] ?></div>
+				<input id="count_value" type="hidden" value="<?=$params['count'] ?>" />
 				<?php if ($params['count']==0) { ?>
-				<div id="create_div">
-					
+				<div id="zero_div">
+					<span>
+						<?=$params['zerotext'] ?><br>
+						<?php if ($params['signedin']) { ?>
+							<a>Create your Package <a> now.
+						<?php } else { ?>
+							<a>Login / Sign up</a> to create your <?=$params['type'] ?>.
+						<?php } ?>
+					</span>
+				</div>
+				<?php } else { ?>
+				<div id="search_list">
+					<img id="loading_img" src="/page/img/loading.gif" />
 				</div>
 				<?php } ?>
-				<div class="search_result"></div>
-				<div class="search_result"></div>
-				<div class="search_result"></div>
-				<div class="search_result"></div>
 			</div>
 		</div>
 	</div>

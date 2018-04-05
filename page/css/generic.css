@@ -172,3 +172,12 @@ div.search_result {
 	background-color: white;
 	margin:10px;
 }
+div#zero_div {
+	height:240px;
+	padding-top:80px;
+	text-align:center;
+}
+img#loading_img {
+	margin-top: 75px;
+	margin-left: 360px;
+}

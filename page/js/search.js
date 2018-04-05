@@ -1,5 +1,9 @@
 $(function() {
-	getSearchPage(1);
+	let count = $("#count_value").val();
+
+	if (count>0) {
+		getSearchPage(1);
+	}
 });
 
 function getSearchPage(page) {
@@ -31,6 +35,18 @@ function getSearchPage(page) {
 	}
 
 	$.get(url, obj, function(data) {
-        
+        let res = jQuery.parseJSON(data);
+
+        if (res.result==-1) {
+
+        } else {
+        	$("#loading_img").hide();
+	        $.each(res, function(key, item) {
+	        	let result = '<div class="search_result">';
+
+	        	result += '</div>'
+	        	$("#search_list").append(result);
+	        });
+	    }
     });
 }
