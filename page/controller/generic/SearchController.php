@@ -28,15 +28,15 @@
     	$param['depart'] = CmsItemDao::getCodeContent($_GET['depart'], $locale);
     	$param['arrive'] = CmsItemDao::getCodeContent($_GET['arrive'], $locale);
 
-    	$param['date'] = $_GET['date'];
-    	$param['space'] = $_GET['space']=='whole' ? 'Whole Luggage' : 'Space in a Luggage';
-    	$param['weight'] = $_GET['weight'];
-
-	    if ($_GET['space']=='whole') {
+        if ($_GET['space']=='whole') {
             $param['count'] = GoodDao::findGoodByLocationAndDayAndBagCount($_GET['depart'], $_GET['arrive'], $_GET['date']);
         } else {
             $param['count'] = GoodDao::findGoodByLocationAndDayCount($_GET['depart'], $_GET['arrive'], $_GET['date']);
         }
+
+    	$param['date'] = $_GET['date'];
+    	$param['space'] = $_GET['space']=='whole' ? 'Whole Luggage' : 'Space in a Luggage';
+    	$param['weight'] = $_GET['weight'];
 
         View::addJs('search.js');
         View::addCss('generic.css');

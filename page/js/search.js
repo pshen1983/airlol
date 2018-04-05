@@ -21,7 +21,7 @@ function getSearchPage(page) {
 	obj['before'] = date;
 	obj['page'] = page;
 
-	if (weight==='whole') {
+	if (space==='whole') {
 		obj['whole_bag'] = 'Y';
 	} else if (weight==='part') {
 		obj['whole_bag'] = 'N';
