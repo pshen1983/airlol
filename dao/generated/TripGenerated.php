@@ -12,6 +12,7 @@ abstract class TripGenerated extends CairymeDaoBase {
         $this->var['space_type'] = NULL;
         $this->var['weight'] = NULL;
         $this->var['weight_unit'] = NULL;
+        $this->var['description'] = NULL;
         $this->var['price'] = NULL;
         $this->var['currency'] = NULL;
         $this->var['active'] = NULL;
@@ -25,6 +26,7 @@ abstract class TripGenerated extends CairymeDaoBase {
         $this->update['space_type'] = false;
         $this->update['weight'] = false;
         $this->update['weight_unit'] = false;
+        $this->update['description'] = false;
         $this->update['price'] = false;
         $this->update['currency'] = false;
         $this->update['active'] = false;
@@ -103,6 +105,16 @@ abstract class TripGenerated extends CairymeDaoBase {
     }
     public function getWeightUnit() {
         return $this->var['weight_unit'];
+    }
+
+    public function setDescription($description) {
+        if ($this->var['description'] !== $description) {
+            $this->var['description'] = $description;
+            $this->update['description'] = true;
+        }
+    }
+    public function getDescription() {
+        return $this->var['description'];
     }
 
     public function setPrice($price) {

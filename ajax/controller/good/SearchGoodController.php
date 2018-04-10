@@ -27,11 +27,12 @@ class SearchGoodController extends AjaxController {
                     $good = array();
 
                     $good['id'] = $goodDao->getId();
+                    $good['whole_bag'] = $goodDao->getType()==GoodDao::$BAG;
                     $good['weight'] = $goodDao->getWeight();
                     $good['weight_unit'] = $goodDao->getWeightUnit();
-                    $good['items'] = $goodDao->getDescription();
+                    $good['description'] = $goodDao->getDescription();
                     $good['value'] = $goodDao->getDisplayValue();
-                    $good['before'] = $goodDao->getEndDate();
+                    $good['date'] = $goodDao->getEndDate();
 
                     $userId = $goodDao->getUserId();
 

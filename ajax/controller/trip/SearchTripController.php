@@ -28,12 +28,13 @@ class SearchTripController extends AjaxController {
                     $trip = array();
 
                     $trip['id'] = $tripDao->getId();
-                    $trip['trip_date'] = $tripDao->getTripDate();
+                    $trip['date'] = $tripDao->getTripDate();
                     $trip['asking_price'] = $tripDao->getPrice();
                     $trip['asking_currency'] = $tripDao->getCurrency();
                     $trip['weight'] = $tripDao->getWeight();
                     $trip['weight_unit'] = $tripDao->getWeightUnit();
-                    $trip['whole_luggage'] = $tripDao->getSpaceType() == TripDao::$WHOLEBAG;
+                    $trip['whole_bag'] = $tripDao->getSpaceType() == TripDao::$WHOLEBAG;
+                    $trip['description'] = $tripDao->getDescription();
 
                     $userId = $tripDao->getUserId();
 

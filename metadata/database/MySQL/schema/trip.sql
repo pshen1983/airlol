@@ -10,6 +10,7 @@ CREATE TABLE cairyme.trip
     space_type TINYINT NOT NULL,
     weight TINYINT,
     weight_unit TINYINT,
+    description VARCHAR(1024),
     price SMALLINT UNSIGNED,
     currency VARCHAR(4),
     active VARCHAR(2) NOT NULL,

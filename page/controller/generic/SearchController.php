@@ -39,6 +39,7 @@
     	$param['weight'] = $_GET['weight'];
 
         View::addJs('search.js');
+        View::addUrlCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
         View::addCss('generic.css');
 
         View::factory('generic/search', $param);

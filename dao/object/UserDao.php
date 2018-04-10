@@ -27,6 +27,9 @@ class UserDao extends UserQuery {
         if (!empty($image)) {
             global $profile_image_folder;
             $image = $profile_image_folder.'/'.$image;
+        } else {
+            global $default_img;
+            $image = $default_img;
         }
 
         return $image;

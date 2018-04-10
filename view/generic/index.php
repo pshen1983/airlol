@@ -11,7 +11,7 @@
 		<div id="package_div" class="oval_content" style="display:block">
 		<form id="p_search_f">
 			<input type="hidden" name="type" value="package" id="f_select" />
-			<table>
+			<table class="form_table">
 			<tr class="elem_p">
 				<td class="div_t_cell">
 					<label id="label_f">Package’s current location</label>
@@ -51,7 +51,7 @@
 			</tr>
 			</table>
 
-			<table>
+			<table class="form_table">
 			<tr>
 				<td>
 					<label>Space available</label>
@@ -87,7 +87,7 @@
 			</tr>
 			</table>
 
-			<table>
+			<table class="form_table">
 			<tr>
 				<td>
 					<button class="oval_submit" type="submit" form="p_search_f">

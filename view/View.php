@@ -36,6 +36,10 @@ Class View {
         self::$stylesheets[] = '/page/css/'.$path;
     }
 
+    public static function addUrlCss($url) {
+        self::$stylesheets[] = $url;
+    }
+
     public static function addParam($param) {
         foreach ($param as $key=>$val) {
             self::$params[$key] = $val;
